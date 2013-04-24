@@ -164,13 +164,15 @@
             }
         }
 
+        var msgVal = $('.textareaFB').val();
+
         var data = {
             //caption: 'This is my wall post example',
-            message: 'Post another message through fbapi'
+            message: msgVal//'Post another message through fbapi'
         }
 
         var dataUser = {
-            message: 'Message from user'
+            message: msgVal//'Message from user'
             //access_token: accessTokenVar
             //from: uid
         }
@@ -179,8 +181,8 @@
         console.log('access token on click: ' + accessTokenVar);
 
         var thispostid = '261622440537988_574925632540999';
-        //FB.api('/'+ fanpage_id +'/feed', 'post', data, onPostToWallCompleted);
-        FB.api('/' + fanpage_id + '/comments?access_token=' + accessTokenVar + '', 'POST', dataUser, onPostToWallCompleted);
+        FB.api('/'+ fanpage_id +'/feed', 'post', data, onPostToWallCompleted);
+        //FB.api('/' + fanpage_id + '/comments?access_token=' + accessTokenVar + '', 'POST', dataUser, onPostToWallCompleted);
 
         //http://www.fbrell.com/xfbml/fb:share-button
         //https://developers.facebook.com/bugs/409281805774218/
@@ -211,7 +213,7 @@
 
                 if(value.message && value.picture) {
                     var pcWrap = $('.pcWrap');
-                    $("<div class='pcWrap'><div class='postWrapper'><h1>POST</h1><br><a class='posts' href='#'><img class='post-img'/></a><p>" + value.message + "</p></div><form action='' method=''><textarea></textarea><br><input type='submit' onclick='javascript:postToWallUsingFBApi();' value='comment' name='comment' id="+ value.object_id +"/></form><div class='commentsWrapper'><h1>COMMENTS</h1><br></div></div>")
+                    $("<div class='pcWrap'><div class='postWrapper'><h1>POST</h1><br><a class='posts' href='#'><img class='post-img'/></a><p>" + value.message + "</p></div><form action='' method=''><textarea class='textareaFB'></textarea><br><input type='submit' onclick='javascript:postToWallUsingFBApi();' value='comment' name='comment' id="+ value.object_id +"/></form><div class='commentsWrapper'><h1>COMMENTS</h1><br></div></div>")
                         .attr({
                             id: value.id,
                             name: value.from.name
