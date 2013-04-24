@@ -78,5 +78,8 @@ $query = new WP_Query( array( 'page_id' => $settings['homepage_campaign_id'] ) )
 			}
 		?>
 	</div>
+	<div class="facebook-section">
+
+	</div>
 </div>
 <?php } // End the main check ?>
