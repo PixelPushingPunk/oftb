@@ -42,6 +42,21 @@ Add styles inside the media query below that you only want to be applied to the 
 FACEBOOK STYLING
 -----------------
 Facebook integration styling */
+			.clear { clear:both; }
+
+			.facebook-section {
+				overflow:hidden;
+			}
+
+			.facebook-section #friends {
+				float:right;
+				max-width:630px;
+				overflow:hidden;
+			}
+
+			.facebook-section #posts {
+				float:left;
+			}
 
 			.facebook-section .postWrapper {
                 overflow:hidden;
@@ -49,6 +64,8 @@ Facebook integration styling */
 
             .facebook-section .postWrapper p {
                 float:left;
+                max-width:150px;
+                font-size:12px;
             }
 
             .facebook-section a.friend {
@@ -76,7 +93,7 @@ Facebook integration styling */
 
             .facebook-section .pcWrap {
                 float:left;
-                max-width:340px;
+                max-width:360px;
             }
 
             .facebook-section img.post-img {

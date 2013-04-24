@@ -6,6 +6,9 @@
 (function ($){
     var page_id = '505165066';
     var fanpage_id = '261622440537988';
+    var app_id = '134240710093824';
+    var app_secret = '2098ddbb1f0029aba8fcd4cbbe09b44c';
+    var uid, accessTokenVar;
     // Additional JS functions here
     window.fbAsyncInit = function () {
         FB.init({
@@ -30,8 +33,14 @@
 
         FB.getLoginStatus(function (response) {
             if (response.status === 'connected') {
-            	var accessTokenVar = response.authResponse.accessToken;
+                uid = response.authResponse.userID;
+            	accessTokenVar = response.authResponse.accessToken;
+
             	$('#accessToken').val(accessTokenVar);
+                console.log('user id: ' + uid);
+                console.log('access token : ' + accessTokenVar);
+
+
                 testAPI();
                 console.log("connected");
             } else if (response.status === 'not_authorized') {
@@ -56,8 +65,9 @@
             } else {
                // console.log("cancelled");
             }
-        }, { scope: "manage_pages, email, publish_stream, offline_access, read_stream, publish_actions" });
+        }, { scope: "manage_pages, email, offline_access, read_stream, status_update, photo_upload, share_item, create_note, video_upload" });
     };
+    //publish_stream, publish_actions,
 
     window.fbDoLogout = function() {
         FB.logout(function(response) {
@@ -156,10 +166,22 @@
 
         var data = {
             //caption: 'This is my wall post example',
-            message: 'Posted using FB.api'
+            message: 'Post another message through fbapi'
         }
 
-        FB.api('/'+ fanpage_id +'/feed', 'post', data, onPostToWallCompleted);
+        var dataUser = {
+            message: 'Message from user'
+            //access_token: accessTokenVar
+            //from: uid
+        }
+
+        console.log('user id on click: ' + uid);
+        console.log('access token on click: ' + accessTokenVar);
+
+        var thispostid = '261622440537988_574925632540999';
+        //FB.api('/'+ fanpage_id +'/feed', 'post', data, onPostToWallCompleted);
+        FB.api('/' + fanpage_id + '/comments?access_token=' + accessTokenVar + '', 'POST', dataUser, onPostToWallCompleted);
+
         //http://www.fbrell.com/xfbml/fb:share-button
         //https://developers.facebook.com/bugs/409281805774218/
         //http://stackoverflow.com/questions/14792062/posting-to-friends-wall-with-graph-api-via-feed-connection-failing-since-feb
@@ -185,7 +207,7 @@
                     // console.log('action name: ' + valueA.name + ' action link: ' + valueA.link);
                 //});
                 var x = $.inArray("message", value);
-                console.log(x);
+                //console.log(x);
 
                 if(value.message && value.picture) {
                     var pcWrap = $('.pcWrap');
@@ -202,7 +224,7 @@
                         .end()
                         .appendTo(divContainer);
                     
-                    console.log(typeof value.comments);    
+                    //console.log(typeof value.comments);    
                     if(typeof value.comments !=='undefined') {
 
                         $.each(value.comments.data, function(index, valueB){
@@ -214,7 +236,7 @@
                             var hours = date.getUTCHours();
                             var minutes = date.getUTCMinutes();
 
-                            console.log(date);
+                            //console.log(date);
                            $("<div><a class='comments' href='#'><img class='comment-img'/></a><p>" + valueB.message + "</p><span class='time'>" + day + " " + monthNames[month] + " at " + hours + ":" + minutes + "</span><span class='like'></span></div>")
                             .attr({
                                 id: valueB.from.id,

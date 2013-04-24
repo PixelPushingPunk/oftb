@@ -444,9 +444,10 @@ function woo_top_nav () {
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#getInvolved">Get involved</a></li>
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#events">Events</a></li>
 				<li class="logo-between"><a href="#"><img src="wp-content/themes/theonepager/images/ribbon.png"/></a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#news">News</a></li>
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#aCancer">About male cancer</a></li>
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#donate">Donate</a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#partners">Partners</a></li>
+				<!--<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#partners">Partners</a></li>-->
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#contact-area">Contact us</a></li>
 			</ul>
 			<?php #wp_nav_menu( array( 'depth' => 6, 'sort_column' => 'menu_order', 'container' => 'ul', 'menu_id' => 'top-nav', 'menu_class' => 'nav', 'theme_location' => 'top-menu' ) ); ?>

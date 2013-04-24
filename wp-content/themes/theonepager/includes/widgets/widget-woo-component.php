@@ -177,19 +177,23 @@ class Woo_Widget_Component extends WP_Widget {
 				get_template_part( 'includes/getInvolved' );
 			break;
 
-			case 'getInvolved':
+			case 'events':
 				get_template_part( 'includes/events' );
 			break;
+
+			case 'news':
+				get_template_part( 'includes/news' );
+			break;
 			
-			case 'getInvolved':
+			case 'aCancer':
 				get_template_part( 'includes/aCancer' );
 			break;
 
-			case 'getInvolved':
+			case 'donate':
 				get_template_part( 'includes/donate' );
 			break;
 
-			case 'getInvolved':
+			case 'partners':
 				get_template_part( 'includes/partners' );
 			break;
 

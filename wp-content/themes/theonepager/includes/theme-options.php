@@ -670,6 +670,13 @@ $options[] = array( 'name' => __( 'Enable Events Area', 'woothemes' ),
                     'std' => 'true',
                     'type' => 'checkbox');
 
+$options[] = array( 'name' => __( 'Enable News Area', 'woothemes' ),
+                    'desc' => __( 'Display the news area with page content.', 'woothemes' ),
+                    'id' => $shortname . '_homepage_enable_news',
+                    'std' => 'true',
+                    'type' => 'checkbox');
+
+
 $options[] = array( 'name' => __( 'Enable About Male Cancer Area', 'woothemes' ),
                     'desc' => __( 'Display the events area with page content.', 'woothemes' ),
                     'id' => $shortname . '_homepage_enable_aCancer',
@@ -1030,6 +1037,59 @@ $options[] = array( 'name' => __( 'Title', 'woothemes' ),
                     'id' => $shortname . '_homepage_events_posts_title',
                     'std' => sprintf( __( 'Recent news from the blog', 'woothemes' ), get_bloginfo( 'name' ) ),
                     'type' => 'text' );
+
+
+
+
+
+
+## NEWS
+##
+$options[] = array( 'name' => __( 'News', 'woothemes' ),
+                    'type' => 'subheading' );
+
+$options[] = array( 'name' => __( 'Content Type', 'woothemes' ),
+                    'desc' => __( 'Determine whether to display the content of a specified page, or your recent blog posts.', 'woothemes' ),
+                    'id' => $shortname . '_homepage_news_content_type',
+                    'std' => 'posts',
+                    'type' => 'select2',
+                    'options' => array('page' => __( 'Page Content', 'woothemes' ) )
+                  );
+
+$options[] = array( 'name' => __( 'Page Content', 'woothemes' ),
+                    'desc' => __( 'Select the page to display content from if the homepage content area is enabled.', 'woothemes' ),
+                    'id' => $shortname . '_homepage_news_id',
+                    'std' => '',
+                    'type' => 'select2',
+                    'options' => $woo_pages
+                  );
+
+$options[] = array( 'name' => __( 'Content Layout', 'woothemes' ),
+                    'desc' => __( 'Select which layout you want for the content area on the homepage.', 'woothemes' ),
+                    'id' => $shortname . '_homepage_posts_layout',
+                    'std' => 'layout-full',
+                    'type' => 'images',
+                    'options' => array(
+                        'layout-full' => $url . '1c.png',
+                        'layout-left-content' => $url . '2cl.png',
+                        'layout-right-content' => $url . '2cr.png' )
+                    );
+
+$options[] = array( 'name' => __( 'Heading', 'woothemes' ),
+                    'desc' => __( 'Enter the heading to display above the title for blog posts / content on the homepage.', 'woothemes' ),
+                    'id' => $shortname . '_homepage_news_posts_heading',
+                    'std' => sprintf( __( 'From The Blog', 'woothemes' ), get_bloginfo( 'name' ) ),
+                    'type' => 'text' );
+
+$options[] = array( 'name' => __( 'Title', 'woothemes' ),
+                    'desc' => __( 'Enter the title to display above the blog posts / content on the homepage.', 'woothemes' ),
+                    'id' => $shortname . '_homepage_news_posts_title',
+                    'std' => sprintf( __( 'Recent news from the blog', 'woothemes' ), get_bloginfo( 'name' ) ),
+                    'type' => 'text' );
+
+
+
+
 
 
 

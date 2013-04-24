@@ -50,7 +50,9 @@ woo_head();
 </head>
 <body <?php body_class(); ?>>
 <?php woo_top(); ?>
-<?php include 'includes/facebook-sdk.php'; ?>
+<?php include 'includes/facebook-sdk.php'; 
+	#get_template_part('includes/facebook-sdk.php');
+?>
 <div id="wrapper">
     
     <?php woo_header_before(); ?>

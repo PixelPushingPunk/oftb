@@ -27,6 +27,7 @@ if ( ! function_exists( 'wp' ) && ! empty( $_SERVER['SCRIPT_FILENAME'] ) && base
 				'homepage_enable_campaigns' => 'true',
 				'homepage_enable_getInvolved' => 'true',
 				'homepage_enable_events' => 'true',
+				'homepage_enable_news' => 'true',
 				'homepage_enable_aCancer' => 'true',
 				'homepage_enable_donate' => 'true',
 				'homepage_enable_partners' => 'true',
@@ -100,6 +101,10 @@ if ( ! function_exists( 'wp' ) && ! empty( $_SERVER['SCRIPT_FILENAME'] ) && base
 
 		    	if ( 'true' == $settings['homepage_enable_getInvolved'] ) {
 		    		get_template_part( 'includes/getInvolved' );
+		    	}
+		    	
+		    	if ( 'true' == $settings['homepage_enable_news'] ) {
+		    		get_template_part( 'includes/news' );
 		    	}
 
 		    	if ( 'true' == $settings['homepage_enable_events'] ) {
