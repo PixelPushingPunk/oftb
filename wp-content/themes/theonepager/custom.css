@@ -36,3 +36,50 @@ Add styles inside the media query below that you only want to be applied to the 
 		background-color:none !important;
 	}
 }
+
+
+/* 
+FACEBOOK STYLING
+-----------------
+Facebook integration styling */
+
+			.facebook-section .postWrapper {
+                overflow:hidden;
+            }
+
+            .facebook-section .postWrapper p {
+                float:left;
+            }
+
+            .facebook-section a.friend {
+				width:64px;
+				height:64px;
+				display:inline-block;
+				margin:10px;
+			}
+
+			.facebook-section a.friend img {
+				/*max-width:100%;*/
+				width:64px;
+				height:64px;
+			}
+
+            .facebook-section a.posts {
+                margin:10px;
+                display:block;
+                float:left;
+            }
+
+            .facebook-section #loading-posts {
+                overflow:hidden;
+            }
+
+            .facebook-section .pcWrap {
+                float:left;
+                max-width:340px;
+            }
+
+            .facebook-section img.post-img {
+                width:144px;
+                height:146px;
+            }

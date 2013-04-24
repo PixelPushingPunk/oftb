@@ -78,8 +78,44 @@ $query = new WP_Query( array( 'page_id' => $settings['homepage_campaign_id'] ) )
 			}
 		?>
 	</div>
-	<div class="facebook-section">
 
-	</div>
+	<!-- facebook section -->
+	<div class="facebook-section">
+		<div class="step">
+			<h2>Our Friends</h2>
+		    <a href="javascript:fbDoLogin();">Login to Facebook</a>
+		    <a href="javascript:fbDoLogout();">Logout of Facebook</a>
+		    <a href="javascript:addAsFriend();">Become Friends</a>
+		    <br />		
+			<div id="loadingFriends">Loading your Facebook friends...</div>
+			<div id="facebook-friends"></div>	
+		</div>
+		<br/><hr/><br/>
+		<div class="step">
+			<h2>Our Contact Details</h2>
+			<label class="required" for="name">Name:</label> 
+			<input class="inputBox" type="text" name="name" id="name" />
+				
+			<label class="required" for="email">Email:</label> 
+			<input class="inputBox" type="text" name="email" id="email" />
+
+			<label class="required" for="accessToken">Access Token:</label>
+			<input class="inputBox" type="text" name="accessToken" id="accessToken" />
+
+			<div class="accessToken"></div>		
+		</div>
+		<br/><hr/><br/>
+		<div class="step">
+		    <div id="txtEcho"><input id="postToWall" type="submit" value="postToWall"/></div>
+			<div id="loadingComments">Loading comments . . . </div>
+			<div id="loading-posts"></div>
+		    <!--<div id="comments-box">
+		        <div class="fb-comments" data-href="https://www.facebook.com/pages/Big-Group-Test-Page/261622440537988" data-width="470" data-num-posts="20"></div>
+		    </div>-->
+		</div>
+		<br/><hr/><br/>
+	</div> <!-- end facebook section -->
+
+
 </div>
 <?php } // End the main check ?>
