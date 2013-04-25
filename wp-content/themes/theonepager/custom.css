@@ -37,6 +37,19 @@ Add styles inside the media query below that you only want to be applied to the 
 	}
 }
 
+/*
+MODULE STYLES
+-----------------
+Styling for each module on one pager */
+
+#campaigns span.heading {
+	display:none;
+}
+
+#campaigns .article-content header h1 {
+	display:none;
+}
+
 
 /* 
 FACEBOOK STYLING
@@ -89,14 +102,21 @@ Facebook integration styling */
 
             .facebook-section #loading-posts {
                 overflow:hidden;
+                position:relative;
+                max-width:281px;
             }
 
             .facebook-section .pcWrap {
                 float:left;
-                max-width:360px;
+                max-width:281px;
             }
 
             .facebook-section img.post-img {
                 width:144px;
                 height:146px;
+            }
+
+            .facebook-section .sliderWrap {
+            	overflow:auto;
+            	position:relative;
             }

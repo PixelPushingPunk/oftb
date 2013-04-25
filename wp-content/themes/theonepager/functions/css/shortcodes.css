@@ -482,7 +482,7 @@ span.dropcap { font-size: 300%; font-weight: bold; float: left; position: relati
 
 .shortcode-toggle { margin: 0 0 1.2em;}
 .shortcode-toggle h4 {margin: 0;}
-.shortcode-toggle h4 a { display: block; padding: 3px 0 3px 10px; background: #f3f3f3 url(../images/shortcode-toggle-close.png) no-repeat 99% center; }
+.shortcode-toggle h4 a { display: block; padding: 3px 0 3px 36px; color:#fff; background: #234766 url(../images/shortcode-toggle-close.png) no-repeat 1% center; }
 .shortcode-toggle.closed h4 a  { background-image: url(../images/shortcode-toggle-open.png); }
 .shortcode-toggle .toggle-content  { padding: 10px 10px; background: #f9f9f9; }
 .shortcode-toggle.closed .toggle-content, .shortcode-toggle .more-text.closed { display: none; }
@@ -493,7 +493,7 @@ span.dropcap { font-size: 300%; font-weight: bold; float: left; position: relati
 /* -15.1 Content Toggle Alternate Style - White */
 /*-------------------------------------------------------------------------------------------*/
 
-.shortcode-toggle.white h4 a { background-color: #FFFFFF; }
+.shortcode-toggle.white h4 a { background-color: #234766; color:#fff; }
 .shortcode-toggle.white .toggle-content { background-color: #FFFFFF; }
 
 /*-------------------------------------------------------------------------------------------*/

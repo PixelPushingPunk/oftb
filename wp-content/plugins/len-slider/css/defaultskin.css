@@ -1,0 +1,119 @@
+.ls_def_ibanner{
+    position:relative;
+    /*width:936px;*/
+    width:945px;
+    height:350px;
+    overflow:hidden;
+    /*border:1px solid #ededed;*/
+    /*padding:11px;*/
+    /*background:#fff;*/
+    background:#f0f0f0;
+    padding:0;
+    font-size:12px;
+    text-align:left !important;
+    font-family:Arial,Tahoma;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+    -khtml-border-radius:2px
+}
+.ls_def_ibanner *{
+    margin:0;
+    padding:0;
+    outline:0
+}
+.ls_def_ibanner div{
+    position:relative;
+    float:right;
+}
+
+.ls_def_ibanner .clear{clear:both}
+.ls_def_ibanner .ui-tabs-hide{display:none}
+.ls_def_ibanner_banner{width:100%;height:100%}
+.ls_def_ibanner_banner .abs{
+    /*position:absolute !important;*/
+    float:left;
+
+    bottom:0;
+    right:0;
+    font-size:12px;
+    z-index:1;
+    /*width:580px;*/
+    width:620px;
+    min-height:340px;
+    border-bottom:5px solid #ccc;
+    background:#fff;
+}
+.ls_def_ibanner_banner .abs a{
+    display:inline-block;
+    /*float:right;*/
+    float:left;
+    /*padding:3px 15px;*/
+    padding:0;
+    font-size:24px;
+    font-weight:bold;
+    /*background:#000;*/
+    background:#fff;
+    text-decoration:none;
+    color:#366f9f;
+    -webkit-transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+    -o-transition:all 0.3s ease-in-out;
+    -ms-transition:all 0.3s ease-in-out;
+    transition:all 0.3s ease-in-out;
+}
+.ls_def_ibanner_banner .abs a:hover{background:#333399;text-decoration:underline}
+.ls_def_ibanner_banner .abs .desc{
+    /*float:right;*/
+    float:left;
+    color:#bfbfbf;
+    /*text-shadow:0 -1px rgba(0, 0, 0, .75);
+    background:rgb(0,0,0);
+    filter:alpha(opacity=60);
+    background:rgba(0,0,0,.6);*/
+    background:#fff;
+    overflow:hidden;
+    /*padding:10px 15px;*/
+    padding:0;
+    width:620px;
+}
+
+.ls_def_ibanner_nav{
+    position:absolute !important;
+    bottom:26px;
+    left:22px;
+    z-index:2
+}
+.ls_def_ibanner_nav li{
+    float:left;
+    display:block;
+    margin-right:5px;
+    width:20px;
+    height:20px
+}
+.ls_def_ibanner_nav li a{
+    /*display:block;
+    width:20px;
+    height:20px;
+    background:url("../images/cntrlbtns.png") 0 0 no-repeat*/
+    width: 11px;
+    height: 11px;
+    display: block;
+    background: #666;
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    text-indent: -9999px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.ls_def_ibanner_nav li.ui-state-active a{background-position:0 -20px}
+
+/* more styles */
+.slide-img {
+    float:right;
+    max-width:320px;
+    max-height:346px;
+}
