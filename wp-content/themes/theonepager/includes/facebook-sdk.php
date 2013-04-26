@@ -140,7 +140,7 @@
         });
     };
 
-    window.postToWallUsingFBApi = function () {
+    window.postToWallUsingFBApi = function (thisPostID) {
         function onPostToWallCompleted(response) {
             if (response) {
                 if (response.error) {
@@ -180,9 +180,11 @@
         console.log('user id on click: ' + uid);
         console.log('access token on click: ' + accessTokenVar);
 
-        var thispostid = '261622440537988_574925632540999';
-        FB.api('/'+ fanpage_id +'/feed', 'post', data, onPostToWallCompleted);
-        //FB.api('/' + fanpage_id + '/comments?access_token=' + accessTokenVar + '', 'POST', dataUser, onPostToWallCompleted);
+        //var thispostid = '261622440537988_574925632540999';
+        //var thispostidtwo = '261622440537988_576487609051468';
+        
+        //FB.api('/'+ fanpage_id +'/feed', 'post', data, onPostToWallCompleted);
+        FB.api('/' + thisPostID + '/comments?access_token=' + accessTokenVar + '', 'POST', dataUser, onPostToWallCompleted);
 
         //http://www.fbrell.com/xfbml/fb:share-button
         //https://developers.facebook.com/bugs/409281805774218/
@@ -212,8 +214,9 @@
                 //console.log(x);
 
                 if(value.message && value.picture) {
-                    var pcWrap = $('.pcWrap');
-                    $("<div class='pcWrap'><div class='postWrapper'><h1>POST</h1><br><a class='posts' href='#'><img class='post-img'/></a><p>" + value.message + "</p></div><form action='' method=''><textarea class='textareaFB'></textarea><br><input type='submit' onclick='javascript:postToWallUsingFBApi();' value='comment' name='comment' id="+ value.object_id +"/></form><div class='commentsWrapper'><h1>COMMENTS</h1><br></div></div>")
+                    var pcWrap = $('.pcWrap'); //onclick='javascript:postToWallUsingFBApi(thisPostID);'
+                    var thisPostID = value.id;
+                    $("<div class='pcWrap'><div class='postWrapper'><h1>POST</h1><br><a class='posts' href='#'><img class='post-img'/></a><p>" + value.message + "</p></div><form><textarea class='textareaFB' data-id='" + thisPostID + "'></textarea><br><input class='postToWall' type='submit' id='" + thisPostID + "' value='comment' name='comment' id="+ value.object_id +"/></form><div class='commentsWrapper'><h1>COMMENTS</h1><br></div></div>")
                         .attr({
                             id: value.id,
                             name: value.from.name
@@ -226,6 +229,8 @@
                         .end()
                         .appendTo(divContainer);
                     
+                    console.log('value id is: ' + thisPostID);   
+
                     //console.log(typeof value.comments);    
                     if(typeof value.comments !=='undefined') {
 

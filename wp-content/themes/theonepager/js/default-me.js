@@ -14,9 +14,22 @@
 
         // fbDoLogin();
 
-    	$('#postToWall').on('click', function() {
-        	postToWallUsingFBApi();
-    	});
+        $('.postToWall').on('click', function(e) {
+            var textDataID = $(this).siblings('textarea').attr('data-id');
+            var thisPostID = $(this).attr('id');
+                        
+            console.log('input post id ' + thisPostID);
+            console.log('textData id ' + textDataID);
+            
+            if (thisPostID === textDataID) {
+                postToWallUsingFBApi(thisPostID);
+            } else { 
+                e.preventDefault;
+                return false;
+                // do nothing
+            }
+            console.log('posted');
+        });
 
 
     	// Twitter
@@ -75,6 +88,7 @@ var sliderFb = function () {
         jQuery('.pcWrap').wrapAll('<div class="sliderWrap"></div>');
         
         // Create Previous and Next buttons
+        jQuery('#loading-posts').prepend('<div class="clear"></div>');
         jQuery('#loading-posts').prepend('<div id="rightControl" class="control rightFB"><a href="#">Next</a></div>');
         jQuery('#loading-posts').prepend('<div id="leftControl" class="control leftFB"><a href="#">Prev</a></div>');
         
@@ -82,10 +96,10 @@ var sliderFb = function () {
         var pcWrapWidth = jQuery('.pcWrap').width();
         var pcWrapLength = jQuery('.pcWrap').length;
 
-        // console.log('pcWrapWidth: ' + pcWrapWidth);
-        // console.log('pcWraplength: ' + pcWrapLength);
+         console.log('pcWrapWidth: ' + pcWrapWidth);
+         console.log('pcWraplength: ' + pcWrapLength);
         var slideWidth = pcWrapWidth * pcWrapLength;
-        // console.log('slideWidth: ' + slideWidth);
+         console.log('slideWidth: ' + slideWidth);
 
         jQuery('.sliderWrap').css('width', slideWidth);
 

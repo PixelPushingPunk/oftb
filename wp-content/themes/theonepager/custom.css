@@ -152,6 +152,14 @@ Facebook integration styling */
             	position:relative;
             }
 
+            .facebook-section #rightControl {
+            	float:right;
+            }
+
+            .facebook-section #leftControl {
+            	float:left;
+            }
+
 /* 
 LENS SLIDER STYLING
 -----------------
