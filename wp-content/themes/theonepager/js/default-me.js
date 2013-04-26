@@ -43,6 +43,9 @@
     	// Facebook slider function()
        	sliderFb();
 
+        // Blog slider function() 
+        sliderBlogPost();
+
         console.log('test window ready');
    	});// end window.load*/
 }(jQuery)); //IFE
@@ -50,53 +53,109 @@
 var sliderFb = function () {
  // Slider for facebook
   	var currentPosition = 0;
-  	var slides = $('.pcWrap');
+  	var slides = jQuery('.pcWrap');
   	var numberOfSlides = slides.length;
 
   	var manageControls = function(position) {
         	// hide left arrow if position = first slide
         	if (position == 0) {
-        		$('#leftControl').hide()
+        		jQuery('#leftControl').hide()
         	} else {
-        		$('#leftControl').show()
+        		jQuery('#leftControl').show()
         	}
 
         	// hide right arrow if position is last slide
         	if (position == numberOfSlides - 1) {
-        		$('#rightControl').hide();
+        		jQuery('#rightControl').hide();
         	} else {
-        		$('#rightControl').show();
+        		jQuery('#rightControl').show();
         	}
     };
         // Create slider wrap
-        $('.pcWrap').wrapAll('<div class="sliderWrap"></div>');
+        jQuery('.pcWrap').wrapAll('<div class="sliderWrap"></div>');
         
         // Create Previous and Next buttons
-        $('#loading-posts').prepend('<div id="rightControl" class="control rightFB"><a href="#">Next</a></div>');
-        $('#loading-posts').prepend('<div id="leftControl" class="control leftFB"><a href="#">Prev</a></div>');
+        jQuery('#loading-posts').prepend('<div id="rightControl" class="control rightFB"><a href="#">Next</a></div>');
+        jQuery('#loading-posts').prepend('<div id="leftControl" class="control leftFB"><a href="#">Prev</a></div>');
         
         // Set slider wrap width 
-        var pcWrapWidth = $('.pcWrap').width();
-        var pcWrapLength = $('.pcWrap').length;
+        var pcWrapWidth = jQuery('.pcWrap').width();
+        var pcWrapLength = jQuery('.pcWrap').length;
 
         // console.log('pcWrapWidth: ' + pcWrapWidth);
         // console.log('pcWraplength: ' + pcWrapLength);
         var slideWidth = pcWrapWidth * pcWrapLength;
         // console.log('slideWidth: ' + slideWidth);
 
-        $('.sliderWrap').css('width', slideWidth);
+        jQuery('.sliderWrap').css('width', slideWidth);
 
         manageControls(currentPosition);
 
-        $('.control').on('click', function(e) {
-        	currentPosition = ($(this).attr('id')=='rightControl') ? currentPosition+1 : currentPosition-1;
+        jQuery('.control').on('click', function(e) {
+        	currentPosition = (jQuery(this).attr('id')=='rightControl') ? currentPosition+1 : currentPosition-1;
 
         	manageControls(currentPosition);
-        	$('.sliderWrap').animate({
+        	jQuery('.sliderWrap').animate({
         		'marginLeft' : pcWrapWidth*(-currentPosition)
         	});	
 
         	console.log('current position = ' + currentPosition);
         	e.preventDefault();
         });
+};
+
+var sliderBlogPost = function () {
+ // Slider for facebook
+    console.log('test beg sliderblog post');
+    var currentPosition = 0;
+    var slidesBL = jQuery('#blog-posts article');
+    var numberOfSlidesBL = slidesBL.length;
+
+    var manageControls = function(position) {
+            // hide left arrow if position = first slide
+            if (position == 0) {
+                jQuery('#leftControlBL').hide()
+            } else {
+                jQuery('#leftControlBL').show()
+            }
+
+            // hide right arrow if position is last slide
+            if (position == numberOfSlidesBL - 1) {
+                jQuery('#rightControlBL').hide();
+            } else {
+                jQuery('#rightControlBL').show();
+            }
+    };
+        // Create slider wrap
+        jQuery('#blog-posts article').wrapAll('<div class="sliderWrapBL"></div>');
+        
+        // Create Previous and Next buttons
+        jQuery('#blog-posts #main').prepend('<div id="rightControlBL" class="controlBL rightBL"><a href="#">Next</a></div>');
+        jQuery('#blog-posts #main').prepend('<div id="leftControlBL" class="controlBL leftBL"><a href="#">Prev</a></div>');
+        
+        // Set slider wrap width 
+        var articleWrapWidth = jQuery('#blog-posts article').width();
+        var articleWrapLength = jQuery('#blog-posts article').length;
+
+        // console.log('pcWrapWidth: ' + pcWrapWidth);
+        // console.log('pcWraplength: ' + pcWrapLength);
+        var slideWidth = articleWrapWidth * articleWrapLength;
+        // console.log('slideWidth: ' + slideWidth);
+
+        jQuery('.sliderWrapBL').css('width', slideWidth);
+
+        manageControls(currentPosition);
+
+        jQuery('.controlBL').on('click', function(e) {
+            currentPosition = (jQuery(this).attr('id')=='rightControlBL') ? currentPosition+1 : currentPosition-1;
+
+            manageControls(currentPosition);
+            jQuery('.sliderWrapBL').animate({
+                'marginLeft' : articleWrapWidth*(-currentPosition)
+            }); 
+
+            console.log('current position = ' + currentPosition);
+            e.preventDefault();
+        });
+    console.log('test end slider blog post');
 };

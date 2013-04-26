@@ -81,7 +81,7 @@ if ( ! function_exists( 'wp' ) && ! empty( $_SERVER['SCRIPT_FILENAME'] ) && base
 					do_action( 'woothemes_testimonials', $args );
 				}
 
-		    	if ( 'true' == $settings['homepage_enable_content'] ) {
+		    	/*if ( 'true' == $settings['homepage_enable_content'] ) {
 		    		switch ( $settings['homepage_content_type'] ) {
 		    			case 'page':
 		    			get_template_part( 'includes/specific-page-content' );
@@ -92,23 +92,24 @@ if ( ! function_exists( 'wp' ) && ! empty( $_SERVER['SCRIPT_FILENAME'] ) && base
 		    			get_template_part( 'includes/blog-posts' );
 		    			break;
 		    		}
-		    	}
+		    	}*/
 
 		    	# Custom plugins
 		    	if ( 'true' == $settings['homepage_enable_campaigns'] ) {
 		    		get_template_part( 'includes/campaigns' );
 		    	}
-
-		    	if ( 'true' == $settings['homepage_enable_getInvolved'] ) {
-		    		get_template_part( 'includes/getInvolved' );
-		    	}
 		    	
 		    	if ( 'true' == $settings['homepage_enable_news'] ) {
-		    		get_template_part( 'includes/news' );
+		    		#get_template_part( 'includes/news' );
+		    		get_template_part( 'includes/blog-posts' );
 		    	}
 
 		    	if ( 'true' == $settings['homepage_enable_events'] ) {
 		    		get_template_part( 'includes/events' );
+		    	}
+
+		    	if ( 'true' == $settings['homepage_enable_getInvolved'] ) {
+		    		get_template_part( 'includes/getInvolved' );
 		    	}
 
 		    	if ( 'true' == $settings['homepage_enable_aCancer'] ) {
@@ -122,8 +123,6 @@ if ( ! function_exists( 'wp' ) && ! empty( $_SERVER['SCRIPT_FILENAME'] ) && base
 		    	if ( 'true' == $settings['homepage_enable_partners'] ) {
 		    		get_template_part( 'includes/partners' );
 		    	}
-
-
 
 		    	if ( 'true' == $settings['homepage_enable_contact'] ) {
 		    		get_template_part( 'includes/contact-area' );

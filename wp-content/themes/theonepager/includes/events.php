@@ -45,7 +45,20 @@ $query = new WP_Query( array( 'page_id' => $settings['homepage_events_id'] ) );
 					</div>
 				<?php } ?>
 
-				<div class="article-content">
+				<div class="article-content article-events-one">
+
+					<header>
+						<h1><?php the_title(); ?></h1>
+					</header>
+
+					<section class="entry">
+						<?php the_content( __( 'Continue Reading &rarr;', 'woothemes' ) ); ?>
+					</section>
+
+				</div>
+
+				
+				<div class="article-content article-events-two">
 
 					<header>
 						<h1><?php the_title(); ?></h1>

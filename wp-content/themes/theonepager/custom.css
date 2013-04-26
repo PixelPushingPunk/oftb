@@ -50,6 +50,37 @@ Styling for each module on one pager */
 	display:none;
 }
 
+.slide-content .entry a img {
+	margin:0 auto;
+}
+
+/* 
+BLOG POST
+-----------------
+blog integration styling */
+#blog-posts article {
+	float:left;
+	width:620px;
+}
+
+#blog-posts #main {
+	max-width:620px;
+	overflow:hidden;
+	position:relative;
+	float:right;
+}
+
+#block-posts #main .sliderWrapBL {
+	overflow:auto;
+	position:relative;
+}
+
+#blog-posts .twitter-section {
+	float:left;
+}
+
+
+
 
 /* 
 FACEBOOK STYLING
@@ -120,3 +151,50 @@ Facebook integration styling */
             	overflow:auto;
             	position:relative;
             }
+
+/* 
+LENS SLIDER STYLING
+-----------------
+LENS SLIDER EVENTS styling */
+
+#events .ls_def_ibanner_banner .abs {
+	float:right;
+}
+
+#events .ls_def_ibanner_banner .abs, #events .ls_def_ibanner_banner .abs .desc {
+	max-width:455px;
+}
+
+#events .ls_def_ibanner_banner .abs, #events .ls_def_ibanner_banner .abs a, #events .ls_def_ibanner_banner .abs .desc{
+	border-bottom: none !important;
+	background: none !important;
+}
+
+#events .slide-img {
+	max-width:468px;
+	margin:0 15px 0 0;
+} 
+
+#events .ls_def_ibanner div {
+	background:#f6f6f6;
+}
+
+
+/* 
+TWITTER STYLING
+-----------------
+Twitter styling */
+
+#blog-posts .twitter-timeline {
+	width:338px !important;
+}
+
+#leftControlBL {
+	float:left;
+}
+
+#rightControlBL {
+	float:right;
+}
+
+
