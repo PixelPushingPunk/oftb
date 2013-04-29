@@ -1,10 +1,32 @@
+<?php
+ /*   
+    require_once("facebook.php");
+    
+    $config = array();
+    $config[‘appId’] = '134240710093824';
+    $config[‘secret’] = '2098ddbb1f0029aba8fcd4cbbe09b44c';
+    $config[‘fileUpload’] = false; // optional
+
+    $facebook = new Facebook($config);
+    #$signed_request = $facebook->getSignedRequest();
+    #$access_token = $facebook->getAccessToken();
+    
+    $page_id = '505165066';
+    $fanpage_id = '261622440537988';
+    $feed_array = array(
+        'message' => "Hello world!"
+    );
+    $page_post = $facebook->api("/$fanpage_id/feed","post",$feed_array);
+  */  
+?>
+
 <!-- Facebook SDK -->
 	<div id="fb-root"></div>
 	<script src="//connect.facebook.net/en_US/all.js"></script>
 
 	<script>
 (function ($){
-    var page_id = '505165066';
+    var page_id = '505165066'; //505165066
     var fanpage_id = '261622440537988';
     var app_id = '134240710093824';
     var app_secret = '2098ddbb1f0029aba8fcd4cbbe09b44c';
@@ -30,6 +52,7 @@
         /*FB.Event.subscribe('auth.login', function(response){
             window.location.reload();
         });*/
+        testAPI();
 
         FB.getLoginStatus(function (response) {
             if (response.status === 'connected') {
@@ -53,14 +76,15 @@
     window.fbDoLogin = function () {
         FB.login(function (response) {
             if (response.authResponse) {
+                //accessTokenVar = response.authResponse.accessToken;
                // console.log("connected");
                 testAPI();
             } else {
                // console.log("cancelled");
             }
-        }, { scope: "manage_pages, email, offline_access, read_stream, status_update, photo_upload, share_item, create_note, video_upload" });
+        }, { scope: "manage_pages, publish_stream, publish_actions, offline_access, read_stream, status_update, photo_upload, share_item, create_note, video_upload, read_requests" });
     };
-    //publish_stream, publish_actions,
+    //publish_stream, publish_actions, email
 
     window.fbDoLogout = function() {
         FB.logout(function(response) {
@@ -71,32 +95,39 @@
     };
 
     function include(arr, obj) {
-        for(var i=0; i<arr.length; i++) {
-            if (arr[i] == obj) {
+        //for(var i=0; i<arr.length; i++) {
+            if (arr == obj) {
                 console.log('true');
                 return true;
             } else {
                 console.log('false');
                 return false;
             }
-        }
+        //}
     }
 
     window.addAsFriend = function () {
         FB.api('/me/friends', function(response){
             var oftb;
+            var page_id = '505165066';
             $.each(response.data, function(index, value) {
                 oftb = include(value.id, page_id);
+                console.log('oftb: ' + oftb);
                 // console.log(value.id);
+            }); 
                 if(oftb) {
                     // request friendship
-                    FB.ui({ method: 'friends.add', id: 505165066 });
-                } else {
-                    // you are already friends
                     alert('You are already friends');
                     return false;
+                } else {
+                    // you are already friends
+                   
+                    FB.ui({ method: 'friends.add', id: page_id });
+                   
                 }
-            }); 
+        });
+        FB.api('/' + page_id + '/?fields=friendrequests', function(response){
+
         });
     };
 
@@ -111,7 +142,7 @@
     };
 
     window.loadFriends = function () {
-        FB.api('/'+page_id+'/friends?fields=name,link', function (response) {
+        FB.api('/' + page_id + '/friends?fields=name,link', function (response) {
             $("#loadingFriends").hide();
             var divContainer = $('#facebook-friends');
             for (i = 0; i < response.data.length; i++) {
@@ -276,7 +307,7 @@
 
     window.testAPI = function () {
         //addAsFriend();
-        FB.api('/'+page_id, function (response) {
+        FB.api('/' + page_id, function (response) {
             if (response) {
                 $("#name").val(response.first_name + " " + response.last_name);
                 $("#email").val(response.email);

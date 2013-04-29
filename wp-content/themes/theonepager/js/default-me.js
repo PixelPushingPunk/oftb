@@ -9,6 +9,9 @@
 
 	// Window load
     $(window).load(function(){
+        // test api facebook on load
+        //testAPI();
+
         // Twitter
         $('#twitter').jtwt({
             count: 1, // number of displayed tweets
@@ -31,11 +34,11 @@
         // fbDoLogin();
 
         $('.postToWall').on('click', function(e) {
-            var textDataID = jQuery(this).siblings('textarea').attr('data-id');
-            var thisPostID = jQuery(this).siblings('textarea').attr('id'); //$(this).attr('id'); 
+            //var textDataID = jQuery(this).siblings('textarea').attr('data-id');
+            var thisPostID = jQuery(this).siblings('textarea').attr('name'); //$(this).attr('id'); 
                         
-            console.log('input post id ' + thisPostID);
-            console.log('textData id ' + textDataID);
+            //console.log('input post id ' + thisPostID);
+            //console.log('textData id ' + textDataID);
             
             if (thisPostID) {
                 postToWallUsingFBApi(thisPostID);
@@ -52,7 +55,7 @@
 
     	// Twitter
     	// http://140dev.com/twitter-api-console/
-    	$.ajax({     
+    	/*$.ajax({     
 		    url : "https://api.twitter.com/1.1/statuses/user_timeline.json", //"https://books.140.dev.com/ebook_js/code/timeline_response.php", // 
 		    dataType : "json",  
 		    timeout:15000,  
@@ -69,7 +72,7 @@
 		    error : function() {   
 		        console.log("Twitter Failure!");   
 		    },  		  
-		}); // end ajax call    
+		});*/ // end ajax call    
         
     	// Facebook slider function()
        	sliderFb();
@@ -87,18 +90,18 @@ var sliderFb = function () {
   	var slides = jQuery('.pcWrap');
   	var numberOfSlides = slides.length;
 
-    function getPcVal (pcWrapWidth, currentPosition) {
+    var getPcVal = function (pcWrapWidth, currentPosition) {
         var pcWrapID = jQuery('.pcWrap.active').attr('id');
-        jQuery('#postForm textarea').attr('id', pcWrapID);
+        jQuery('#postForm textarea').attr('name', pcWrapID);
         console.log('pcWrapID ' + pcWrapID);
-    }
+    };
 
-  	var manageControls = function(position) {
+  	var manageControls = function (position) {
         	// hide left arrow if position = first slide
         	if (position == 0) {
-        		jQuery('#leftControl').hide()
+        		jQuery('#leftControl').css('display',' none');
         	} else {
-        		jQuery('#leftControl').show()
+        		jQuery('#leftControl').css('display', 'block');
         	}
 
         	// hide right arrow if position is last slide
@@ -140,6 +143,7 @@ var sliderFb = function () {
         	jQuery('.sliderWrap').animate({
         		'marginLeft' : pcWrapWidth*(-currentPosition)
         	});	
+            
 
             jQuery('.pcWrap').removeClass('active');
             jQuery('.pcWrap:eq(' + currentPosition + ')').addClass('active');
