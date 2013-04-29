@@ -441,11 +441,11 @@ function woo_top_nav () {
 			<div class="oftb-logo"><a href="/" target="_self">One For The Boys</a></div>
 			<ul id="top-nav" class="nav" style="">
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#campaigns">Campaigns</a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#getInvolved">Get involved</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#">Get involved</a></li>
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#events">Events</a></li>
 				<li class="logo-between"><a href="#"><img src="wp-content/themes/theonepager/images/ribbon.png"/></a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#news">News</a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#aCancer">About male cancer</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#blog-posts">News</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#getInvolved">About male cancer</a></li>
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#donate">Donate</a></li>
 				<!--<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#partners">Partners</a></li>-->
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#contact-area">Contact us</a></li>

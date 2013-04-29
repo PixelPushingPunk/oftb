@@ -40,18 +40,11 @@
                 console.log('user id: ' + uid);
                 console.log('access token : ' + accessTokenVar);
 
-
                 testAPI();
                 console.log("connected");
             } else if (response.status === 'not_authorized') {
-               // var accessTokenVar = response.authResponse.accessToken;
-                //$('#accessToken').val(accessTokenVar);
-                //testAPI();
                 console.log("not_authorized");
             } else {
-                //var accessTokenVar = response.authResponse.accessToken;
-                //$('#accessToken').val(accessTokenVar);
-                //testAPI();
                 console.log("not_logged_in");
             }
         });
@@ -215,8 +208,8 @@
 
                 if(value.message && value.picture) {
                     var pcWrap = $('.pcWrap'); //onclick='javascript:postToWallUsingFBApi(thisPostID);'
-                    var thisPostID = value.id;
-                    $("<div class='pcWrap'><div class='postWrapper'><h1>POST</h1><br><a class='posts' href='#'><img class='post-img'/></a><p>" + value.message + "</p></div><form><textarea class='textareaFB' data-id='" + thisPostID + "'></textarea><br><input class='postToWall' type='submit' id='" + thisPostID + "' value='comment' name='comment' id="+ value.object_id +"/></form><div class='commentsWrapper'><h1>COMMENTS</h1><br></div></div>")
+                    var thisPostID = value.id; //<form><textarea class='textareaFB' data-id='" + thisPostID + "'></textarea><br><input class='postToWall' type='submit' id='" + thisPostID + "' value='comment' name='comment' id="+ value.object_id +"/></form>
+                    $("<div class='pcWrap'><div class='postWrapper'><a class='posts' href='#'><img class='post-img'/></a><p>" + value.message + "</p></div><div class='commentsWrapper'></div></div>")
                         .attr({
                             id: value.id,
                             name: value.from.name
@@ -246,7 +239,7 @@
                             //console.log(date);
                            $("<div><a class='comments' href='#'><img class='comment-img'/></a><p>" + valueB.message + "</p><span class='time'>" + day + " " + monthNames[month] + " at " + hours + ":" + minutes + "</span><span class='like'></span></div>")
                             .attr({
-                                id: valueB.from.id,
+                                id: valueB.id,//from.id,
                                 name: valueB.from.name
                             })
                             .find("img.comment-img")

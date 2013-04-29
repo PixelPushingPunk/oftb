@@ -9,25 +9,43 @@
 
 	// Window load
     $(window).load(function(){
-    	//alert('window ready');
+        // Twitter
+        $('#twitter').jtwt({
+            count: 1, // number of displayed tweets
+            username: 'god', // username
+            //query: '#batman', // performs a serach query
+            loader_text: 'loading tweets', //loadin text
+            no_result: 'No tweets found' // no results text
+        });
+
+        $('#twitter2').jtwt({
+            count: 10, // number of displayed tweets
+            //username: 'god', // username
+            query: '@god', // performs a serach query
+            loader_text: 'loading tweets', //loadin text
+            no_result: 'No tweets found' // no results text
+        });
+
         // Facebook
 
         // fbDoLogin();
 
         $('.postToWall').on('click', function(e) {
-            var textDataID = $(this).siblings('textarea').attr('data-id');
-            var thisPostID = $(this).attr('id');
+            var textDataID = jQuery(this).siblings('textarea').attr('data-id');
+            var thisPostID = jQuery(this).siblings('textarea').attr('id'); //$(this).attr('id'); 
                         
             console.log('input post id ' + thisPostID);
             console.log('textData id ' + textDataID);
             
-            if (thisPostID === textDataID) {
+            if (thisPostID) {
                 postToWallUsingFBApi(thisPostID);
+                var clearTextVal = $(this).siblings('textarea').val('');
             } else { 
-                e.preventDefault;
-                return false;
                 // do nothing
+                return false;
             }
+
+            e.preventDefault();
             console.log('posted');
         });
 
@@ -49,7 +67,7 @@
 		        },  
 		  
 		    error : function() {   
-		        alert("Twitter Failure!");   
+		        console.log("Twitter Failure!");   
 		    },  		  
 		}); // end ajax call    
         
@@ -68,6 +86,12 @@ var sliderFb = function () {
   	var currentPosition = 0;
   	var slides = jQuery('.pcWrap');
   	var numberOfSlides = slides.length;
+
+    function getPcVal (pcWrapWidth, currentPosition) {
+        var pcWrapID = jQuery('.pcWrap.active').attr('id');
+        jQuery('#postForm textarea').attr('id', pcWrapID);
+        console.log('pcWrapID ' + pcWrapID);
+    }
 
   	var manageControls = function(position) {
         	// hide left arrow if position = first slide
@@ -104,6 +128,10 @@ var sliderFb = function () {
         jQuery('.sliderWrap').css('width', slideWidth);
 
         manageControls(currentPosition);
+        
+
+        jQuery('.pcWrap:eq(0)').addClass('active');
+        getPcVal(pcWrapWidth, currentPosition);
 
         jQuery('.control').on('click', function(e) {
         	currentPosition = (jQuery(this).attr('id')=='rightControl') ? currentPosition+1 : currentPosition-1;
@@ -113,10 +141,17 @@ var sliderFb = function () {
         		'marginLeft' : pcWrapWidth*(-currentPosition)
         	});	
 
+            jQuery('.pcWrap').removeClass('active');
+            jQuery('.pcWrap:eq(' + currentPosition + ')').addClass('active');
+
+            getPcVal(pcWrapWidth, currentPosition);
+
         	console.log('current position = ' + currentPosition);
         	e.preventDefault();
         });
 };
+
+
 
 var sliderBlogPost = function () {
  // Slider for facebook

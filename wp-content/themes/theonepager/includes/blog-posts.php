@@ -77,6 +77,25 @@ $settings = woo_get_dynamic_values( $settings );
 			<div id="data">
 
 			</div>
+			<textarea id="twtPost"></textarea>
+			<script type="text/javascript">
+				var twtPost = document.getElementById('twtPost');
+				var twtTitle  = twtPost.value;//document.title;
+				var twtUrl    = location.href;
+				var maxLength = 140 - (twtUrl.length + 1);
+				if (twtTitle.length > maxLength) {
+				twtTitle = twtTitle.substr(0, (maxLength - 3))+'...';
+				}
+				var twtLink = 'http://twitter.com/home?status='+encodeURIComponent(twtTitle + ' ' + twtUrl);
+				document.write('<a href="'+twtLink+'" target="_blank"'+'><img src="tweetthis.gif"  border="0" alt="Tweet This!" /'+'><'+'/a>');
+			</script>
+
+			<div id="twitter-api">
+				<h1>Posts from @God</h1>
+				<div id="twitter"></div>
+				<h1>People posting to @God
+				<div id="twitter2"></div>
+			</div>
 		</div>
 		
 		<?php

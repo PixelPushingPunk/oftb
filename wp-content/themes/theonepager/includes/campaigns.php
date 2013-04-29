@@ -97,24 +97,13 @@ $query = new WP_Query( array( 'page_id' => $settings['homepage_campaign_id'] ) )
 			<div id="facebook-friends"></div>	
 		</div>
 
-		<!--<div class="step">
-			<h2>Our Contact Details</h2>
-			<label class="required" for="name">Name:</label> 
-			<input class="inputBox" type="text" name="name" id="name" />
-				
-			<label class="required" for="email">Email:</label> 
-			<input class="inputBox" type="text" name="email" id="email" />
-
-			<label class="required" for="accessToken">Access Token:</label>
-			<input class="inputBox" type="text" name="accessToken" id="accessToken" />
-
-			<div class="accessToken"></div>		
-		</div>-->
-
 		<div id="posts" class="step">
 		    <div id="txtEcho"><input id="postToWall" type="submit" value="postToWall"/></div>
 			<div id="loadingComments">Loading comments . . . </div>
-			<div id="loading-posts"></div>
+			<div id="loading-posts">
+				<h1>Posts</h1>
+				<form id="postForm"><textarea class='textareaFB'></textarea><br><input class='postToWall' type='submit' value='comment' name='comment'/></form>
+			</div>
 		    <!--<div id="comments-box">
 		        <div class="fb-comments" data-href="https://www.facebook.com/pages/Big-Group-Test-Page/261622440537988" data-width="470" data-num-posts="20"></div>
 		    </div>-->

@@ -112,6 +112,7 @@ INDEX
   }
   .layout-full .entry img {
     max-width: 100%;
+    border:none;
   }
   .layout-right-content #main {
     float: right;
