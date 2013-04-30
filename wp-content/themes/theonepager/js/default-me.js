@@ -219,6 +219,7 @@ var sliderBlogPost = function () {
         jQuery('#blog-posts article').wrapAll('<div class="sliderWrapBL"></div>');
         
         // Create Previous and Next buttons
+        jQuery('#blog-posts #main').prepend('<div class="clear"></div>');
         jQuery('#blog-posts #main').prepend('<div id="rightControlBL" class="controlBL rightBL"><a href="#">Next</a></div>');
         jQuery('#blog-posts #main').prepend('<div id="leftControlBL" class="controlBL leftBL"><a href="#">Prev</a></div>');
         

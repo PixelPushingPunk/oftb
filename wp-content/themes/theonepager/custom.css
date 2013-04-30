@@ -68,6 +68,10 @@ blog integration styling */
 	overflow:hidden;
 	position:relative;
 	float:right;
+
+	background-color:#fff;
+	min-height:651px;
+	border-bottom:5px solid #ccc;
 }
 
 #block-posts #main .sliderWrapBL {
