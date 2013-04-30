@@ -86,7 +86,34 @@ Twitter plug
 Twitter integration styling */
 #twitter-api {
 	max-width:336px;
+	background:#fff;
 }
+
+.twitter-padding {
+	padding:20px;
+}
+
+#twitter2 {
+	overflow-y:scroll;
+	overflow-x:hidden;
+	height:338px;
+}
+
+.button, .tweetthis.button {
+	background-color:#999;
+	color:#fff;
+	text-transform:capitalize;
+	padding:2px 5px;
+	
+	-moz-text-shadow:none;
+	-webkit-text-shadow:none;
+	text-shadow:none;
+
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+}
+
 
 .jtwt { list-style: none; }
 .jtwt li { margin-bottom: 10px; }
@@ -141,11 +168,73 @@ Facebook integration styling */
             	overflow-y:scroll;
             }
 
-            .facebook-section a.friend {
+            .facebook-section .friendBlockWrap64 {
+            	width:64px;
+            	float:left;
+            	margin:0 8px 0 8px;
+            }
+
+            .facebook-section .friendBlockWrap64 .friendWrap {
+            	margin:8px 0 8px 0;
+            }
+
+            .facebook-section .friendBlockWrap144 {
+            	width:144px;
+            	float:left;
+            	margin:0;
+            }
+
+            .facebook-section .friendWrapCeleb, .facebook-section .friendWrapCeleb a.friendCeleb {
+            	width:144px;
+            	height:144px;
+            	float:left;
+            	display:inline-block;
+            	margin:8px;
+            	position:relative;
+            }
+
+            .facebook-section .friendWrapCeleb a.friend img {
+            	width:144px;
+            	height:144px;
+            }
+
+            .facebook-section .friendWrap {
+            	position:relative;
+            }
+
+            .facebook-section a.friend, .facebook-section .friend-detail-wrap, .facebook-section .friendWrap {
 				width:64px;
 				height:64px;
 				display:inline-block;
-				margin:10px;
+				margin:8px;
+				float:left;
+			}
+
+			.facebook-section a.friend, .facebook-section a.friendCeleb {
+				margin:0 !important;
+			}
+
+			.facebook-section a.friend, .facebook-section .friend-detail-wrap {
+				position:absolute;
+				top:0;
+				left:0;
+			}
+
+			.facebook-section a.friend {
+				z-index:2;
+			}
+
+			.facebook-section .friend-detail-wrap {
+				z-index:1;
+				background:#ccc;
+				border:1px inset #eee;
+			}
+
+			.facebook-section a.friend-detail {
+				font-size:9px;
+				text-decoration:none;
+				padding:5px;
+				text-align:center;
 			}
 
 			.facebook-section a.friend img {
@@ -155,7 +244,7 @@ Facebook integration styling */
 			}
 
             .facebook-section a.posts {
-                margin:10px;
+                margin:8px;
                 display:block;
                 float:left;
                 margin:0;

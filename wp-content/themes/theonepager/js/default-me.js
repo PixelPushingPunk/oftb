@@ -30,9 +30,45 @@
         });
 
         // Facebook
+        $('#loadingFriends, #loadingComments').show();
+        $('#loading-posts').hide();
 
-        // fbDoLogin();
+        // login when campaign top menu clicked
+        $('a#campaigns-nav').on('click', function(){
+            fbDoLogin();
+        });
 
+        // login fb
+        $('.fbLogin').on('click', function(e) {
+            fbDoLogin();
+            e.preventDefault();
+        });
+
+        // logout fb
+        $('.fbLogout').on('click', function(e) {
+            fbDoLogout()
+            e.preventDefault();
+        });
+
+        // become friends
+        $('fbBecomeFriend').on('click', function(e){
+            addAsFriend();
+            e.preventDefault();
+        });
+
+        // onclick friend show name
+            $('.friendWrap .friend').show();
+            $('.friendWrap .friend-detail-wrap').hide();
+        $('.friendWrap').on('click', function(){
+            $(this).find('.friend').slideToggle('slow');
+            $(this).find('.friend-detail-wrap').slideToggle('slow');
+        });
+
+        $('.friendWrap .friend, .friendWrap .friend-detail').on('click', function(e){
+            e.preventDefault();
+        });
+
+        // post to fb wall button
         $('.postToWall').on('click', function(e) {
             //var textDataID = jQuery(this).siblings('textarea').attr('data-id');
             var thisPostID = jQuery(this).siblings('textarea').attr('name'); //$(this).attr('id'); 
@@ -123,10 +159,10 @@ var sliderFb = function () {
         var pcWrapWidth = jQuery('.pcWrap').width();
         var pcWrapLength = jQuery('.pcWrap').length;
 
-         console.log('pcWrapWidth: ' + pcWrapWidth);
-         console.log('pcWraplength: ' + pcWrapLength);
+        console.log('pcWrapWidth: ' + pcWrapWidth);
+        console.log('pcWraplength: ' + pcWrapLength);
         var slideWidth = pcWrapWidth * pcWrapLength;
-         console.log('slideWidth: ' + slideWidth);
+        console.log('slideWidth: ' + slideWidth);
 
         jQuery('.sliderWrap').css('width', slideWidth);
 

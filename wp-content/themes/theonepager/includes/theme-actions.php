@@ -440,15 +440,15 @@ function woo_top_nav () {
 		<nav class="col-full" role="navigation">
 			<div class="oftb-logo"><a href="/" target="_self">One For The Boys</a></div>
 			<ul id="top-nav" class="nav" style="">
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#campaigns">Campaigns</a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#">Get involved</a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#events">Events</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="campaigns-nav" href="#campaigns">Campaigns</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="getInvolved-nav" href="#">Get involved</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="events-nav" href="#events">Events</a></li>
 				<li class="logo-between"><a href="#"><img src="wp-content/themes/theonepager/images/ribbon.png"/></a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#blog-posts">News</a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#getInvolved">About male cancer</a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#donate">Donate</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="blog-posts-nav" href="#blog-posts">News</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="aCancer-nav" href="#getInvolved">About male cancer</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="donate-nav" href="#donate">Donate</a></li>
 				<!--<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#partners">Partners</a></li>-->
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#contact-area">Contact us</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="contact-area-nav" href="#contact-area">Contact us</a></li>
 			</ul>
 			<?php #wp_nav_menu( array( 'depth' => 6, 'sort_column' => 'menu_order', 'container' => 'ul', 'menu_id' => 'top-nav', 'menu_class' => 'nav', 'theme_location' => 'top-menu' ) ); ?>
 		</nav>

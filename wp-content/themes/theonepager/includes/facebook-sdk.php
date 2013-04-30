@@ -1,23 +1,34 @@
 <?php
- /*   
-    require_once("facebook.php");
+ 
+    /*require_once("facebook.php");
     
     $config = array();
-    $config[‘appId’] = '134240710093824';
-    $config[‘secret’] = '2098ddbb1f0029aba8fcd4cbbe09b44c';
-    $config[‘fileUpload’] = false; // optional
+    $config['appId'] = '134240710093824';
+    $config['secret'] = '2098ddbb1f0029aba8fcd4cbbe09b44c';
+    $config['cookie'] = true;
+    $config['fileUpload'] = false; // optional
 
     $facebook = new Facebook($config);
-    #$signed_request = $facebook->getSignedRequest();
-    #$access_token = $facebook->getAccessToken();
+    $signed_request = $facebook->getSignedRequest();
+    $access_token = $facebook->getAccessToken();
     
     $page_id = '505165066';
     $fanpage_id = '261622440537988';
-    $feed_array = array(
-        'message' => "Hello world!"
-    );
-    $page_post = $facebook->api("/$fanpage_id/feed","post",$feed_array);
-  */  
+    $fb_user_id = $facebook->getUser();
+
+    if(is_null($facebook-getUser())) {
+        $params = array(
+            'req_perms' => 'user_status, publish_stream, user_photos'
+        );
+        header("Location:{$facebook-getLoginURL($params)}");
+        exit;
+    }
+    */
+    # $feed_array = array(
+    #     'message' => "Hello world!"
+    # );
+    # $page_post = $facebook->api("/$fanpage_id/feed","post",$feed_array);
+   #error_reporting(E_ALL);
 ?>
 
 <!-- Facebook SDK -->
@@ -32,6 +43,37 @@
     var app_secret = '2098ddbb1f0029aba8fcd4cbbe09b44c';
     var uid, accessTokenVar;
     // Additional JS functions here
+
+    window.fbLoginStatus = function () {
+        FB.getLoginStatus(function (response) {
+            if (response.status === 'connected') {
+                $('.fbLogin').hide();
+                $('.fbLogout').show();
+                uid = response.authResponse.userID;
+                accessTokenVar = response.authResponse.accessToken;
+
+                $('#accessToken').val(accessTokenVar);
+                console.log('user id: ' + uid);
+                console.log('access token : ' + accessTokenVar);
+
+                testAPI();
+                console.log("connected");
+            } else if (response.status === 'not_authorized') {
+                //$('.fbLogin').show();
+                //$('.fbLogout').hide();
+
+                //testAPI();
+                console.log("not_authorized");
+            } else {
+                $('.fbLogin').show();
+                $('.fbLogout').hide();
+
+                //testAPI();
+                console.log("not_logged_in");
+            }
+        });
+    };
+
     window.fbAsyncInit = function () {
         FB.init({
             appId: '134240710093824', // App ID
@@ -52,49 +94,43 @@
         /*FB.Event.subscribe('auth.login', function(response){
             window.location.reload();
         });*/
-        testAPI();
-
-        FB.getLoginStatus(function (response) {
-            if (response.status === 'connected') {
-                uid = response.authResponse.userID;
-            	accessTokenVar = response.authResponse.accessToken;
-
-            	$('#accessToken').val(accessTokenVar);
-                console.log('user id: ' + uid);
-                console.log('access token : ' + accessTokenVar);
-
-                testAPI();
-                console.log("connected");
-            } else if (response.status === 'not_authorized') {
-                console.log("not_authorized");
-            } else {
-                console.log("not_logged_in");
-            }
-        });
+        //testAPI();
+        fbLoginStatus();
+        
     };
 
     window.fbDoLogin = function () {
         FB.login(function (response) {
             if (response.authResponse) {
                 //accessTokenVar = response.authResponse.accessToken;
-               // console.log("connected");
-                testAPI();
+                // console.log("connected");
+                //testAPI();
+                $('#facebook-friends-temp').hide();
             } else {
                // console.log("cancelled");
             }
         }, { scope: "manage_pages, publish_stream, publish_actions, offline_access, read_stream, status_update, photo_upload, share_item, create_note, video_upload, read_requests" });
+        
+        setTimeout(function(){ fbLoginStatus(); }, 5000);
     };
     //publish_stream, publish_actions, email
 
     window.fbDoLogout = function() {
         FB.logout(function(response) {
+            if(response.authReponse) {
+                //var accessTokenVar = response.authResponse.accessToken;
+            } else {
+
+            }
             // user is now logged out
             //var accessTokenVar = response.authResponse.accessToken;
             //console.log(response);
         });
+
+         setTimeout(function(){ fbLoginStatus(); }, 2000);
     };
 
-    function include(arr, obj) {
+    var include = function (arr, obj) {
         //for(var i=0; i<arr.length; i++) {
             if (arr == obj) {
                 console.log('true');
@@ -104,7 +140,7 @@
                 return false;
             }
         //}
-    }
+    };
 
     window.addAsFriend = function () {
         FB.api('/me/friends', function(response){
@@ -143,20 +179,26 @@
 
     window.loadFriends = function () {
         FB.api('/' + page_id + '/friends?fields=name,link', function (response) {
-            $("#loadingFriends").hide();
-            var divContainer = $('#facebook-friends');
-            for (i = 0; i < response.data.length; i++) {
-                $("<a class=\"friend\" href=\"#\"><img /></a>")
-	  	    .attr({
+            $("#loadingFriends, #facebook-friends-temp").hide();
+            var divContainer = $('#facebook-friends-perm');
+
+            var startCount = (response.data.length - 24) ? response.data.length - 24 : 0; 
+            var inCount = response.data.length;
+
+            for (i = startCount; i < inCount; i++) { 
+                $("<div class=\"friendWrap\"><a class=\"friend\" href=\"#\"><img /></a><div class=\"friend-detail-wrap\"><a href=\"#\" class=\"friend-detail\">" + response.data[i].name +"</a></div></div>")
+	  	    .find(".friend")
+            .attr({
 	  	        id: response.data[i].id,
 	  	        href: response.data[i].link
 	  	    })
-	  	    .find("img")
+            .end()
+	  	    .find(".friend img")
 	          .attr({
 	              src: 'https://graph.facebook.com/' + response.data[i].id + '/picture?width=64&height=64',
 	              alt: response.data[i].name,
-	              title: response.data[i].name,
-	              onClick: 'alert("You selected "+this.title); return false;'
+	              title: response.data[i].name
+	              //onClick: 'alert("You selected "+this.title); return false;'
 	          })
 	        .end()
 	        .appendTo(divContainer);
@@ -223,6 +265,7 @@
     window.loadPosts = function () {
     	FB.api('/'+fanpage_id+'/posts', function(response) {
             $('#loadingComments').hide();
+            $('#loading-posts').show();
     		var divContainer = $('#loading-posts');
 
             // Posts & Comments
@@ -255,11 +298,9 @@
                     
                     console.log('value id is: ' + thisPostID);   
 
-                    //console.log(typeof value.comments);    
                     if(typeof value.comments !=='undefined') {
 
                         $.each(value.comments.data, function(index, valueB){
-                            //$("<div><p>Comment: " + valueB.message + "</p></div>").prependTo(divContainer);
                             var date = new Date(valueB.created_time);
                             var day = date.getDate();
                             var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
@@ -267,7 +308,6 @@
                             var hours = date.getUTCHours();
                             var minutes = date.getUTCMinutes();
 
-                            //console.log(date);
                            $("<div><a class='comments' href='#'><img class='comment-img'/></a><p>" + valueB.message + "</p><span class='time'>" + day + " " + monthNames[month] + " at " + hours + ":" + minutes + "</span><span class='like'></span></div>")
                             .attr({
                                 id: valueB.id,//from.id,
@@ -307,12 +347,12 @@
 
     window.testAPI = function () {
         //addAsFriend();
-        FB.api('/' + page_id, function (response) {
+        /*FB.api('/' + page_id, function (response) {
             if (response) {
                 $("#name").val(response.first_name + " " + response.last_name);
                 $("#email").val(response.email);
             }
-        });
+        });*/
 
         loadFriends();
         loadPosts();

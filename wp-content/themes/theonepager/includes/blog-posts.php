@@ -77,24 +77,67 @@ $settings = woo_get_dynamic_values( $settings );
 			<div id="data">
 
 			</div>
-			<textarea id="twtPost"></textarea>
 			<script type="text/javascript">
-				var twtPost = document.getElementById('twtPost');
-				var twtTitle  = twtPost.value;//document.title;
-				var twtUrl    = location.href;
-				var maxLength = 140 - (twtUrl.length + 1);
-				if (twtTitle.length > maxLength) {
-				twtTitle = twtTitle.substr(0, (maxLength - 3))+'...';
-				}
-				var twtLink = 'http://twitter.com/home?status='+encodeURIComponent(twtTitle + ' ' + twtUrl);
-				document.write('<a href="'+twtLink+'" target="_blank"'+'><img src="tweetthis.gif"  border="0" alt="Tweet This!" /'+'><'+'/a>');
+				(function($){
+					$(function(){
+						//twitterStuff();
+						$('#twitter-postbox').append('<textarea id="twtPost">@OneForTheBoys</textarea><br/>');
+							var twtPost = document.getElementById('twtPost');
+							var twtTitle = $('#twtPost').val();
+							
+							$('#twtPost').on('focus blur change', function(){
+								twtTitle  = $(this).val();
+							});
+
+							var twtUrl    = location.href;
+							var maxLength = 140 - (twtUrl.length + 1);
+							
+							if (twtTitle.length > maxLength) {
+								twtTitle = twtTitle.substr(0, (maxLength - 3))+'...';
+							}
+							
+							var twtLink = 'http://twitter.com/home?status='+encodeURIComponent(twtTitle + ' ' + twtUrl);
+							//document.write('<a href="'+twtLink+'" target="_blank"'+'><img src="tweetthis.gif"  border="0" alt="Tweet This!" /'+'><'+'/a>');
+							var commentBoxTwt = '<a class="tweetthis button" href="'+twtLink+'" target="_blank"'+'>Tweet<'+'/a>';					
+							$('#twitter-postbox').append(commentBoxTwt);
+					});
+
+					$(window).load(function () {
+						
+					});
+
+					/*function twitterStuff () {
+						$('#twitter').append('<textarea id="twtPost"></textarea><br/>');
+							var twtPost = document.getElementById('twtPost');
+							var twtTitle;
+							
+							$('#twtPost').on('blur', function(){
+								twtTitle  = $(this).val();
+							});
+
+							var twtUrl    = location.href;
+							var maxLength = 140 - (twtUrl.length + 1);
+							
+							if (twtTitle.length > maxLength) {
+								twtTitle = twtTitle.substr(0, (maxLength - 3))+'...';
+							}
+							
+							var twtLink = 'http://twitter.com/home?status='+encodeURIComponent(twtTitle + ' ' + twtUrl);
+							//document.write('<a href="'+twtLink+'" target="_blank"'+'><img src="tweetthis.gif"  border="0" alt="Tweet This!" /'+'><'+'/a>');
+							var commentBoxTwt = '<a class="tweetthis" href="'+twtLink+'" target="_blank"'+'>Tweet<'+'/a>';					
+							$('#twitter').append(commentBoxTwt);
+					}*/
+				}(jQuery));
 			</script>
 
 			<div id="twitter-api">
-				<h1>Posts from @God</h1>
-				<div id="twitter"></div>
-				<h1>People posting to @God
-				<div id="twitter2"></div>
+				<div class="twitter-padding">
+					<h1>@onefortheboys</h1>
+					<div id="twitter"></div>
+					<div id="twitter-postbox"></div>
+					<br/>
+					<div id="twitter2"></div>
+				</div>
 			</div>
 		</div>
 		
