@@ -87,6 +87,7 @@ Twitter integration styling */
 #twitter-api {
 	max-width:336px;
 	background:#fff;
+	border-bottom:5px solid #ccc;
 }
 
 .twitter-padding {
