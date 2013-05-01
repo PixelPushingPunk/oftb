@@ -83,6 +83,17 @@ blog integration styling */
 	float:left;
 }
 
+#blog-posts span.post-category {
+	display:none;
+}
+
+#blog-posts .pst header h1 {
+	font-family:'LubalinGraphLTBold', Open Sans, sans-serif;
+	font-size:24px;
+	line-height:24px;
+	color:#999999;
+}
+
 
 /* 
 Twitter plug
@@ -94,39 +105,73 @@ Twitter integration styling */
 	border-bottom:5px solid #ccc;
 }
 
+#twitter-api h1 {
+	font-family:'LubalinGraphLTBold', Open Sans, sans-serif;
+	font-size:24px;
+	line-height:24px;
+	color:#999999;
+}
 .twitter-padding {
-	padding:20px;
+	padding:15px;
 }
 
 #twitter2 {
-	overflow-y:scroll;
+	/*overflow-y:scroll;
 	overflow-x:hidden;
-	height:338px;
+	height:338px;*/
+
+	/*list-style: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 0;
+	margin: 0;*/
 }
 
 .button, .tweetthis.button {
 	background-color:#999;
 	color:#fff;
 	text-transform:capitalize;
-	padding:2px 5px;
+	padding:2px 9px;
 	
-	-moz-text-shadow:none;
-	-webkit-text-shadow:none;
-	text-shadow:none;
+	-moz-text-shadow:none !important;
+	-webkit-text-shadow:none !important;
+	text-shadow:none !important;
 
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-radius:3px;
+	-moz-border-radius:1px;
+	-webkit-border-radius:1px;
+	border-radius:1px;
+
+	font-family:'Arial', helvetica, sans-serif;
+	font-size:13px;
+	letter-spacing:1px;
+	font-weight:normal;
+
+	-moz-box-shadow:0 0 1px 1px #ccc;
+	-webkit-box-shadow:0 0 1px 1px #ccc;
+	box-shadow:0 0 1px 1px #ccc;
 }
 
+#twtPost {
+	width:294px;
+	min-height:66px;
+
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+
+	-moz-box-shadow:0 0 3px 0px #366f9f inset;
+	-webkit-box-shadow:0 0 3px 0px #366f9f inset;
+	box-shadow:0 0 3px 0px #366f9f inset;
+}
 
 .jtwt { list-style: none; }
-.jtwt li { margin-bottom: 10px; }
+.jtwt li { margin-bottom: 35px; }
 .jtwt li:last-child { margin-bottom: 0px; }
 .jtwt_loader { font-weight: bold; }
 .jtwt_picture { float: left; margin-right: 10px; }
 p.jtwt_tweet_text { color:#04000a; }
-p.jtwt_tweet_text, p.jtwt_tweet_text a { text-align: justify; font-size:12px; line-height:20px; font-weight:normal; margin:0; padding:0;}
+p.jtwt_tweet_text, p.jtwt_tweet_text a { text-align: left; font-family:'Helvetica', Arial, sans-serif; font-size:13px; line-height:16px; font-weight:normal; margin:0; padding:0;}
 a.jtwt_date { font-size: 12px; }
 
 /* 
@@ -329,6 +374,24 @@ Twitter styling */
 
 #rightControlBL {
 	float:right;
+}
+
+.control a , .controlBL a {
+	display:block;
+	width:10px;
+	height:15px;
+	background:url('images/navArrows.png') no-repeat scroll 0 0;
+	font:0/0 a;
+	text-shadow:none;
+	color:transparent;
+}
+
+#leftControl a, #leftControlBL a {
+	background-position:0 0;
+}
+
+#rightControl a, #rightControlBL a {
+	background-position:-9px 0;
 }
 
 

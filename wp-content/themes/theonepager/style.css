@@ -683,8 +683,8 @@ span.heading {
 }
 #content.home-widgets .widget_woo_component {
   margin: 0;
-  padding: 15.236em 0 4.236em;
-  border-bottom: 1px solid #dedede;
+  padding: 15.236em 0 0;
+  /*border-bottom: 1px solid #dedede;*/
 }
 #content.home-widgets .widget_woo_component h2.widget-title {
   margin-bottom: 1.618em;

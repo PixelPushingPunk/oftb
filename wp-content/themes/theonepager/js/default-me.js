@@ -3,20 +3,13 @@
 	// Document load
 	$(function(){
 		//alert('document ready');
-		console.log('test document ready');
-	});//end.document.ready
-	
-
-	// Window load
-    $(window).load(function(){
-        // test api facebook on load
-        //testAPI();
 
         // Twitter
         $('#twitter').jtwt({
             count: 1, // number of displayed tweets
-            username: 'god', // username
+            username: 'ted', // username
             //query: '#batman', // performs a serach query
+            image_size: 65,
             loader_text: 'loading tweets', //loadin text
             no_result: 'No tweets found' // no results text
         });
@@ -25,9 +18,21 @@
             count: 10, // number of displayed tweets
             //username: 'god', // username
             query: '@god', // performs a serach query
+            image_size: 65,
             loader_text: 'loading tweets', //loadin text
             no_result: 'No tweets found' // no results text
         });
+		console.log('test document ready');
+	});//end.document.ready
+	
+
+	// Window load
+    $(window).load(function(){
+        // test api facebook on load
+        //testAPI();        
+
+        // Scroll bar
+        $('#scrollbar1').tinyscrollbar();
 
         // Facebook
         $('#loadingFriends, #loadingComments').show();
@@ -115,6 +120,15 @@
 
         // Blog slider function() 
         sliderBlogPost();
+
+        // slider centre
+        var lenSideWidth = $('#campaigns .ls_def_ibanner_banner .abs').width();
+        var lensNavWidth = $('#campaigns .ls_def_ibanner_nav').width();
+        console.log('lenSideWidth ' + lenSideWidth);
+        console.log('lensNavWidth' + lensNavWidth);
+        var lensPos = ( lenSideWidth / 2 ) - ( lensNavWidth / 2 );
+        console.log('lensPos ' + lensPos);
+        $('#campaigns .ls_def_ibanner_nav').css('left', lensPos);
 
         console.log('test window ready');
    	});// end window.load*/

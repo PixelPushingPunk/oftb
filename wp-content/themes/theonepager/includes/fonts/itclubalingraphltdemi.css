@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'LubalinGraphLTBold';
+    src: url('itclubalingraphltdemi.eot');
+    src: url('itclubalingraphltdemi.eot') format('embedded-opentype'),
+         url('itclubalingraphltdemi.woff') format('woff'),
+         url('itclubalingraphltdemi.ttf') format('truetype'),
+         url('itclubalingraphltdemi.svg#LubalinGraphLTBold') format('svg');
+}
+
+@font-face {
+    font-family: 'LubalGraphBkBTBook';
+    src: url('itclubalingraphbookbt.eot');
+    src: url('itclubalingraphbookbt.eot') format('embedded-opentype'),
+         url('itclubalingraphbookbt.woff') format('woff'),
+         url('itclubalingraphbookbt.ttf') format('truetype'),
+         url('itclubalingraphbookbt.svg#LubalGraphBkBTBook') format('svg');
+}

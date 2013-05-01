@@ -43,6 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	?></title>
 <?php woo_meta(); ?>
 <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/includes/fonts/itclubalingraphltdemi.css" media="all"/>
 <?php
 wp_head();
 woo_head();
