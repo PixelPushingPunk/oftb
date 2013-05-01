@@ -60,7 +60,14 @@ BLOG POST
 blog integration styling */
 #blog-posts article {
 	float:left;
-	width:620px;
+	width:580px;
+	min-height:520px;
+	padding:20px;
+
+	-moz-box-shadow:inset 0px -11px 8px -10px #CCC;
+	-webkit-box-shadow:inset 0px -11px 8px -10px #CCC;
+	box-shadow:inset 0px -11px 8px -10px #CCC;
+
 }
 
 #blog-posts #main {
@@ -70,8 +77,12 @@ blog integration styling */
 	float:right;
 
 	background-color:#fff;
-	min-height:651px;
+	min-height:647px;
 	border-bottom:5px solid #ccc;
+}
+
+#blog-posts .main-padding {
+	padding:0;
 }
 
 #block-posts #main .sliderWrapBL {
@@ -87,13 +98,18 @@ blog integration styling */
 	display:none;
 }
 
-#blog-posts .post header h1 {
-	font-family:'LubalinGraphLTBold', Open Sans, sans-serif;
+#blog-posts .post header h1, #block-posts .post header h1 a {
+	font-family:'LubalinGraphLTBold', Open Sans, sans-serif !important;
 	font-size:24px;
+	font-weight:normal;
 	line-height:24px;
-	color:#999999;
+	color:#999999 !important;
+	text-decoration:none !important;
 }
 
+ #block-posts .post header h1 a:hover {
+ 	text-decoration:none !important;
+ }
 
 /* 
 Twitter plug
@@ -336,8 +352,14 @@ LENS SLIDER STYLING
 -----------------
 LENS SLIDER EVENTS styling */
 
+#events .ls_def_ibanner {
+	max-width:980px;
+	height:394px;
+}
+
 #events .ls_def_ibanner_banner .abs {
 	float:right;
+	padding:15px 15px 15px 0;
 }
 
 #events .ls_def_ibanner_banner .abs, #events .ls_def_ibanner_banner .abs .desc {
@@ -352,13 +374,31 @@ LENS SLIDER EVENTS styling */
 #events .slide-img {
 	max-width:468px;
 	margin:0 15px 0 0;
+	padding:15px 0 15px 15px;
+	float:left;
 } 
 
 #events .ls_def_ibanner div {
 	background:#f6f6f6;
 }
 
+#events .ls_def_ibanner_nav {
+	bottom:65px;
+}
 
+#events-section-one .ls_def_ibanner {
+	border-bottom:5px solid #ccc;
+}
+
+#events-section-two #main {
+	background:url('images/events-bg.png') no-repeat scroll 50% 0;
+	background-size:100%;
+	min-height:607px;
+}
+
+#events-section-two #main article {
+	padding:149px 48px 48px;
+}
 /* 
 TWITTER STYLING
 -----------------
@@ -370,10 +410,17 @@ Twitter styling */
 
 #leftControlBL {
 	float:left;
+	left:20px;
 }
 
 #rightControlBL {
 	float:right;
+	right:20px;
+}
+
+.controlBL {
+	position:relative;
+	top:13px;
 }
 
 .control a , .controlBL a {
