@@ -180,12 +180,12 @@
     window.loadFriends = function () {
         FB.api('/' + page_id + '/friends?fields=name,link', function (response) {
             $("#loadingFriends, #facebook-friends-temp").hide();
-            var divContainer = $('#facebook-friends-perm');
+            var divContainer = $('#facebook-friends');
 
-            var startCount = (response.data.length - 24) ? response.data.length - 24 : 0; 
+            var startCount = (response.data.length - 10) ? response.data.length - 10 : 0; 
             var inCount = response.data.length;
 
-            for (i = startCount; i < inCount; i++) { 
+            for (i = 0; i < inCount; i++) { 
                 $("<div class=\"friendWrap\"><a class=\"friend\" href=\"#\"><img /></a><div class=\"friend-detail-wrap\"><a href=\"#\" class=\"friend-detail\">" + response.data[i].name +"</a></div></div>")
 	  	    .find(".friend")
             .attr({
@@ -193,7 +193,7 @@
 	  	        href: response.data[i].link
 	  	    })
             .end()
-	  	    .find(".friend img")
+	  	    .find("img")
 	          .attr({
 	              src: 'https://graph.facebook.com/' + response.data[i].id + '/picture?width=64&height=64',
 	              alt: response.data[i].name,

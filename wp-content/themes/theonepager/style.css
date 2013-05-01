@@ -2955,7 +2955,7 @@ html[xmlns] .flexslider .slides {
   text-align: center;
 }
 .flex-control-nav li {
-  margin: 0 30px;
+  margin: 0 6px;
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -2964,23 +2964,23 @@ html[xmlns] .flexslider .slides {
   width: 11px;
   height: 11px;
   display: block;
-  background: #999999;
-  /*background: rgba(0, 0, 0, 0.3);*/
+  background: #666;
+  background: rgba(0, 0, 0, 0.3);
   cursor: pointer;
   text-indent: -9999px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -o-border-radius: 20px;
   border-radius: 20px;
-  /*box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);*/
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
 }
 .flex-control-paging li a:hover {
   background: #333;
   background: rgba(0, 0, 0, 0.7);
 }
 .flex-control-paging li a.flex-active {
-  background: #bebacb;
-  /*background: rgba(0, 0, 0, 0.9);*/
+  background: #000;
+  background: rgba(0, 0, 0, 0.9);
   cursor: default;
 }
 .flex-control-thumbs {

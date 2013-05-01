@@ -1,0 +1,134 @@
+/* CAPTIONS
+ ================================================== */
+
+.modern .orbit-caption {
+	display: none;
+	font-family: "HelveticaNeue", "Helvetica-Neue", Helvetica, Arial, sans-serif;
+}
+
+.orbit-wrapper.modern .orbit-caption {
+	
+	background: url(../css/bg-transparent.png) repeat;
+	z-index: 1000;
+	color: #fff;
+	text-align: center;
+	padding: 7px 0;
+	font-size: 13px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	text-align:justify;
+}
+
+/* DIRECTIONAL div
+ ================================================== */
+
+.modern NAV.slider-nav {
+	display: block
+}
+
+.modern div.slider-nav span {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;   
+	width: 40px;
+	height: 50px;
+	top:0px !important;
+	position: absolute;
+	z-index: 1000;
+	cursor: pointer;	
+  	font-size: 60px;
+  	font-weight: 100;
+  	line-height: 43px;
+ 	color: #ffffff;
+  	text-align: center;
+  	background: #222222;
+  	text-align:center;
+  	opacity: 0.5;
+  	filter: alpha(opacity=50);
+  	padding:0px;
+  	margin:0px;
+	
+}
+
+
+
+.modern div.slider-nav span:hover {
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+
+
+.modern div.slider-nav span.right {
+  
+/*	background: url(orbit/right_button.png);*/
+	left: 40px;
+	
+}
+
+
+
+/* BULLET NAV
+ ================================================== */
+
+.pjc-slideshow-container .modern .orbit-bullets-wrapper{
+    position:absolute;
+    width:100%;
+    margin:0px;
+    padding:0px;
+    text-align: center;
+    margin-top:-5px;
+   
+}
+
+.pjc-slideshow-container .modern .orbit-bullets-wrapper ul.orbit-bullets {
+	position: relative;
+	z-index: 1000;
+	list-style: none;
+	display: inline-block;
+	margin: 0px;	
+	width:100%;
+
+	padding:0px;
+	margin:0px;
+	
+}
+
+.pjc-slideshow-container .orbit-wrapper.modern ul.orbit-bullets li.pjc-slideshow-navbullets {
+	float: left;
+	cursor: pointer;
+	color: #999;
+	
+	
+	overflow: hidden;
+	background-color:rgb(172, 172, 172);
+	list-style-type:none;
+	text-indent:9999px;
+	padding:0px;
+	margin:0px;
+	background-image:none;
+}
+.pjc-slideshow-container .orbit-wrapper.modern ul.orbit-bullets li{
+    height:20px;
+}
+.pjc-slideshow-container .orbit-wrapper.modern ul.orbit-bullets li.active {
+    padding:0px;
+	margin:0px;
+	background-color:#444444;
+	padding:0px;
+}
+.pjc-slideshow-container .orbit-wrapper.modern ul.orbit-bullets li:hover{
+    background-color:#666666;
+}
+
+.pjc-slideshow-container .orbit-wrapper.modern ul.orbit-bullets  li.has-thumb {
+	background: none;
+	width: 100px;
+	height: 75px;
+}
+
+.pjc-slideshow-container .orbit-wrapper.modern ul.orbit-bullets  li.active.has-thumb {
+	background-position: 0 0;
+	border-top: 2px solid #000;
+}

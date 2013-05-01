@@ -73,9 +73,22 @@
     height:20px
 }
 .ls_def_ibanner_nav li a{
-    display:block;
+    /*display:block;
     width:20px;
     height:20px;
-    background:url("../images/cntrlbtns.png") 0 0 no-repeat
+    background:url("../images/cntrlbtns.png") 0 0 no-repeat*/
+
+    width: 11px;
+    height: 11px;
+    display: block;
+    background: #666;
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    text-indent: -9999px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
 }
 .ls_def_ibanner_nav li.ui-state-active a{background-position:0 -20px}
