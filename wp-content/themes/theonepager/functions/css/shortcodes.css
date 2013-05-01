@@ -409,7 +409,7 @@ a.woo-sc-button.silver:hover {
 .shortcode-tabs ul.tab_titles { padding:0px; background:none; border:none; margin:0;}
 .shortcode-tabs ul.tab_titles li.nav-tab { background:none; padding:0; float: left; display:inline; color: #ffffff; margin:0px; cursor: pointer; }
 .shortcode-tabs ul.tab_titles li.nav-tab.ui-tabs-selected a, .shortcode-tabs ul.tab_titles li.nav-tab a:hover { background:#fff; text-decoration:none; }
-.shortcode-tabs ul.tab_titles li.nav-tab a {	color:#234766; display: block;float: left;padding: 8px; text-transform:normal; font:24px/24px sans-serif; }
+.shortcode-tabs ul.tab_titles li.nav-tab a {	color:#234766; display: block;float: left;padding: 12px 15px; text-transform:normal; font:24px/24px 'LubalinGraphLTBold', Open Sans, sans-serif; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; }
 .shortcode-tabs ul.tab_titles li.nav-tab.ui-tabs-selected a, .shortcode-tabs ul.tab_titles li.nav-tab a:hover { -moz-border-radius-topright:3px; -moz-border-radius-topleft:3px;-webkit-border-top-right-radius: 3px; -webkit-border-top-left-radius:3px; border-top-right-radius:3px; border-top-left-radius:3px; }
 .shortcode-tabs .tab { background:none; padding:10px; text-align: left; clear: both; }
 .shortcode-tabs .tab li.nav-tab { background:#fff;  }
@@ -451,7 +451,7 @@ a.woo-sc-button.silver:hover {
 		
 		}
 		.shortcode-tabs.vertical .tab_header span { display: block; padding: 8px 8px 12px 8px; border: 1px solid #EBEBEB; }
-	.shortcode-tabs.vertical ul.tab_titles {  clear: left; float: left; background:none; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; margin-bottom: 0px; position: relative; z-index: 2; width: 29%; }
+	.shortcode-tabs.vertical ul.tab_titles {  clear: left; float: left; background:none; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; margin-bottom: 0px; position: relative; z-index: 2; width: 30%; margin:0 15px 0 0; border-bottom:5px solid #ccc; }
 		.shortcode-tabs.vertical ul.tab_titles.has_title { border-top: 0px !important; margin-top: 5px; }
 		.shortcode-tabs.vertical ul.tab_titles.has_title {
 		
@@ -463,12 +463,12 @@ a.woo-sc-button.silver:hover {
 			-webkit-border-top-right-radius: 0px;
 		
 		}
-		.shortcode-tabs.vertical ul.tab_titles li { clear: both; background:none; padding:0; display: block !important; float: none !important; }
+		.shortcode-tabs.vertical ul.tab_titles li { margin:2px 0;clear: both; background:none; padding:0; display: block !important; float: none !important; }
 		.shortcode-tabs.vertical ul.tab_titles li.ui-state-active {}
 			.shortcode-tabs.vertical ul.tab_titles li.ui-state-active a { background: #234766; color:#fff; }
 			.shortcode-tabs.vertical ul.tab_titles li a:link { display: block; float: none !important; }
 			.shortcode-tabs.vertical ul.tab_titles li a:hover { background: #234766; color:#fff; }
-	.shortcode-tabs.vertical .tab { clear: right !important; top: 5px; position: relative; z-index: 1; margin-left: 30%; padding: 0px; }
+	.shortcode-tabs.vertical .tab { clear: right !important; top: 5px; position: relative; z-index: 1; margin-left: 31%; padding: 0px; min-height:447px; border-bottom:5px solid #ccc; font-family:'Helvetica', Arial, sans-serif; font-size:13px; line-height:24px; color:#04000a; }
 	
 /*-------------------------------------------------------------------------------------------*/
 /* 14. Dropcap */
@@ -482,8 +482,8 @@ span.dropcap { font-size: 300%; font-weight: bold; float: left; position: relati
 
 .shortcode-toggle { margin: 0 0 1.2em;}
 .shortcode-toggle h4 {margin: 0;}
-.shortcode-toggle h4 a { display: block; padding: 3px 0 3px 36px; color:#fff; background: #234766 url(../images/shortcode-toggle-close.png) no-repeat 1% center; }
-.shortcode-toggle.closed h4 a  { background-image: url(../images/shortcode-toggle-open.png); }
+.shortcode-toggle h4 a { display: block; padding: 10px 0 10px 55px; color:#fff; background: #234766 url(../images/upArrow.png) no-repeat 10px center; font-family:'LubalinGraphLTBold', Opens Sans, sans-serif; font-size:24px; line-height:24px; text-decoration:none;}
+.shortcode-toggle.closed h4 a  { background-image: url(../images/downArrow.png); }
 .shortcode-toggle .toggle-content  { padding: 10px 10px; background: #f9f9f9; }
 .shortcode-toggle.closed .toggle-content, .shortcode-toggle .more-text.closed { display: none; }
 .shortcode-toggle .more-text.open { display: block; }

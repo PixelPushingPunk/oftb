@@ -441,4 +441,18 @@ Twitter styling */
 	background-position:-9px 0;
 }
 
+/* 
+CONTACT US STYLING
+-----------------
+contact us styling */
+#contact-area h1.widget-title {
+	display:none;
+}
+
+#contact-area .co-full {
+	background-color:#fff;
+	padding:15px;
+}
+
+
 
