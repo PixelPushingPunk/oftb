@@ -87,7 +87,7 @@ blog integration styling */
 	display:none;
 }
 
-#blog-posts .pst header h1 {
+#blog-posts .post header h1 {
 	font-family:'LubalinGraphLTBold', Open Sans, sans-serif;
 	font-size:24px;
 	line-height:24px;
