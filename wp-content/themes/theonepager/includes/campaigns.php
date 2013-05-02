@@ -87,6 +87,19 @@ $query = new WP_Query( array( 'page_id' => $settings['homepage_campaign_id'] ) )
 
 	<!-- facebook section -->
 	<div class="facebook-section col-full layout-full">
+		
+		<div id="posts" class="step">
+		    <!--<div id="txtEcho"><input id="postToWall" type="submit" value="postToWall"/></div>-->		
+			<h2>Posts</h2>
+			<div id="loadingComments">Loading comments . . . </div>
+			<div id="loading-posts">	
+				<form id="postForm"><textarea class='textareaFB'></textarea><br><input class='postToWall' type='submit' value='comment' name='comment'/></form>
+			</div>
+		    <!--<div id="comments-box">
+		        <div class="fb-comments" data-href="https://www.facebook.com/pages/Big-Group-Test-Page/261622440537988" data-width="470" data-num-posts="20"></div>
+		    </div>-->
+		</div><!--/#posts-->
+
 		<div id="friends" class="step">
 			<h2>Our Friends</h2>
 		    <a class="fbLogin" href="#">Login to Facebook</a>
@@ -132,19 +145,7 @@ $query = new WP_Query( array( 'page_id' => $settings['homepage_campaign_id'] ) )
 					<div class="firnedBlockWrap64 three"></div>
 				</div>
 			</div>	
-		</div>
-
-		<div id="posts" class="step">
-		    <!--<div id="txtEcho"><input id="postToWall" type="submit" value="postToWall"/></div>-->		
-			<h2>Posts</h2>
-			<div id="loadingComments">Loading comments . . . </div>
-			<div id="loading-posts">	
-				<form id="postForm"><textarea class='textareaFB'></textarea><br><input class='postToWall' type='submit' value='comment' name='comment'/></form>
-			</div>
-		    <!--<div id="comments-box">
-		        <div class="fb-comments" data-href="https://www.facebook.com/pages/Big-Group-Test-Page/261622440537988" data-width="470" data-num-posts="20"></div>
-		    </div>-->
-		</div>
+		</div><!--/#friends-->
 
 	</div> <!-- end facebook section -->
 

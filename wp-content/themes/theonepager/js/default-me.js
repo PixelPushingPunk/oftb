@@ -75,8 +75,8 @@
 
         // post to fb wall button
         $('.postToWall').on('click', function(e) {
-            //var textDataID = jQuery(this).siblings('textarea').attr('data-id');
-            var thisPostID = jQuery(this).siblings('textarea').attr('name'); //$(this).attr('id'); 
+            //var textDataID = $(this).siblings('textarea').attr('data-id');
+            var thisPostID = $(this).siblings('textarea').attr('name'); //$(this).attr('id'); 
                         
             //console.log('input post id ' + thisPostID);
             //console.log('textData id ' + textDataID);
@@ -145,66 +145,64 @@
     var sliderFb = function () {
      // Slider for facebook
         var currentPosition = 0;
-        var slides = jQuery('.pcWrap');
+        var slides = $('.pcWrap');
         var numberOfSlides = slides.length;
 
-        var getPcVal = function (pcWrapWidth, currentPosition) {
-            var pcWrapID = jQuery('.pcWrap.active').attr('id');
-            jQuery('#postForm textarea').attr('name', pcWrapID);
-            console.log('pcWrapID ' + pcWrapID);
-        };
+        function getPcVal (pcWrapWidth, currentPosition) {
+            var pcWrapID = $('.pcWrap.active').attr('id');
+            $('#postForm textarea').attr('name', pcWrapID);
+            //console.log('pcWrapID ' + pcWrapID);
+        }
 
-        var manageControls = function (position) {
+        function manageControls (position) {
                 // hide left arrow if position = first slide
                 if (position == 0) {
-                    jQuery('#leftControl').css('display',' none');
+                    $('#leftControl').css('display',' none');
                 } else {
-                    jQuery('#leftControl').css('display', 'block');
+                    $('#leftControl').css('display', 'block');
                 }
 
                 // hide right arrow if position is last slide
                 if (position == numberOfSlides - 1) {
-                    jQuery('#rightControl').hide();
+                    $('#rightControl').hide();
                 } else {
-                    jQuery('#rightControl').show();
+                    $('#rightControl').show();
                 }
-        };
+        }
             // Create slider wrap
-            jQuery('.pcWrap').wrapAll('<div class="sliderWrap"></div>');
+            $('.pcWrap').wrapAll('<div class="sliderWrap"></div>');
             
             // Create Previous and Next buttons
-            jQuery('#loading-posts').prepend('<div class="clear"></div>');
-            jQuery('#loading-posts').prepend('<div id="rightControl" class="control rightFB"><a href="#">Next</a></div>');
-            jQuery('#loading-posts').prepend('<div id="leftControl" class="control leftFB"><a href="#">Prev</a></div>');
+            $('#loading-posts').prepend('<div class="clear"></div>');
+            $('#loading-posts').prepend('<div id="rightControl" class="control rightFB"><a href="#">Next</a></div>');
+            $('#loading-posts').prepend('<div id="leftControl" class="control leftFB"><a href="#">Prev</a></div>');
             
             // Set slider wrap width 
-            var pcWrapWidth = jQuery('.pcWrap').width();
-            var pcWrapLength = jQuery('.pcWrap').length;
+            var pcWrapWidth = $('.pcWrap').outerWidth();
+            var pcWrapLength = $('.pcWrap').length;
+            var slideWidth = pcWrapWidth * pcWrapLength;
 
             console.log('pcWrapWidth: ' + pcWrapWidth);
-            console.log('pcWraplength: ' + pcWrapLength);
-            var slideWidth = pcWrapWidth * pcWrapLength;
+            console.log('pcWraplength: ' + pcWrapLength);    
             console.log('slideWidth: ' + slideWidth);
 
-            jQuery('.sliderWrap').css('width', slideWidth);
+            $('.sliderWrap').css('width', slideWidth);
 
             manageControls(currentPosition);
             
-
-            jQuery('.pcWrap:eq(0)').addClass('active');
+            $('.pcWrap:eq(0)').addClass('active');
             getPcVal(pcWrapWidth, currentPosition);
 
-            jQuery('.control').on('click', function(e) {
-                currentPosition = (jQuery(this).attr('id')=='rightControl') ? currentPosition+1 : currentPosition-1;
+            $('.control').on('click', function(e) {
+                currentPosition = ($(this).attr('id')=='rightControl') ? currentPosition+1 : currentPosition-1;
 
                 manageControls(currentPosition);
-                jQuery('.sliderWrap').animate({
+                $('.sliderWrap').animate({
                     'marginLeft' : pcWrapWidth*(-currentPosition)
                 }); 
                 
-
-                jQuery('.pcWrap').removeClass('active');
-                jQuery('.pcWrap:eq(' + currentPosition + ')').addClass('active');
+                $('.pcWrap').removeClass('active');
+                $('.pcWrap:eq(' + currentPosition + ')').addClass('active');
 
                 getPcVal(pcWrapWidth, currentPosition);
 
@@ -217,50 +215,50 @@
      // Slider for facebook
         console.log('test beg sliderblog post');
         var currentPosition = 0;
-        var slidesBL = jQuery('#blog-posts article');
+        var slidesBL = $('#blog-posts article');
         var numberOfSlidesBL = slidesBL.length;
 
         var manageControls = function(position) {
                 // hide left arrow if position = first slide
                 if (position == 0) {
-                    jQuery('#leftControlBL').hide()
+                    $('#leftControlBL').hide()
                 } else {
-                    jQuery('#leftControlBL').show()
+                    $('#leftControlBL').show()
                 }
 
                 // hide right arrow if position is last slide
                 if (position == numberOfSlidesBL - 1) {
-                    jQuery('#rightControlBL').hide();
+                    $('#rightControlBL').hide();
                 } else {
-                    jQuery('#rightControlBL').show();
+                    $('#rightControlBL').show();
                 }
         };
             // Create slider wrap
-            jQuery('#blog-posts article').wrapAll('<div class="sliderWrapBL"></div>');
+            $('#blog-posts article').wrapAll('<div class="sliderWrapBL"></div>');
             
             // Create Previous and Next buttons
-            jQuery('#blog-posts #main .main-padding').prepend('<div class="clear"></div>');
-            jQuery('#blog-posts #main .main-padding').prepend('<div id="rightControlBL" class="controlBL rightBL"><a href="#">Next</a></div>');
-            jQuery('#blog-posts #main .main-padding').prepend('<div id="leftControlBL" class="controlBL leftBL"><a href="#">Prev</a></div>');
+            $('#blog-posts #main').prepend('<div class="clear"></div>');
+            $('#blog-posts #main').prepend('<div id="rightControlBL" class="controlBL rightBL"><a href="#">Next</a></div>');
+            $('#blog-posts #main').prepend('<div id="leftControlBL" class="controlBL leftBL"><a href="#">Prev</a></div>');
             
             // Set slider wrap width 
-            var articleWrapWidth = jQuery('#blog-posts article').width();
-            var articleWrapLength = jQuery('#blog-posts article').length;
+            var articleWrapWidth = $('#blog-posts article').outerWidth();
+            var articleWrapLength = $('#blog-posts article').length;
 
             // console.log('pcWrapWidth: ' + pcWrapWidth);
             // console.log('pcWraplength: ' + pcWrapLength);
             var slideWidth = articleWrapWidth * articleWrapLength;
             // console.log('slideWidth: ' + slideWidth);
 
-            jQuery('.sliderWrapBL').css('width', slideWidth);
+            $('.sliderWrapBL').css('width', slideWidth);
 
             manageControls(currentPosition);
 
-            jQuery('.controlBL').on('click', function(e) {
-                currentPosition = (jQuery(this).attr('id')=='rightControlBL') ? currentPosition+1 : currentPosition-1;
+            $('.controlBL').on('click', function(e) {
+                currentPosition = ($(this).attr('id')=='rightControlBL') ? currentPosition+1 : currentPosition-1;
 
                 manageControls(currentPosition);
-                jQuery('.sliderWrapBL').animate({
+                $('.sliderWrapBL').animate({
                     'marginLeft' : articleWrapWidth*(-currentPosition)
                 }); 
 

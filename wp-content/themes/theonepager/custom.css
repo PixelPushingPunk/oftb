@@ -51,7 +51,7 @@ Styling for each module on one pager */
 }
 
 .slide-content .entry a img {
-	margin:0 auto;
+	margin:0;
 }
 
 /* 
@@ -60,9 +60,10 @@ BLOG POST
 blog integration styling */
 #blog-posts article {
 	float:left;
-	width:580px;
-	min-height:520px;
+	width:585px;
+	min-height:583px;
 	padding:20px;
+	margin:0 0 26px 0;
 
 	-moz-box-shadow:inset 0px -11px 8px -10px #CCC;
 	-webkit-box-shadow:inset 0px -11px 8px -10px #CCC;
@@ -71,10 +72,10 @@ blog integration styling */
 }
 
 #blog-posts #main {
-	max-width:620px;
+	max-width:625px;
 	overflow:hidden;
 	position:relative;
-	float:right;
+	float:left;
 
 	background-color:#fff;
 	min-height:647px;
@@ -92,6 +93,7 @@ blog integration styling */
 
 #blog-posts .twitter-section {
 	float:left;
+	margin:0 1em 0 0;
 }
 
 #blog-posts span.post-category {
@@ -116,7 +118,7 @@ Twitter plug
 -----------------
 Twitter integration styling */
 #twitter-api {
-	max-width:336px;
+	max-width:23em;
 	background:#fff;
 	border-bottom:5px solid #ccc;
 }
@@ -201,13 +203,14 @@ Facebook integration styling */
 			}
 
 			.facebook-section #friends {
-				float:right;
+				float:left;
 				max-width:630px;
 				overflow:hidden;
 			}
 
 			.facebook-section #posts {
 				float:left;
+				margin:0 1em 0 0;
 			}
 
 			.facebook-section #postForm {
@@ -393,7 +396,7 @@ LENS SLIDER EVENTS styling */
 #events-section-two #main {
 	background:url('images/events-bg.png') no-repeat scroll 50% 0;
 	background-size:100%;
-	min-height:607px;
+	min-height:877px;
 }
 
 #events-section-two #main article {
