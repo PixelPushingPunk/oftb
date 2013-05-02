@@ -156,7 +156,7 @@ INDEX
   }
   ul.nav li a {
     display: block;
-    padding: 5.1em 1em;
+    padding: 5.1em 1em 0;
     font-size: 1.2em;
     line-height: 1;
     font-weight: bold;
@@ -224,13 +224,17 @@ INDEX
   }
   #top ul.nav > li a {
     color: #366f9f;
+    font-family:'LubalinGraphLTBold', Open Sans, sans-serif;
+    font-size:15px;
   }
+
   #top ul.nav > li:hover {
-    background: #366f9f;
+    /*background: #366f9f;*/
+    /*border-bottom:5px solid #366f9f;*/
   }
   #top ul.nav > li:hover a {
     text-decoration: none;
-    color:#fff;
+    color:#366f9f;
   }
   #top ul.nav ul {
     background: #000;
@@ -717,7 +721,8 @@ INDEX
   #main.fullwidth,
   .layout-full #main,
   .col-full {
-    max-width: 100em;
+    /*max-width: 100em;*/
+    max-width:75.998em;
   }
 }
 @media only screen and (min-width: 1100px) {

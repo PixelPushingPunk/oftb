@@ -32,8 +32,8 @@ Add styles inside the media query below that you only want to be applied to the 
 	#top-nav li.logo-between {
 		max-width:100%;
 	}
-	#top-nav li.logo-between a:hover {
-		background-color:none !important;
+	#top ul#top-nav li.logo-between, #top ul#top-nav li.logo-between:hover a, #top ul#top-nav li.logo-between a:hover {
+		background:none !important;
 	}
 }
 

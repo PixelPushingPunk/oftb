@@ -438,9 +438,9 @@ function woo_top_nav () {
 
 	<div id="top">
 		<nav class="col-full" role="navigation">
-			<div class="oftb-logo"><a href="/" target="_self">One For The Boys</a></div>
+			<div class="oftb-logo"><a href="#" target="_self">One For The Boys</a></div>
 			<ul id="top-nav" class="nav" style="">
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="campaigns-nav" href="#campaigns">Campaigns</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="campaigns-nav" href="#campaigns">Campaign</a></li>
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="getInvolved-nav" href="#">Get involved</a></li>
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="events-nav" href="#events">Events</a></li>
 				<li class="logo-between"><a href="#"><img src="wp-content/themes/theonepager/images/ribbon.png"/></a></li>
@@ -453,7 +453,7 @@ function woo_top_nav () {
 			<?php #wp_nav_menu( array( 'depth' => 6, 'sort_column' => 'menu_order', 'container' => 'ul', 'menu_id' => 'top-nav', 'menu_class' => 'nav', 'theme_location' => 'top-menu' ) ); ?>
 		</nav>
 	</div><!-- /#top -->
-	<div class="shadow-top"></div>
+	<div id="shadow-top"></div>
 
  <?php
 	}

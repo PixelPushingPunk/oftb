@@ -533,8 +533,8 @@ ul.nav li.current_page_parent a,
 ul.nav li.current-menu-ancestor a,
 ul.nav li.current-cat a,
 ul.nav li.li.current-menu-item a {
-  background: #366f9f;
-  color:#fff !important;
+  /*background: #366f9f;
+  color:#fff !important;*/
 }
 ul.nav li.current_page_item ul a,
 ul.nav li.current_page_parent ul a,
@@ -558,7 +558,7 @@ ul.nav li.li.current-menu-item ul a {
   box-sizing: border-box;
   /* Opera/IE 8+ */
 
-  background:#fefefe url('images/shadow.png') no-repeat scroll center 100% !important;
+  background:#fefefe;
 }
 #top select {
   margin: 1.618em 0;
@@ -570,6 +570,18 @@ ul.nav li.li.current-menu-item ul a {
 .admin-bar #top {
   margin-top: 28px;
 }
+#shadow-top {
+  height: 8px;
+  width: 100%;
+  background-color: #fff;
+  display: block;
+  position: fixed;
+  top: 191px;
+  z-index: 10;
+  background: transparent url('images/shadow.png') no-repeat scroll center 100% !important;
+  background-size:100%;
+}
+
 /* Header */
 body.has-top-nav #header {
   padding-top: 9.505em;
@@ -682,8 +694,9 @@ span.heading {
 
 }
 #content.home-widgets .widget_woo_component {
-  margin: 0;
+  margin: 0 auto;
   padding: 15.236em 0 0;
+  max-width:980px;
   /*border-bottom: 1px solid #dedede;*/
 }
 #content.home-widgets .widget_woo_component h2.widget-title {
@@ -2756,8 +2769,8 @@ html[xmlns] .flexslider .slides {
   position: relative;
   zoom: 1;
   overflow: hidden;
-  border-bottom: 1px solid #dedede;
-  padding:0 0 40px;
+  /*border-bottom: 1px solid #dedede;*/
+  padding:8px 0 45px !important;
 }
 .flex-viewport {
   max-height: 2000px;
@@ -2812,7 +2825,13 @@ html[xmlns] .flexslider .slides {
 }
 .flexslider.frame .slide-content {
   text-align: center;
+  border-bottom:5px solid #ccc;
 }
+
+.flexslider.frame .slide-content p {
+  margin:0;
+}
+
 .flexslider.frame .slide-media {
   position: relative;
   /*margin: 5.874em auto 0;*/
@@ -2957,7 +2976,7 @@ html[xmlns] .flexslider .slides {
   text-align: center;
 }
 .flex-control-nav li {
-  margin: 0 6px;
+  margin: 0 27px;
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -2986,7 +3005,7 @@ html[xmlns] .flexslider .slides {
 .flex-control-paging li a.flex-active {
   width:9px;
   height:9px;
-  
+
   background: #a7bacc;
   cursor: default;
 
