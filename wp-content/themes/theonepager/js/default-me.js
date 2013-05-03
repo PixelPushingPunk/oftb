@@ -22,7 +22,7 @@
             loader_text: 'loading tweets', //loadin text
             no_result: 'No tweets found' // no results text
         });
-		console.log('test document ready');
+		//console.log('test document ready');
 	});//end.document.ready
 	
 
@@ -32,14 +32,14 @@
         //testAPI();        
 
         // Scroll bar
-        $('#scrollbar1').tinyscrollbar();
+        $('#scrollbar1, .scrollbar2').tinyscrollbar();
 
         // Facebook
         $('#loadingFriends, #loadingComments').show();
         $('#loading-posts').hide();
 
         // login when campaign top menu clicked
-        $('a#campaigns-nav').on('click', function(){
+        $('a#getInvolved-nav').on('click', function(){
             fbDoLogin();
         });
 
@@ -130,9 +130,25 @@
         // Scroll opacity of navigation
         scrollNav();
 
-        console.log('test window ready');
+        // Top shadow
+        topShadowActive();
+
+        //console.log('test window ready');
    	});// end window.load*/
     
+    var topShadowActive = function () {
+        var barVisible = $('#wpadminbar').is(':visible');
+        var scrollpast = $('#top').hasClass('scrollpast');
+
+        if(barVisible == true) {
+            $('#shadow-top').css('top', '191px');
+        } else {
+            $('#shadow-top').css('top', '163px');
+        } 
+
+        //console.log('top shadow');
+    };
+
     var topNavActive = function () {
         var thisSpan, logo;
         var currentItem = false;
@@ -183,22 +199,27 @@
         var windowOffset = $('body').position();
         var windowOffsetTop = $(window).scrollTop();//windowOffset.top;
         var windowTopPos;
-
-        console.log('windowOffsetTop ' + windowOffsetTop);
+        var barVisible = $('#wpadminbar').is(':visible');
+        var scrollpast = $('#wrapper #top').attr('class');
 
         $(document).on('scroll', function () {
-            console.log('windowOffSetTop on scroll' + windowOffsetTop);
             windowTopPos = $(window).scrollTop();
-            console.log(windowTopPos);
+            //console.log(windowTopPos);
             
-            if(windowTopPos >= 366) {
-                $('#top').css({
-                    'opacity':'0.8'
-                });
+            if(windowTopPos >= 370) {
+                $('#top').css('opacity', '0.8');
+                $('#top').addClass('scrollpast');
+                $('#home-nav').fadeIn('fast').css('display','block');
+                    if(barVisible == true) {
+                        $('#shadow-top').css('top','95px');
+                    } else {
+                        $('#shadow-top').css('top','123px');
+                    }
+
             } else { 
-                $('#top').css({
-                    'opacity':'1'
-                });
+                $('#top').css('opacity', '1');
+                $('#top').removeClass('scrollpast');
+                $('#home-nav').fadeOut(100).css('display','none');
             }
         });
 
@@ -207,6 +228,9 @@
                 scrollTop: "0px"
             }, 400);
         });
+       $('#top .logo-between a').on('click', function(e){
+            e.preventDefault();
+       });
     };
 
     var centerSliderNav = function () {
@@ -263,9 +287,9 @@
             var pcWrapLength = $('.pcWrap').length;
             var slideWidth = pcWrapWidth * pcWrapLength;
 
-            console.log('pcWrapWidth: ' + pcWrapWidth);
-            console.log('pcWraplength: ' + pcWrapLength);    
-            console.log('slideWidth: ' + slideWidth);
+            //console.log('pcWrapWidth: ' + pcWrapWidth);
+            //console.log('pcWraplength: ' + pcWrapLength);    
+            //console.log('slideWidth: ' + slideWidth);
 
             $('.sliderWrap').css('width', slideWidth);
 
@@ -287,14 +311,14 @@
 
                 getPcVal(pcWrapWidth, currentPosition);
 
-                console.log('current position = ' + currentPosition);
+                //console.log('current position = ' + currentPosition);
                 e.preventDefault();
             });
     };
 
     var sliderBlogPost = function () {
      // Slider for facebook
-        console.log('test beg sliderblog post');
+        //console.log('test beg sliderblog post');
         var currentPosition = 0;
         var slidesBL = $('#blog-posts article');
         var numberOfSlidesBL = slidesBL.length;
@@ -343,10 +367,10 @@
                     'marginLeft' : articleWrapWidth*(-currentPosition)
                 }); 
 
-                console.log('current position = ' + currentPosition);
+                //console.log('current position = ' + currentPosition);
                 e.preventDefault();
             });
-        console.log('test end slider blog post');
+        //console.log('test end slider blog post');
     };    
 
 }(jQuery)); //IFE

@@ -451,6 +451,10 @@ p {
   -moz-hyphens: manual;
   orphans: 3;
   widows: 3;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 13px;
+  line-height: 24px;
+  color: #04000a;
 }
 ul,
 ol,
@@ -576,7 +580,7 @@ ul.nav li.li.current-menu-item ul a {
   background-color: #fff;
   display: block;
   position: fixed;
-  top: 191px;
+  top: 163px;
   z-index: 10;
   background: transparent url('images/shadow.png') no-repeat scroll center 100% !important;
   background-size:100%;
@@ -656,6 +660,7 @@ body.has-top-nav #header {
   padding: 3.631em 0;
   color: #2b2b2b;
   border-top: 1px solid #dedede;
+  background:#cccccc;
 }
 #footer p {
   margin: 0;
@@ -689,14 +694,13 @@ span.heading {
 #content.home-widgets {
   padding: 0!important;
   /* Global Woo Component Styles */
-
   /* Dojo Tweets widget on homepage */
-
 }
 #content.home-widgets .widget_woo_component {
   margin: 0 auto;
-  padding: 15.236em 0 0;
   max-width:980px;
+  padding:13em 0 0;
+  /*padding: 15.236em 0 0;*/
   /*border-bottom: 1px solid #dedede;*/
 }
 #content.home-widgets .widget_woo_component h2.widget-title {
@@ -964,7 +968,16 @@ span.heading {
 #contact-area form input {
   padding: 1em 1.387em;
   font-size: 1em;
-  color: #777777;
+  color: #666666;
+
+  -webkit-box-shadow:0 0 3px 0px #366f9f inset;
+  -moz-box-shadow:0 0 3px 0px #366f9f inset;
+  box-shadow:0 0 3px 0px #366f9f inset;
+
+  font-family:'LubalinGraphLTBold', Opens Sans, sans-serif;
+  -webkit-border-radius:0 !important;
+  -moz-border-radius:0 !important;
+  border-radius:0 !important;
 }
 #contact-area form textarea:focus,
 #contact-area form input:focus {
@@ -3600,3 +3613,34 @@ img.ui-datepicker-trigger {
 .ie8 .widget_woo_blogauthorinfo .avatar {
   width: auto;
 }
+
+
+#blog-posts .post header h1, #block-posts .post header h1 a, .post header h1 a:link, .post header h1 a:visited {
+  font-family: 'LubalinGraphLTBold', Open Sans, sans-serif !important;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 24px;
+  color: #999999 !important;
+}
+
+/* 
+CONTACT US STYLING
+-----------------
+contact us styling */
+#contact-area h2.widget-title, #contact-area #connect {
+  display:none !important;
+}
+
+#contact-area .col-full {
+  background-color:#fff !important;
+  margin:0 0 40px 0;
+}
+
+#contact-area .contact-padding {
+    padding:15px;
+}
+
+#contact-area input[type="submit"] {
+  background:color:;
+}
+

@@ -118,7 +118,7 @@ if ( ! function_exists( 'woo_load_responsive_meta_tags' ) ) {
 
 		/* Remove this if not responsive design */
 		$html .= "\n" . '<!--  Mobile viewport scale | Disable user zooming as the layout is optimised -->' . "\n";
-		$html .= '<meta content="initial-scale=1.0; maximum-scale=1.0; user-scalable=no" name="viewport"/>' . "\n";
+		$html .= '<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>' . "\n";
 
 		echo $html;
 	} // End woo_load_responsive_meta_tags()
@@ -440,12 +440,13 @@ function woo_top_nav () {
 		<nav class="col-full" role="navigation">
 			<div class="oftb-logo"><a href="#" target="_self">One For The Boys</a></div>
 			<ul id="top-nav" class="nav" style="">
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="home-nav" href="#">Top</a></li>
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="campaigns-nav" href="#campaigns">Campaign</a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="getInvolved-nav" href="#">Get involved</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="getInvolved-nav" href="#getInvolved">Get involved</a></li>
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="events-nav" href="#events">Events</a></li>
 				<li class="logo-between"><a href="#"><img src="wp-content/themes/theonepager/images/ribbon.png"/></a></li>
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="blog-posts-nav" href="#blog-posts">News</a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="aCancer-nav" href="#getInvolved">About male cancer</a></li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="aCancer-nav" href="#aCancer">About male cancer</a></li>
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="donate-nav" href="#donate">Donate</a></li>
 				<!--<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#partners">Partners</a></li>-->
 				<li class="menu-item menu-item-type-custom menu-item-object-custom"><a id="contact-area-nav" href="#contact-area">Contact us</a></li>

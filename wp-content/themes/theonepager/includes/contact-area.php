@@ -29,10 +29,11 @@ if ( ! function_exists( 'wp' ) && ! empty( $_SERVER['SCRIPT_FILENAME'] ) && base
 <div id="contact-area" class="widget_woo_component">
 
     <div class="col-full">
-
+         <div class="contact-padding">
     	<span class="heading"><?php echo esc_html( $settings['homepage_contact_area_heading'] ); ?></span>
 
 		<h2 class="widget-title"><?php echo esc_html( $settings['homepage_contact_area_title'] ); ?></h2>
+        <div class="clear"></div>
     	<?php
             if ( 'true' == $settings['homepage_enable_social'] ) {
                woo_display_social_icons();
@@ -62,10 +63,11 @@ if ( ! function_exists( 'wp' ) && ! empty( $_SERVER['SCRIPT_FILENAME'] ) && base
     			<input type="text" name="contact-email" value="<?php esc_attr_e( 'Your email address', 'woothemes' ); ?>" onfocus="if ( this.value == '<?php esc_attr_e( 'Your email address', 'woothemes' ); ?>' ) { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php esc_attr_e( 'Your email address', 'woothemes' ); ?>'; }" />
                 <input type="text" name="contact-verify" value="<?php esc_attr_e( '7 + 12 = ?', 'woothemes' ); ?>" onfocus="if ( this.value == '<?php esc_attr_e( '7 + 12 = ?', 'woothemes' ); ?>' ) { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php esc_attr_e( '7 + 12 = ?', 'woothemes' ); ?>'; }" />
                 <input type="hidden" name="contact-form-submit" value="yes" />
-    			<input type="submit" value="<?php esc_attr_e( 'Send that email!', 'woothemes' ); ?>" />
+    			<input class="sndBtn" type="submit" value="<?php esc_attr_e( 'Send that email!', 'woothemes' ); ?>" />
     		</div>
     	</form>
     	<?php } ?>
+        </div>
     </div>
 
 </div>

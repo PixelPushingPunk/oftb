@@ -99,6 +99,10 @@ if ( ! function_exists( 'wp' ) && ! empty( $_SERVER['SCRIPT_FILENAME'] ) && base
 		    		get_template_part( 'includes/campaigns' );
 		    	}
 		    	
+		    	if ( 'true' == $settings['homepage_enable_getInvolved'] ) {
+		    		get_template_part( 'includes/getInvolved' );
+		    	}
+
 		    	if ( 'true' == $settings['homepage_enable_news'] ) {
 		    		#get_template_part( 'includes/news' );
 		    		get_template_part( 'includes/blog-posts' );
@@ -106,10 +110,6 @@ if ( ! function_exists( 'wp' ) && ! empty( $_SERVER['SCRIPT_FILENAME'] ) && base
 
 		    	if ( 'true' == $settings['homepage_enable_events'] ) {
 		    		get_template_part( 'includes/events' );
-		    	}
-
-		    	if ( 'true' == $settings['homepage_enable_getInvolved'] ) {
-		    		get_template_part( 'includes/getInvolved' );
 		    	}
 
 		    	if ( 'true' == $settings['homepage_enable_aCancer'] ) {

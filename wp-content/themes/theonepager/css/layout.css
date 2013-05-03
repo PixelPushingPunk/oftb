@@ -137,6 +137,24 @@ INDEX
   }
 }
 @media only screen and (min-width: 768px) {
+  .oftb-logo {
+    overflow: hidden;
+    float: left;
+    padding: 2.5em;
+  }
+
+  .oftb-logo a {
+    display: block;
+    background: url('../images/oftb-logo.png') no-repeat scroll 0 0;
+    width: 99px;
+    height: 96px;
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    float: left;
+    background-size:100%;
+  }
+
   /* 2. GLOBAL DROPDOWN STYLES ( Purely for the dropdown layout; Only edit the width of the dropdowns ) */
   ul.nav {
     position: relative;
@@ -750,6 +768,56 @@ INDEX
   }
   #footer #credit span {
     display: none;
+  }  
+}
+
+@media only screen and (max-width:1090px) {
+   #top ul.nav li a {
+      padding:5.1em 0.5em 0;
+  }
+
+  #top ul.nav li.logo-between a {
+    width:60px;
+    padding-top:2em;
+  }
+}
+
+@media only screen and (max-width:1040px) {
+
+}
+
+@media only screen and (max-width:960px) {
+  #top ul.nav li a {
+    font-size:1.2em;
+  }
+  .oftb-logo {
+    padding:2.5em 2em 2.5em 2em;
+  }
+}
+
+@media only screen and (max-width:890px){
+  .oftb-logo a  {
+    width:80px;
+  }
+}
+
+@media only screen and (max-width:870px){
+  .oftb-logo {
+    padding:2.5em 1em 2.5em 2em;
+  }
+
+  .oftb-logo a  {
+    width:65px;
+  }
+}
+
+@media only screen and (max-width:842px) {
+  #top ul.nav li.logo-between a {
+    width:40px;
+  }
+
+  #top ul.nav li a {
+    padding:5.1em 0.3em 0;
   }
 }
 
@@ -767,27 +835,37 @@ INDEX
   box-shadow:inset 0px 11px 8px -10px #CCC, inset 0px -11px 8px -10px #CCC;
 
 }
-#scrollbar1 .overview { 
+
+.scrollbar2 {
+  width:585px; margin:0;
+}
+
+.scrollbar2 .viewport {
+  width:585px; height: 338px; overflow: hidden; position: relative;
+}
+
+#scrollbar1 .overview, .scrollbar .overview { 
   list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; 
 }
 
-#scrollbar1 .scrollbar { 
+
+#scrollbar1 .scrollbar, .scrollbar2 .scrollbar { 
   background: transparent url('../images/bg-scrollbar-track-y.png') no-repeat 0 0; position: relative; background-position: 0 0; float: right; width: 15px; 
 }
 
-#scrollbar1 .track { 
+#scrollbar1 .track, .scrollbar2 .track { 
   background: transparent url('../images/bg-scrollbar-trackend-y.png') no-repeat 0 100%; height: 100%; width:13px; position: relative; padding: 0 1px; 
 }
 
-#scrollbar1 .thumb { 
+#scrollbar1 .thumb, .scrollbar2 .thumb { 
   background: transparent url('../images/bg-scrollbar-thumb-y.png') no-repeat 50% 100%; height: 20px; width: 25px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: -5px; 
 }
-
-#scrollbar1 .thumb .end { 
+, .scrollbar2 .disable
+#scrollbar1 .thumb .end, .sc, .scrollbar2 .disablerollbar2 .thumb .end { 
   background: transparent url(../images/bg-scrollbar-thumb-y.png) no-repeat 50% 0; overflow: hidden; height: 5px; width: 25px; 
 }
 
-#scrollbar1 .disable { 
+#scrollbar1 .disable, .scrollbar2 .disable { 
   display: none; 
 }
 

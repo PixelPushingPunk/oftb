@@ -37,22 +37,69 @@ Add styles inside the media query below that you only want to be applied to the 
 	}
 }
 
+
+
 /*
 MODULE STYLES
 -----------------
 Styling for each module on one pager */
+#top {
+	-webkit-transition: all 0.5s ease-in-out;
+  	-moz-transition: all 0.5s ease-in-out;
+  	-o-transition: all 0.5s ease-in-out;
+  	transition: all 0.5s ease-in-out;
+}
+
+#top.scrollpast .oftb-logo a {
+	display:none !important;
+}
+
+/*#top.scrollpast #home-nav {
+	display:block;
+}*/
+
+#top.scrollpast ul.nav > li a {
+	padding:2.1em 1em 0 !important;
+
+}
+
+#top.scrollpast ul.nav li.logo-between a {
+	padding:0.5em 1em 0 !important;
+}
+
+#top.scrollpast ul.nav li.logo-between a img {
+	width:25px;
+}
+
+#top.scrollpast #shadow-top {
+	top:95px !important;
+}
+
+#top.scrollpast ul.nav > li a, #top ul.nav > li a, #top.scrollpast ul.nav li.logo-between a, #top ul.nav li.logo-between a, #top.scrollpast ul.nav li.logo-between a img, #top.scrollpast #shadow-top, #top #shadow-top  {
+	-webkit-transition: all 0.5s ease-in-out;
+  	-moz-transition: all 0.5s ease-in-out;
+  	-o-transition: all 0.5s ease-in-out;
+  	transition: all 0.5s ease-in-out;
+}
+
+#home-nav {
+	display:none;
+	width:99px;
+}
 
 #campaigns span.heading {
 	display:none;
 }
 
-#campaigns .article-content header h1 {
+#campaigns .article-content header h1, #getInvolved .article-content header h1, #aCancer .article-content header h1, #donate .article-content header h1, #partners .article-content header h1, #contact-area .article-content header h1, #contact-area h2.widget-title {
 	display:none;
 }
 
 .slide-content .entry a img {
 	margin:0;
 }
+
+
 
 /* 
 BLOG POST
@@ -61,14 +108,16 @@ blog integration styling */
 #blog-posts article {
 	float:left;
 	width:585px;
-	min-height:583px;
-	padding:20px;
+	height:583px;
+	padding:0 20px 20px;
 	margin:0 0 26px 0;
 
 	-moz-box-shadow:inset 0px -11px 8px -10px #CCC;
 	-webkit-box-shadow:inset 0px -11px 8px -10px #CCC;
 	box-shadow:inset 0px -11px 8px -10px #CCC;
 
+	overflow-x:hidden;
+	overflow-y:scroll;
 }
 
 #blog-posts #main {
@@ -112,6 +161,15 @@ blog integration styling */
  #block-posts .post header h1 a:hover {
  	text-decoration:none !important;
  }
+
+#blog-posts .post .post-date-author {
+	float:left;
+	font-family:'LubalinGraphLTBold', Open Sans, sans-serif !important;
+	font-size:14px !important;
+	font-style:normal !important;
+	line-height:24px;
+	color:#999999;
+}
 
 /* 
 Twitter plug
@@ -355,9 +413,14 @@ LENS SLIDER STYLING
 -----------------
 LENS SLIDER EVENTS styling */
 
-#events .ls_def_ibanner {
-	max-width:980px;
+#events-section-two .ls_def_ibanner {
+	max-width:915px;
 	height:394px;
+	margin:0 auto;
+}
+
+#events #events-section-two .ls_def_ibanner {
+	height:350px;
 }
 
 #events .ls_def_ibanner_banner .abs {
@@ -366,7 +429,7 @@ LENS SLIDER EVENTS styling */
 }
 
 #events .ls_def_ibanner_banner .abs, #events .ls_def_ibanner_banner .abs .desc {
-	max-width:455px;
+	max-width:400px;
 }
 
 #events .ls_def_ibanner_banner .abs, #events .ls_def_ibanner_banner .abs a, #events .ls_def_ibanner_banner .abs .desc{
@@ -389,6 +452,10 @@ LENS SLIDER EVENTS styling */
 	bottom:65px;
 }
 
+#events-section-one header h1, #events-section-two header h1 {
+	display:none;
+}
+
 #events-section-one .ls_def_ibanner {
 	border-bottom:5px solid #ccc;
 }
@@ -396,11 +463,11 @@ LENS SLIDER EVENTS styling */
 #events-section-two #main {
 	background:url('images/events-bg.png') no-repeat scroll 50% 0;
 	background-size:100%;
-	min-height:877px;
+	min-height:643px;
 }
 
 #events-section-two #main article {
-	padding:149px 48px 48px;
+	padding:149px 0 48px;
 }
 /* 
 TWITTER STYLING
@@ -423,7 +490,7 @@ Twitter styling */
 
 .controlBL {
 	position:relative;
-	top:13px;
+	top:20px;
 }
 
 .control a , .controlBL a {
@@ -448,13 +515,23 @@ Twitter styling */
 CONTACT US STYLING
 -----------------
 contact us styling */
-#contact-area h1.widget-title {
+#contact-area h2.widget-title #contact-area #connect .social {
 	display:none;
 }
 
 #contact-area .co-full {
 	background-color:#fff;
 	padding:15px;
+}
+
+#contact-area .sndBtn {
+	background:#234766 !important;
+	color:#fff !important;
+	text-transform:uppercase !important;
+}
+
+#contact-area .sndBtn:hover {
+	background:#39668c !important;
 }
 
 

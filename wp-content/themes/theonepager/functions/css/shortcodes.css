@@ -451,7 +451,7 @@ a.woo-sc-button.silver:hover {
 		
 		}
 		.shortcode-tabs.vertical .tab_header span { display: block; padding: 8px 8px 12px 8px; border: 1px solid #EBEBEB; }
-	.shortcode-tabs.vertical ul.tab_titles {  clear: left; float: left; background:none; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; margin-bottom: 0px; position: relative; z-index: 2; width: 30%; margin:0 15px 0 0; border-bottom:5px solid #ccc; }
+	.shortcode-tabs.vertical ul.tab_titles {  clear: left; float: left; background:none; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; margin-bottom: 0px; position: relative; z-index: 2; width: 33%; margin:0; border-bottom:5px solid #ccc; }
 		.shortcode-tabs.vertical ul.tab_titles.has_title { border-top: 0px !important; margin-top: 5px; }
 		.shortcode-tabs.vertical ul.tab_titles.has_title {
 		
@@ -468,7 +468,7 @@ a.woo-sc-button.silver:hover {
 			.shortcode-tabs.vertical ul.tab_titles li.ui-state-active a { background: #234766; color:#fff; }
 			.shortcode-tabs.vertical ul.tab_titles li a:link { display: block; float: none !important; }
 			.shortcode-tabs.vertical ul.tab_titles li a:hover { background: #234766; color:#fff; }
-	.shortcode-tabs.vertical .tab { clear: right !important; top: 5px; position: relative; z-index: 1; margin-left: 31%; padding: 0px; min-height:447px; border-bottom:5px solid #ccc; font-family:'Helvetica', Arial, sans-serif; font-size:13px; line-height:24px; color:#04000a; }
+	.shortcode-tabs.vertical .tab { clear: right !important; top: 5px; position: relative; z-index: 1; margin-left: 35%; padding: 0px; min-height:447px; border-bottom:5px solid #ccc; font-family:'Helvetica', Arial, sans-serif; font-size:13px; line-height:24px; color:#04000a; }
 	
 /*-------------------------------------------------------------------------------------------*/
 /* 14. Dropcap */
@@ -484,7 +484,7 @@ span.dropcap { font-size: 300%; font-weight: bold; float: left; position: relati
 .shortcode-toggle h4 {margin: 0;}
 .shortcode-toggle h4 a { display: block; padding: 10px 0 10px 55px; color:#fff; background: #234766 url(../images/upArrow.png) no-repeat 10px center; font-family:'LubalinGraphLTBold', Opens Sans, sans-serif; font-size:24px; line-height:24px; text-decoration:none;}
 .shortcode-toggle.closed h4 a  { background-image: url(../images/downArrow.png); }
-.shortcode-toggle .toggle-content  { padding: 10px 10px; background: #f9f9f9; }
+.shortcode-toggle .toggle-content  { padding: 10px 10px; background: #f9f9f9; font-family: 'Helvetica', Arial, sans-serif; font-size: 13px; line-height: 24px; color: #04000a;  }
 .shortcode-toggle.closed .toggle-content, .shortcode-toggle .more-text.closed { display: none; }
 .shortcode-toggle .more-text.open { display: block; }
 .shortcode-toggle.border { border: 1px solid #EBEBEB; }
@@ -494,7 +494,7 @@ span.dropcap { font-size: 300%; font-weight: bold; float: left; position: relati
 /*-------------------------------------------------------------------------------------------*/
 
 .shortcode-toggle.white h4 a { background-color: #234766; color:#fff; }
-.shortcode-toggle.white .toggle-content { background-color: #FFFFFF; }
+.shortcode-toggle.white .toggle-content { background-color: #f0f0f0; }
 
 /*-------------------------------------------------------------------------------------------*/
 /* 16. Highlight and Abbreviation */
