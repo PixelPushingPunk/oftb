@@ -437,6 +437,7 @@ function woo_top_nav () {
 ?>
 
 	<div id="top">
+		<a href="#" id="menu-toggle">Menu</a>
 		<nav class="col-full" role="navigation">
 			<div class="oftb-logo"><a href="#" target="_self">One For The Boys</a></div>
 			<ul id="top-nav" class="nav" style="">

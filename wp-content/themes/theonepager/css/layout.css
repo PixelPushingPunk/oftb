@@ -137,6 +137,10 @@ INDEX
   }
 }
 @media only screen and (min-width: 768px) {
+  a#menu-toggle {
+    display:none;
+  }
+
   .oftb-logo {
     overflow: hidden;
     float: left;
@@ -753,8 +757,8 @@ INDEX
     line-height: 3;
   }
   #footer #copyright {
-    width: 36%;
-    text-align: right;
+    width: 100%;
+    text-align: left;
   }
   #footer #footer-logo {
     width: 28%;
@@ -789,6 +793,7 @@ INDEX
 @media only screen and (max-width:960px) {
   #top ul.nav li a {
     font-size:1em;
+    padding-top:6em;
   }
   .oftb-logo {
     padding:2.5em 2em 2.5em 2em;
@@ -818,6 +823,35 @@ INDEX
 
   #top ul.nav li a {
     padding:5.1em 0.3em 0;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  #wrapper #top .oftb-logo {
+    display:none;
+  }
+  a#menu-toggle {
+    display:block;
+  }
+  nav.col-full {
+    display:none;
+  }
+  #wrapper #top-nav {
+    margin:0;
+    padding:0;
+  }
+  #wrapper #top-nav li {
+    list-style-type:none;
+  }
+  #wrapper #top-nav li a, #wrapper #top ul.nav > li a {
+    padding:1em 0;
+    text-decoration:none;
+  }
+  #wrapper #top-nav li.logo-between {
+    display:none;
+  }
+  #wrapper span.border-line {
+    display:none !important;
   }
 }
 

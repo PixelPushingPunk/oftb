@@ -48,34 +48,21 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	
 		<div class="col-full">
 
+			<ul id="foot-links" class="footer-section">
+				<li><a href="#">Terms and Conditions</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+			</ul>
+			
+			<div id="uac-logo" class="footer-section">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/uac.png" alt="United Against Cancer"/>
+			</div>
+
+			<div class="clear"></div>
+
+
 			<div id="copyright" class="footer-section">
-			<?php if( isset( $woo_options['woo_footer_left'] ) && $woo_options['woo_footer_left'] == 'true' ) {
-					echo stripslashes( $woo_options['woo_footer_left_text'] );
-			} else { ?>
-				<p><?php bloginfo(); ?> &copy; <?php echo date( 'Y' ); ?>. <?php _e( 'All Rights Reserved.', 'woothemes' ); ?></p>
-			<?php } ?>
-			</div>
-			
-			<div id="footer-logo" class="footer-section">
-				
-				<?php 
-					$footer_logo = esc_url( get_template_directory_uri() . '/images/logo-footer.png' );
-					if ( isset( $woo_options['woo_footer_logo'] ) && $woo_options['woo_footer_logo'] != '' ) { $footer_logo = $woo_options['woo_footer_logo']; }
-					if ( is_ssl() ) { $footer_logo = str_replace( 'http://', 'https://', $footer_logo ); }
-				?>
-				
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'description' ) ); ?>">
-					<img src="<?php echo esc_url( $footer_logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
-				</a>
-			
-			</div>
-			
-			<div id="credit" class="footer-section">
-        	<?php if( isset( $woo_options['woo_footer_right'] ) && $woo_options['woo_footer_right'] == 'true' ) {
-        		echo stripslashes( $woo_options['woo_footer_right_text'] );
-			} else { ?>
-				<p><?php _e( 'Powered by', 'woothemes' ); ?> <a href="<?php echo esc_url( 'http://www.wordpress.org' ); ?>">WordPress</a>. <?php _e( 'Designed by', 'woothemes' ); ?> <a href="<?php echo ( isset( $woo_options['woo_footer_aff_link'] ) && ! empty( $woo_options['woo_footer_aff_link'] ) ? esc_url( $woo_options['woo_footer_aff_link'] ) : esc_url( 'http://www.woothemes.com/' ) ) ?>"><img src="<?php echo esc_url( get_template_directory_uri() . '/images/woothemes.png' ); ?>" width="74" height="19" alt="Woo Themes" /></a></p>
-			<?php } ?>
+				<p>&copy;2013 One for the Boys</p>
+				<p class="smlPrint">Registered charity in England and Wales (261017), Scotland (SC039907) and the Isle of Man (604). A company limited by guarantee, registered in England and Wales company number 2400969.Registered office: 89 Albert Embankment, London SE1 7UQ.</p>
 			</div>
 			
 		</div><!-- /.col-full -->
@@ -86,6 +73,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <?php wp_footer(); ?>
 <?php woo_foot(); ?>
 <!--js script-->
+<script>
+	(function($){
+		// Responsive Nav 2
+
+  	}(jQuery));
+</script>
 <script type="text/javascript" src="wp-content/themes/theonepager/js/default-me.js"></script>
 </body>
 </html>

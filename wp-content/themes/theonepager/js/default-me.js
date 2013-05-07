@@ -133,6 +133,9 @@
         // Top shadow
         topShadowActive();
 
+        // Response Nav
+        responseNav();
+
         //console.log('test window ready');
    	});// end window.load*/
     
@@ -142,7 +145,8 @@
 
         if(barVisible == true) {
             $('#shadow-top').css('top', '191px');
-        } else {
+        } 
+        if(barVisible == false) {
             $('#shadow-top').css('top', '163px');
         } 
 
@@ -196,6 +200,7 @@
     };
 
     var scrollNav = function () {
+        var windowWidth = $(window).width();
         var windowOffset = $('body').position();
         var windowOffsetTop = $(window).scrollTop();//windowOffset.top;
         var windowTopPos;
@@ -206,7 +211,7 @@
             windowTopPos = $(window).scrollTop();
             //console.log(windowTopPos);
             
-            if(windowTopPos >= 370) {
+            if(windowTopPos >= 370 && windowWidth > 768) {
                 $('#top').css('opacity', '0.8');
                 $('#top').addClass('scrollpast');
                 $('#home-nav').fadeIn('fast').css('display','block');
@@ -217,14 +222,22 @@
                         $('#shadow-top').css('top','67px');
                     }
 
-            } else { 
+            } 
+            if(windowTopPos < 370 && windowWidth > 768) { 
                 $('#top').css('opacity', '1');
                 $('#top').removeClass('scrollpast');
                 $('#home-nav').fadeOut(100).css('display','none');
+                
+                if(barVisible == true) {
+                    $('#shadow-top').css('top', '191px');
+                } 
+                if(barVisible == false) {
+                    $('#shadow-top').css('top', '163px');
+                } 
             }
         });
 
-       $('#top a[href="#"]').on('click', function() {
+       $('#top a[href="#"]').not('a#menu-toggle').on('click', function() {
             $('html, body').animate({
                 scrollTop: "0px"
             }, 400);
@@ -372,7 +385,37 @@
                 e.preventDefault();
             });
         //console.log('test end slider blog post');
-    };    
+    }; 
+
+    var responseNav = function () {
+
+        var windowWidth = $(window).width();
+
+       /* if(windowWidth >=666) {
+            $('.js #top, #wrapper #top').css('position','fixed');
+        }
+
+        if(windowWidth < 666) {
+            var navigation = responsiveNav('#top', {
+            animate: true,
+            transition: 400,
+            insert: "before"
+            });
+        }*/
+        if(windowWidth <= 768) {
+            $('a#menu-toggle').on('click', function(e) {
+                $('nav.col-full').slideToggle('fast');
+                e.preventDefault();
+            });
+            $('#top-nav li a').on('click', function() {
+                $('nav.col-full').fadeOut('fast');
+            });
+        }
+
+
+
+        console.log('response nav: ' + windowWidth);
+    };
 
 }(jQuery)); //IFE
 

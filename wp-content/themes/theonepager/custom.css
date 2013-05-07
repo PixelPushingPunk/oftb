@@ -534,5 +534,50 @@ contact us styling */
 	background:#39668c !important;
 }
 
+/* 
+FOOTER
+-----------------
+Footer styling */
 
+#foot-links {
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
 
+#foot-links li {
+	list-style-type:none;
+	margin:0 10px 0 0;
+	padding:0;
+	float:left;
+}
+
+#foot-links li a {
+	display:block;
+	font:13px/24px 'Helvetica', Arial, sans-serif;
+	color:#666666;
+	text-decoration:underline;
+}
+
+#footer #copyright {
+	margin:40px 0 1em;
+}
+
+#copyright p{
+	font-family: MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;
+	font-size:13px;
+	line-height:24px;
+	color:#666;
+}
+
+#copyright p.smlPrint {
+	font-size:10px;
+}
+
+#footer #uac-logo {
+	float:right;
+}
+
+#footer #uac-logo img {
+	vertical-align:top;
+}

@@ -36,12 +36,12 @@ jQuery(document).ready(function(){
 	jQuery( 'ul.sub-menu, ul.children' ).parents( 'li' ).addClass( 'parent' );
 
 	// Responsive Navigation (switch top drop down for select)
-	jQuery( 'ul#top-nav' ).mobileMenu({
+	/*jQuery( 'ul#top-nav' ).mobileMenu({
 	    switchWidth: 767,                   //width (in px to switch at)
 	    topOptionText: 'Select a page',     //first option text
 	    indentString: '&nbsp;&nbsp;&nbsp;'  //string for indenting nested items
-	});
-
+	});*/
+  
 	// Stop the navigation link moving to the anchor (Still need the anchor for semantic markup)
 	jQuery( '.nav-toggle a' ).click(function(e) {
     e.preventDefault();
