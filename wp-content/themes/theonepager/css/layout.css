@@ -243,7 +243,7 @@ INDEX
   #top ul.nav > li a {
     color: #366f9f;
     font-family:'LubalinGraphLTBold', Open Sans, sans-serif;
-    font-size:15px;
+    font-size:14px;
   }
 
   #top ul.nav > li:hover {
@@ -788,7 +788,7 @@ INDEX
 
 @media only screen and (max-width:960px) {
   #top ul.nav li a {
-    font-size:1.2em;
+    font-size:1em;
   }
   .oftb-logo {
     padding:2.5em 2em 2.5em 2em;

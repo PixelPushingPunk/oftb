@@ -210,10 +210,11 @@
                 $('#top').css('opacity', '0.8');
                 $('#top').addClass('scrollpast');
                 $('#home-nav').fadeIn('fast').css('display','block');
-                    if(barVisible == true) {
+                    if(barVisible === true) {
                         $('#shadow-top').css('top','95px');
-                    } else {
-                        $('#shadow-top').css('top','123px');
+                    } 
+                    if(barVisible === false) {
+                        $('#shadow-top').css('top','67px');
                     }
 
             } else { 
