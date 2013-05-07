@@ -563,7 +563,40 @@ ul.nav li.li.current-menu-item ul a {
   /* Opera/IE 8+ */
 
   background:#fefefe;
+
+  /*-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;*/
+      -moz-box-shadow:1px 0 3px 0 rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow:1px 0 3px 0 rgba(0, 0, 0, 0.5);
+    box-shadow:1px 0 3px 0 rgba(0, 0, 0, 0.5);          
 }
+
+/*#top:before, #top:after {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    -moz-border-radius:10px / 10px;
+    border-radius:10px / 10px;
+}
+
+#top:after {
+  right:10px;
+    left:auto;
+    -webkit-transform:skew(20deg) rotate(10deg);
+       -moz-transform:skew(20deg) rotate(10deg);
+        -ms-transform:skew(20deg) rotate(10deg);
+         -o-transform:skew(20deg) rotate(10deg);
+            transform:skew(20deg) rotate(10deg);
+}*/
+
 #top select {
   margin: 1.618em 0;
   width: 100%;
@@ -591,7 +624,7 @@ ul.nav li.li.current-menu-item ul a {
   height: 8px;
   width: 100%;
   background-color: #fff;
-  display: block;
+  display: none;
   position: fixed;
   top: 163px;
   z-index: 10;

@@ -142,13 +142,22 @@
     var topShadowActive = function () {
         var barVisible = $('#wpadminbar').is(':visible');
         var scrollpast = $('#top').hasClass('scrollpast');
+        var windowWidth = $(window).width();
 
-        if(barVisible == true) {
-            $('#shadow-top').css('top', '191px');
-        } 
-        if(barVisible == false) {
-            $('#shadow-top').css('top', '163px');
-        } 
+        //$(window).resize(function(){
+            if(barVisible == true && windowWidth > 768) {
+                $('#shadow-top').css('top', '191px');
+            } 
+            if(barVisible == false && windowWidth > 768) {
+                $('#shadow-top').css('top', '163px');
+            } 
+            if(barVisible == true && windowWidth <=768){
+                $('#shadow-top').css('top','80px');
+            }
+            if(barVisible == false && windowWidth <=768) {
+                $('#shadow-top').css('top','52px');
+            }
+        //});
 
         //console.log('top shadow');
     };
@@ -234,6 +243,13 @@
                 if(barVisible == false) {
                     $('#shadow-top').css('top', '163px');
                 } 
+            }
+        });
+        
+        $(window).resize(function() {
+            if(windowWidth <= 768) {
+                $('#top').css('opacity', '1');
+                $('#top').removeClass('scrollpast');
             }
         });
 
@@ -402,11 +418,12 @@
             insert: "before"
             });
         }*/
-        if(windowWidth <= 768) {
-            $('a#menu-toggle').on('click', function(e) {
+        $('a#menu-toggle').on('click', function(e) {
                 $('nav.col-full').slideToggle('fast');
                 e.preventDefault();
-            });
+        });
+        
+        if(windowWidth <= 768) {
             $('#top-nav li a').on('click', function() {
                 $('nav.col-full').fadeOut('fast');
             });

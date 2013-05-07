@@ -48,25 +48,61 @@ $settings = woo_get_dynamic_values( $settings );
 				(function($){
 					$(function(){
 						//twitterStuff();
-						$('#twitter-postbox').append('<textarea id="twtPost">@OneForTheBoys</textarea><br/>');
+						//$('#twitter-postbox').append('<textarea id="twtPost">@OneForTheBoys</textarea><br/>');
 							var twtPost = document.getElementById('twtPost');
+							//var twtTitle;
+							var commentBoxTwt, twtLink, charCount;
 							var twtTitle = $('#twtPost').val();
+							var twtUrl    = "http://bit.ly";//location.href;
+							var maxLength = 140 - (twtUrl.length + 1);
+
+							commentBoxTwt = '<a class="tweetthis button" href="" target="_blank"'+'>Tweet<'+'/a>';
+							$('#twitter-postbox').append(commentBoxTwt);
 							
-							$('#twtPost').on('focus blur change', function(){
+
+							$('#twtPost').on('focus blur change keydown', function(){
 								twtTitle  = $(this).val();
+									
+									if (twtTitle.length > maxLength) {
+										twtTitle = twtTitle.substr(0, (maxLength - 3))+'...';
+									}
+
+								twtLink = 'http://twitter.com/home?status='+encodeURIComponent(twtTitle + ' ' + twtUrl);
+								$('.tweetthis.button').attr('href', twtLink);
+								console.log('twtTitle: ' + twtTitle);	
+								
 							});
 
-							var twtUrl    = location.href;
-							var maxLength = 140 - (twtUrl.length + 1);
+							$('#twtPost[maxlength]').each(function(){
+								var $this = $(this);
+								/*var maxLength = parseInt($this.attr('maxlength'));
+								$this.attr('maxlength', null);*/
+								
+								var el = $('<span class="charCount" style="float:right;">' + maxLength + '</span>');
+								$('#twitter-postbox').append(el);
+								//el.insertAfter($this);
+
+								$this.on('keyup', function() {
+									var cc = $this.val().length;
+									$('.charCount').text(maxLength - cc);
+
+									if(maxLength < cc) {
+										el.css('color','red');
+									} else {
+										el.css('color', null);
+									}
+								});
 							
-							if (twtTitle.length > maxLength) {
-								twtTitle = twtTitle.substr(0, (maxLength - 3))+'...';
-							}
+							});
+
+							$('<div class="clear"></div>').appendTo($('#twitter-postbox'));
 							
-							var twtLink = 'http://twitter.com/home?status='+encodeURIComponent(twtTitle + ' ' + twtUrl);
+							
 							//document.write('<a href="'+twtLink+'" target="_blank"'+'><img src="tweetthis.gif"  border="0" alt="Tweet This!" /'+'><'+'/a>');
-							var commentBoxTwt = '<a class="tweetthis button" href="'+twtLink+'" target="_blank"'+'>Tweet<'+'/a>';					
-							$('#twitter-postbox').append(commentBoxTwt);
+							
+
+							
+							
 					});
 
 					$(window).load(function () {
@@ -79,18 +115,21 @@ $settings = woo_get_dynamic_values( $settings );
 				<div class="twitter-padding">
 					<h1>@onefortheboys</h1>
 					<div id="twitter"></div>
-					<div id="twitter-postbox"></div>
-					<br/>
-					<div id="scrollbar1">
-						<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
-						<div class="viewport">
-								<div id="twitter2" class="overview"></div>
-						</div>
+					<div id="twitter-postbox">
+						<textarea maxlength="140" id="twtPost">@OneForTheBoys</textarea>
 					</div>
+					<br/>
+					<!--<div id="scrollbar1">
+						<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+						<div class="viewport">-->
+					<div id="twitter2" class="overview"></div>
+						<!--</div>-->
+					<!--</div>-->
 				</div>
 			</div>
 		</div><!--/.twitter-section -->
 
+		<!--/ http://jscrollpane.kelvinluck.com/ -->
 
 		<div id="main" class="col-left">
 			<!--<div class="main-padding">-->

@@ -150,3 +150,28 @@
     border:none 0;
     text-decoration:none;
 }
+
+@media only screen and (max-width:975px){
+  .slide-img {
+    max-width:215px;
+    margin:60px auto 0;
+  }
+}
+
+@media only screen and (max-width:896px){
+    .slide-img {
+        max-width:160px;
+        margin:95px auto 0;
+    }
+}
+
+@media only screen and (max-width:841px){
+    .slide-img {
+        display:none;
+    }
+    .ls_def_ibanner {
+        max-width:590px;
+        margin:0 auto;
+        height:auto;
+    }
+}

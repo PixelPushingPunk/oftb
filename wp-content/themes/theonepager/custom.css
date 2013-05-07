@@ -171,6 +171,24 @@ blog integration styling */
 	color:#999999;
 }
 
+::-webkit-scrollbar {
+	width:12px;
+}
+
+::-webkit-scrollbar-track{
+	-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb{
+	border-radius:10px;
+	-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255,0,0,0.4); 
+}
+
 /* 
 Twitter plug
 -----------------
@@ -192,9 +210,10 @@ Twitter integration styling */
 }
 
 #twitter2 {
-	/*overflow-y:scroll;
+	overflow-y:scroll;
 	overflow-x:hidden;
-	height:338px;*/
+	max-width:336px;
+	height:338px;
 
 	/*list-style: none;
 	position: absolute;
@@ -581,3 +600,40 @@ Footer styling */
 #footer #uac-logo img {
 	vertical-align:top;
 }
+
+
+/* RESPONSIVE SLIDE SHOW
+------------------------
+http://responsiveslides.com/*/
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li, .rslides article {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child, .rslides article:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }

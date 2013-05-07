@@ -790,6 +790,10 @@ INDEX
 
 }
 
+@media only screen and (max-width:975px) {
+  
+}
+
 @media only screen and (max-width:960px) {
   #top ul.nav li a {
     font-size:1em;
@@ -827,11 +831,31 @@ INDEX
 }
 
 @media only screen and (max-width:768px) {
+  #shadow-top {
+    display:none;
+  }
+  #wrapper #home-nav {
+    display:block;
+  }
+  #wrapper #top {
+    padding:0;
+    padding-left:0 !important;
+    padding-right:0 !important;
+
+    -moz-box-shadow:1px 0 3px 0 rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow:1px 0 3px 0 rgba(0, 0, 0, 0.5);
+    box-shadow:1px 0 3px 0 rgba(0, 0, 0, 0.5);
+  }
   #wrapper #top .oftb-logo {
     display:none;
   }
   a#menu-toggle {
     display:block;
+    padding:1.2em 1em;
+  }
+  a#menu-toggle:hover {
+    background-color:#366f9f;
+    color:#fff;
   }
   nav.col-full {
     display:none;
@@ -843,9 +867,17 @@ INDEX
   #wrapper #top-nav li {
     list-style-type:none;
   }
+  #wrapper #home-nav {
+    display:block;
+    width:100%;
+  }
   #wrapper #top-nav li a, #wrapper #top ul.nav > li a {
-    padding:1em 0;
+    padding:1em 1em;
     text-decoration:none;
+  }
+  #wrapper #top-nav li a:hover, #wrapper #top ul.nav > li a:hover{
+    background-color:#366f9f;
+    color:#fff;
   }
   #wrapper #top-nav li.logo-between {
     display:none;
