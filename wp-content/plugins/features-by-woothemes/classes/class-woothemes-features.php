@@ -19,10 +19,11 @@ class Woothemes_Features {
 	private $token;
 	public $version;
 	private $file;
+	public $taxonomy_category;
 
 	/**
 	 * Constructor function.
-	 * 
+	 *
 	 * @access public
 	 * @since 1.0.0
 	 * @return void
@@ -35,35 +36,36 @@ class Woothemes_Features {
 		$this->token = 'feature';
 
 		$this->load_plugin_textdomain();
-		add_action( 'init', array( &$this, 'load_localisation' ), 0 );
+		add_action( 'init', array( $this, 'load_localisation' ), 0 );
 
 		// Run this on activation.
-		register_activation_hook( $this->file, array( &$this, 'activation' ) );
+		register_activation_hook( $this->file, array( $this, 'activation' ) );
 
-		add_action( 'init', array( &$this, 'register_post_type' ) );
+		add_action( 'init', array( $this, 'register_post_type' ) );
+		add_action( 'init', array( $this, 'register_taxonomy' ) );
 
 		if ( is_admin() ) {
 			global $pagenow;
 
-			add_action( 'admin_menu', array( &$this, 'meta_box_setup' ), 20 );
-			add_action( 'save_post', array( &$this, 'meta_box_save' ) );
-			add_filter( 'enter_title_here', array( &$this, 'enter_title_here' ) );
-			add_action( 'admin_print_styles', array( &$this, 'enqueue_admin_styles' ), 10 );
-			add_filter( 'post_updated_messages', array( &$this, 'updated_messages' ) );
+			add_action( 'admin_menu', array( $this, 'meta_box_setup' ), 20 );
+			add_action( 'save_post', array( $this, 'meta_box_save' ) );
+			add_filter( 'enter_title_here', array( $this, 'enter_title_here' ) );
+			add_action( 'admin_print_styles', array( $this, 'enqueue_admin_styles' ), 10 );
+			add_filter( 'post_updated_messages', array( $this, 'updated_messages' ) );
 
 			if ( $pagenow == 'edit.php' && isset( $_GET['post_type'] ) && esc_attr( $_GET['post_type'] ) == $this->token ) {
-				add_filter( 'manage_edit-' . $this->token . '_columns', array( &$this, 'register_custom_column_headings' ), 10, 1 );
-				add_action( 'manage_posts_custom_column', array( &$this, 'register_custom_columns' ), 10, 2 );
+				add_filter( 'manage_edit-' . $this->token . '_columns', array( $this, 'register_custom_column_headings' ), 10, 1 );
+				add_action( 'manage_posts_custom_column', array( $this, 'register_custom_columns' ), 10, 2 );
 			}
 		}
 
-		add_action( 'after_setup_theme', array( &$this, 'ensure_post_thumbnails_support' ) );
-		add_action( 'after_theme_setup', array( &$this, 'register_image_sizes' ) );
+		add_action( 'after_setup_theme', array( $this, 'ensure_post_thumbnails_support' ) );
+		add_action( 'after_theme_setup', array( $this, 'register_image_sizes' ) );
 	} // End __construct()
 
 	/**
 	 * Register the post type.
-	 * 
+	 *
 	 * @access public
 	 * @param string $token
 	 * @param string 'Features'
@@ -99,16 +101,27 @@ class Woothemes_Features {
 			'capability_type' => 'post',
 			'has_archive' => true,
 			'hierarchical' => false,
-			'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ), 
-			'menu_position' => 5, 
+			'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ),
+			'menu_position' => 5,
 			'menu_icon' => ''
 		);
 		register_post_type( $this->token, $args );
 	} // End register_post_type()
 
 	/**
+	 * Register the "feature-category" taxonomy.
+	 * @access public
+	 * @since  1.3.0
+	 * @return void
+	 */
+	public function register_taxonomy () {
+		$this->taxonomy_category = new Woothemes_Features_Taxonomy(); // Leave arguments empty, to use the default arguments.
+		$this->taxonomy_category->register();
+	} // End register_taxonomy()
+
+	/**
 	 * Add custom columns for the "manage" screen of this post type.
-	 * 
+	 *
 	 * @access public
 	 * @param string $column_name
 	 * @param int $id
@@ -117,11 +130,11 @@ class Woothemes_Features {
 	 */
 	public function register_custom_columns ( $column_name, $id ) {
 		global $wpdb, $post;
-		
+
 		$meta = get_post_custom( $id );
 
 		switch ( $column_name ) {
-			
+
 			case 'image':
 				$value = '';
 
@@ -132,13 +145,13 @@ class Woothemes_Features {
 
 			default:
 			break;
-		
+
 		}
 	} // End register_custom_columns()
-	
+
 	/**
 	 * Add custom column headings for the "manage" screen of this post type.
-	 * 
+	 *
 	 * @access public
 	 * @param array $defaults
 	 * @since  1.0.0
@@ -146,25 +159,25 @@ class Woothemes_Features {
 	 */
 	public function register_custom_column_headings ( $defaults ) {
 		$new_columns = array( 'image' => __( 'Image', 'woothemes-features' ) );
-		
+
 		$last_item = '';
 
 		if ( isset( $defaults['date'] ) ) { unset( $defaults['date'] ); }
 
-		if ( count( $defaults ) > 2 ) { 
+		if ( count( $defaults ) > 2 ) {
 			$last_item = array_slice( $defaults, -1 );
 
 			array_pop( $defaults );
 		}
 		$defaults = array_merge( $defaults, $new_columns );
-		
+
 		if ( $last_item != '' ) {
 			foreach ( $last_item as $k => $v ) {
 				$defaults[$k] = $v;
 				break;
 			}
 		}
-		
+
 		return $defaults;
 	} // End register_custom_column_headings()
 
@@ -199,18 +212,18 @@ class Woothemes_Features {
 
 	/**
 	 * Setup the meta box.
-	 * 
+	 *
 	 * @access public
 	 * @since  1.1.0
 	 * @return void
 	 */
-	public function meta_box_setup () {		
-		add_meta_box( 'feature-data', __( 'Feature Details', 'woothemes-features' ), array( &$this, 'meta_box_content' ), $this->token, 'normal', 'high' );
+	public function meta_box_setup () {
+		add_meta_box( 'feature-data', __( 'Feature Details', 'woothemes-features' ), array( $this, 'meta_box_content' ), $this->token, 'normal', 'high' );
 	} // End meta_box_setup()
-	
+
 	/**
 	 * The contents of our meta box.
-	 * 
+	 *
 	 * @access public
 	 * @since  1.1.0
 	 * @return void
@@ -221,9 +234,9 @@ class Woothemes_Features {
 		$field_data = $this->get_custom_fields_settings();
 
 		$html = '';
-		
+
 		$html .= '<input type="hidden" name="woo_' . $this->token . '_noonce" id="woo_' . $this->token . '_noonce" value="' . wp_create_nonce( plugin_basename( $this->dir ) ) . '" />';
-		
+
 		if ( 0 < count( $field_data ) ) {
 			$html .= '<table class="form-table">' . "\n";
 			$html .= '<tbody>' . "\n";
@@ -242,13 +255,13 @@ class Woothemes_Features {
 			$html .= '</tbody>' . "\n";
 			$html .= '</table>' . "\n";
 		}
-		
-		echo $html;	
+
+		echo $html;
 	} // End meta_box_content()
-	
+
 	/**
 	 * Save meta box fields.
-	 * 
+	 *
 	 * @access public
 	 * @since  1.1.0
 	 * @param int $post_id
@@ -258,45 +271,45 @@ class Woothemes_Features {
 		global $post, $messages;
 
 		// Verify
-		if ( ( get_post_type() != $this->token ) || ! wp_verify_nonce( $_POST['woo_' . $this->token . '_noonce'], plugin_basename( $this->dir ) ) ) {  
-			return $post_id;  
+		if ( ( get_post_type() != $this->token ) || ! wp_verify_nonce( $_POST['woo_' . $this->token . '_noonce'], plugin_basename( $this->dir ) ) ) {
+			return $post_id;
 		}
-		  
-		if ( 'page' == $_POST['post_type'] ) {  
-			if ( ! current_user_can( 'edit_page', $post_id ) ) { 
+
+		if ( 'page' == $_POST['post_type'] ) {
+			if ( ! current_user_can( 'edit_page', $post_id ) ) {
 				return $post_id;
 			}
-		} else {  
-			if ( ! current_user_can( 'edit_post', $post_id ) ) { 
+		} else {
+			if ( ! current_user_can( 'edit_post', $post_id ) ) {
 				return $post_id;
 			}
 		}
-		
+
 		$field_data = $this->get_custom_fields_settings();
 		$fields = array_keys( $field_data );
-		
+
 		foreach ( $fields as $f ) {
-		
+
 			${$f} = strip_tags(trim($_POST[$f]));
 
 			// Escape the URLs.
 			if ( 'url' == $field_data[$f]['type'] ) {
 				${$f} = esc_url( ${$f} );
 			}
-			
-			if ( get_post_meta( $post_id, '_' . $f ) == '' ) { 
-				add_post_meta( $post_id, '_' . $f, ${$f}, true ); 
-			} elseif( ${$f} != get_post_meta( $post_id, '_' . $f, true ) ) { 
+
+			if ( get_post_meta( $post_id, '_' . $f ) == '' ) {
+				add_post_meta( $post_id, '_' . $f, ${$f}, true );
+			} elseif( ${$f} != get_post_meta( $post_id, '_' . $f, true ) ) {
 				update_post_meta( $post_id, '_' . $f, ${$f} );
-			} elseif ( ${$f} == '' ) { 
+			} elseif ( ${$f} == '' ) {
 				delete_post_meta( $post_id, '_' . $f, get_post_meta( $post_id, '_' . $f, true ) );
-			}	
+			}
 		}
 	} // End meta_box_save()
 
 	/**
 	 * Customise the "Enter title here" text.
-	 * 
+	 *
 	 * @access public
 	 * @since  1.0.0
 	 * @param string $title
@@ -311,7 +324,7 @@ class Woothemes_Features {
 
 	/**
 	 * Enqueue post type admin CSS.
-	 * 
+	 *
 	 * @access public
 	 * @since   1.0.0
 	 * @return   void
@@ -330,10 +343,10 @@ class Woothemes_Features {
 		$fields = array();
 
 		$fields['url'] = array(
-		    'name' => __( 'URL', 'woothemes-features' ), 
-		    'description' => __( 'Enter a URL that applies to this feature (for example: http://woothemes.com/).', 'woothemes-features' ), 
-		    'type' => 'url', 
-		    'default' => '', 
+		    'name' => __( 'URL', 'woothemes-features' ),
+		    'description' => __( 'Enter a URL that applies to this feature (for example: http://woothemes.com/).', 'woothemes-features' ),
+		    'type' => 'url',
+		    'default' => '',
 		    'section' => 'info'
 		);
 
@@ -369,7 +382,7 @@ class Woothemes_Features {
 	 * @return void
 	 */
 	public function register_image_sizes () {
-		if ( function_exists( 'add_image_size' ) ) { 
+		if ( function_exists( 'add_image_size' ) ) {
 			add_image_size( 'feature-thumbnail', 150, 9999 ); // 150 pixels wide (and unlimited height)
 		}
 	} // End register_image_sizes()
@@ -382,17 +395,18 @@ class Woothemes_Features {
 	 */
 	public function get_features ( $args = '' ) {
 		$defaults = array(
-			'limit' => 5, 
-			'orderby' => 'menu_order', 
-			'order' => 'DESC', 
-			'id' => 0
+			'limit' => 5,
+			'orderby' => 'menu_order',
+			'order' => 'DESC',
+			'id' => 0,
+			'category' => 0
 		);
-		
+
 		$args = wp_parse_args( $args, $defaults );
-		
+
 		// Allow child themes/plugins to filter here.
 		$args = apply_filters( 'woothemes_get_features_args', $args );
-		
+
 		// The Query Arguments.
 		$query_args = array();
 		$query_args['post_type'] = 'feature';
@@ -400,27 +414,46 @@ class Woothemes_Features {
 		$query_args['orderby'] = $args['orderby'];
 		$query_args['order'] = $args['order'];
 		$query_args['suppress_filters'] = 0;
-		
+
 		if ( is_numeric( $args['id'] ) && ( intval( $args['id'] ) > 0 ) ) {
 			$query_args['p'] = intval( $args['id'] );
 		}
-		
+
 		// Whitelist checks.
 		if ( ! in_array( $query_args['orderby'], array( 'none', 'ID', 'author', 'title', 'date', 'modified', 'parent', 'rand', 'comment_count', 'menu_order', 'meta_value', 'meta_value_num' ) ) ) {
 			$query_args['orderby'] = 'date';
 		}
-		
+
 		if ( ! in_array( $query_args['order'], array( 'ASC', 'DESC' ) ) ) {
 			$query_args['order'] = 'DESC';
 		}
-		
+
 		if ( ! in_array( $query_args['post_type'], get_post_types() ) ) {
 			$query_args['post_type'] = 'feature';
 		}
-		
+
+		$tax_field_type = '';
+
+		// If the category ID is specified.
+		if ( is_numeric( $args['category'] ) && 0 < intval( $args['category'] ) ) {
+			$tax_field_type = 'id';
+		}
+
+		// If the category slug is specified.
+		if ( ! is_numeric( $args['category'] ) && is_string( $args['category'] ) ) {
+			$tax_field_type = 'slug';
+		}
+
+		// Setup the taxonomy query.
+		if ( '' != $tax_field_type ) {
+			$term = $args['category'];
+			if ( is_string( $term ) ) { $term = esc_html( $term ); } else { $term = intval( $term ); }
+			$query_args['tax_query'] = array( array( 'taxonomy' => 'feature-category', 'field' => $tax_field_type, 'terms' => array( $term ) ) );
+		}
+
 		// The Query.
 		$query = get_posts( $query_args );
-		
+
 		// The Display.
 		if ( ! is_wp_error( $query ) && is_array( $query ) && count( $query ) > 0 ) {
 			foreach ( $query as $k => $v ) {
@@ -439,7 +472,7 @@ class Woothemes_Features {
 		} else {
 			$query = false;
 		}
-		
+
 		return $query;
 	} // End get_features()
 
@@ -462,7 +495,7 @@ class Woothemes_Features {
 	    $domain = 'woothemes-features';
 	    // The "plugin_locale" filter is also used in load_plugin_textdomain()
 	    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-	 
+
 	    load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
 	    load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( $this->file ) ) . '/lang/' );
 	} // End load_plugin_textdomain()

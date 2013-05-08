@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: Wordpress Slider, Wordpress Slideshow, Slider, Image Rotator, Gallery, Banner Slider, slide, slider, slides, slideshow, content slider, content slideshow, slider widget, widget slideshow
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,9 @@ You can add the MK SLider to the sidebar by using the widget available in the wi
 * The conflict with some other plugins fixed
 * The option to set the link targets added.
 * Released on 04/15/2013
+
+= 1.3.4 =
+* Donation link fixed
 
 == Upgrade Notice ==
 

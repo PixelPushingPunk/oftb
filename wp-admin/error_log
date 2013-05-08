@@ -12,3 +12,4 @@
 [26-Apr-2013 10:24:44 UTC] finding SELECT * FROM `wp_gallery_slides` WHERE `id` = '' ORDER BY `id` DESC LIMIT 1
 [26-Apr-2013 10:24:44 UTC] finding SELECT title,id FROM `wp_satl_galleries` WHERE `title` = 'More' ORDER BY `id` DESC LIMIT 1
 [26-Apr-2013 10:24:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/plugins/slideshow-satellite/helpers/html.php on line 192
+[02-May-2013 10:37:55 UTC] WordPress database error Table 'arturoc2_oftb.wp_satl_slides' doesn't exist for query SELECT COUNT(*) FROM wp_satl_slides made by activate_plugin, include_once('/plugins/slideshow-satellite/slideshow-satellite.php'), Satellite->__construct, SatellitePlugin->register_plugin, SatellitePlugin->initialize_classes, SatelliteSlide->SatelliteSlide, SatellitePlugin->check_table

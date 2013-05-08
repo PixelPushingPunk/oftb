@@ -3,7 +3,7 @@
 Plugin Name: MK Slider
 Plugin URI: https://manojranawpblog.wordpress.com/
 Description: Wordpress Slider for posts & pages. Supports shortcode and sidebar widget to display slideshow.
-Version: 1.3.3
+Version: 1.3.4
 Author: Manoj Kumar
 Author URI: https://manojranawpblog.wordpress.com/
 License: GPL2

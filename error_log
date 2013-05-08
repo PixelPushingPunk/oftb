@@ -15,3 +15,6 @@
 [30-Apr-2013 09:47:09 UTC] PHP Parse error:  syntax error, unexpected '-', expecting '}' in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/facebook-sdk.php on line 23
 [30-Apr-2013 09:47:13 UTC] PHP Parse error:  syntax error, unexpected '-', expecting '}' in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/facebook-sdk.php on line 23
 [30-Apr-2013 09:50:39 UTC] PHP Parse error:  syntax error, unexpected '-', expecting '}' in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/facebook-sdk.php on line 23
+[01-May-2013 09:35:03 UTC] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ',' or ';' in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/header.php on line 46
+[01-May-2013 09:35:07 UTC] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ',' or ';' in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/header.php on line 46
+[01-May-2013 09:37:32 UTC] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ',' or ';' in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/header.php on line 46

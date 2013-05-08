@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) || ! function_exists( 'woothemes_features' ) ) exit;
  * protected $woothemes_widget_description
  * protected $woothemes_widget_idbase
  * protected $woothemes_widget_title
- * 
+ *
  * - __construct()
  * - widget()
  * - update()
@@ -50,7 +50,7 @@ class Woothemes_Widget_Features extends WP_Widget {
 		$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => $this->woothemes_widget_idbase );
 
 		/* Create the widget. */
-		$this->WP_Widget( $this->woothemes_widget_idbase, $this->woothemes_widget_title, $widget_ops, $control_ops );	
+		$this->WP_Widget( $this->woothemes_widget_idbase, $this->woothemes_widget_title, $widget_ops, $control_ops );
 	} // End __construct()
 
 	/**
@@ -60,12 +60,12 @@ class Woothemes_Widget_Features extends WP_Widget {
 	 * @param  array $instance Widget settings for this instance.
 	 * @return void
 	 */
-	public function widget( $args, $instance ) {  
+	public function widget( $args, $instance ) {
 		extract( $args, EXTR_SKIP );
-		
+
 		/* Our variables from the widget settings. */
 		$title = apply_filters('widget_title', $instance['title'], $instance, $this->id_base );
-			
+
 		/* Before widget (defined by themes). */
 		$args = array();
 
@@ -80,7 +80,7 @@ class Woothemes_Widget_Features extends WP_Widget {
 			$args['before_title'] = $before_title;
 			$args['after_title'] = $after_title;
 		}
-		
+
 		/* Widget content. */
 		// Add actions for plugins/themes to hook onto.
 		do_action( $this->woothemes_widget_cssclass . '_top' );
@@ -90,6 +90,7 @@ class Woothemes_Widget_Features extends WP_Widget {
 		if ( isset( $instance['specific_id'] ) && ( 0 < count( $instance['specific_id'] ) ) ) { $args['id'] = intval( $instance['specific_id'] ); }
 		if ( isset( $instance['size'] ) && ( 0 < count( $instance['size'] ) ) ) { $args['size'] = intval( $instance['size'] ); }
 		if ( isset( $instance['per_row'] ) && ( 0 < count( $instance['per_row'] ) ) ) { $args['per_row'] = intval( $instance['per_row'] ); }
+		if ( isset( $instance['category'] ) && is_numeric( $instance['category'] ) ) $args['category'] = intval( $instance['category'] );
 
 		// Select boxes.
 		if ( isset( $instance['orderby'] ) && in_array( $instance['orderby'], array_keys( $this->get_orderby_options() ) ) ) { $args['orderby'] = $instance['orderby']; }
@@ -120,6 +121,7 @@ class Woothemes_Widget_Features extends WP_Widget {
 		$instance['specific_id'] = intval( $new_instance['specific_id'] );
 		$instance['size'] = intval( $new_instance['size'] );
 		$instance['per_row'] = intval( $new_instance['per_row'] );
+		$instance['category'] = intval( $new_instance['category'] );
 
 		/* The select box is returning a text value, so we escape it. */
 		$instance['orderby'] = esc_attr( $new_instance['orderby'] );
@@ -135,20 +137,21 @@ class Woothemes_Widget_Features extends WP_Widget {
 	 * @param  array $instance The settings for this instance.
 	 * @return void
 	 */
-    public function form( $instance ) {       
-   
+    public function form( $instance ) {
+
 		/* Set up some default widget settings. */
 		/* Make sure all keys are added here, even with empty string values. */
 		$defaults = array(
-			'title' => '', 
-			'limit' => 5, 
-			'orderby' => 'menu_order', 
-			'order' => 'DESC', 
-			'specific_id' => '', 
-			'size' => 50, 
-			'per_row' => 3
+			'title' => '',
+			'limit' => 5,
+			'orderby' => 'menu_order',
+			'order' => 'DESC',
+			'specific_id' => '',
+			'size' => 50,
+			'per_row' => 3,
+			'category' => 0
 		);
-		
+
 		$instance = wp_parse_args( (array) $instance, $defaults );
 ?>
 		<!-- Widget Title: Text Input -->
@@ -177,7 +180,7 @@ class Woothemes_Widget_Features extends WP_Widget {
 			<select name="<?php echo $this->get_field_name( 'orderby' ); ?>" class="widefat" id="<?php echo $this->get_field_id( 'orderby' ); ?>">
 			<?php foreach ( $this->get_orderby_options() as $k => $v ) { ?>
 				<option value="<?php echo $k; ?>"<?php selected( $instance['orderby'], $k ); ?>><?php echo $v; ?></option>
-			<?php } ?>       
+			<?php } ?>
 			</select>
 		</p>
 		<!-- Widget Order: Select Input -->
@@ -186,8 +189,16 @@ class Woothemes_Widget_Features extends WP_Widget {
 			<select name="<?php echo $this->get_field_name( 'order' ); ?>" class="widefat" id="<?php echo $this->get_field_id( 'order' ); ?>">
 			<?php foreach ( $this->get_order_options() as $k => $v ) { ?>
 				<option value="<?php echo $k; ?>"<?php selected( $instance['order'], $k ); ?>><?php echo $v; ?></option>
-			<?php } ?>       
+			<?php } ?>
 			</select>
+		</p>
+		<!-- Widget Category: Select Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php _e( 'Category:', 'woothemes-features' ); ?></label>
+			<?php
+				$dropdown_args = array( 'taxonomy' => 'feature-category', 'class' => 'widefat', 'show_option_all' => __( 'All', 'woothemes-features' ), 'id' => $this->get_field_id( 'category' ), 'name' => $this->get_field_name( 'category' ), 'selected' => $instance['category'] );
+				wp_dropdown_categories( $dropdown_args );
+			?>
 		</p>
 		<!-- Widget ID: Text Input -->
 		<p>
@@ -205,11 +216,11 @@ class Woothemes_Widget_Features extends WP_Widget {
 	 */
 	protected function get_orderby_options () {
 		return array(
-					'none' => __( 'No Order', 'woothemes-features' ), 
-					'ID' => __( 'Entry ID', 'woothemes-features' ), 
-					'title' => __( 'Title', 'woothemes-features' ), 
-					'date' => __( 'Date Added', 'woothemes-features' ), 
-					'menu_order' => __( 'Specified Order Setting', 'woothemes-features' ), 
+					'none' => __( 'No Order', 'woothemes-features' ),
+					'ID' => __( 'Entry ID', 'woothemes-features' ),
+					'title' => __( 'Title', 'woothemes-features' ),
+					'date' => __( 'Date Added', 'woothemes-features' ),
+					'menu_order' => __( 'Specified Order Setting', 'woothemes-features' ),
 					'rand' => __( 'Random Order', 'woothemes-features' )
 					);
 	} // End get_orderby_options()
@@ -221,12 +232,12 @@ class Woothemes_Widget_Features extends WP_Widget {
 	 */
 	protected function get_order_options () {
 		return array(
-					'ASC' => __( 'Ascending', 'woothemes-features' ), 
+					'ASC' => __( 'Ascending', 'woothemes-features' ),
 					'DESC' => __( 'Descending', 'woothemes-features' )
 					);
 	} // End get_order_options()
 } // End Class
 
 /* Register the widget. */
-add_action( 'widgets_init', create_function( '', 'return register_widget("WooThemes_Widget_Features");' ), 1 ); 
+add_action( 'widgets_init', create_function( '', 'return register_widget("WooThemes_Widget_Features");' ), 1 );
 ?>

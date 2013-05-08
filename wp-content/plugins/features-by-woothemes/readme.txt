@@ -3,8 +3,8 @@ Contributors: woothemes, mattyza, jameskoster
 Donate link: http://woothemes.com/
 Tags: features, widget, shortcode, template-tag, services
 Requires at least: 3.4.2
-Tested up to: 3.5
-Stable tag: 1.2.2
+Tested up to: 3.5.1
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,7 @@ To add arguments to this, please use any of the following arguments, using the s
 * 'after' => '&lt;/div&gt;' (the ending HTML, wrapping the features)
 * 'before_title' => '&lt;h2&gt;' (the starting HTML, wrapping the title)
 * 'after_title' => '&lt;/h2&gt;' (the ending HTML, wrapping the title)
+* 'category' => 0 (the ID/slug of the category to filter by)
 
 The various options for the "orderby" parameter are:
 
@@ -101,6 +102,9 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 == Upgrade Notice ==
 
+= 1.3.0 =
+* Adds "woothemes_features_content" filter and shortcode support. Adds "feature-category" taxonomy.
+
 = 1.2.2 =
 * Minor bugfixes to the "order" directions options and additions to the "woothemes_features_html" filter.
 
@@ -122,6 +126,13 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 * Initial release. Woo!
 
 == Changelog ==
+
+= 1.3.0 =
+* 2013-04-30.
+* Adds "woothemes_features_content" filter for modifying the content of features when outputting the features list.
+* Adds default filters to the "woothemes_features_content" hook, enabling shortcodes in the content or excerpt fields.
+* Adds "feature-category" taxonomy and necessary logic for displaying features from a specified category.
+* Adds "columns-X" class to the ".features" DIV tag, for easier styling, using the "per_row" attribute.
 
 = 1.2.2 =
 * 2013-01-03
