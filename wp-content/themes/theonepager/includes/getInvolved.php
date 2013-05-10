@@ -86,7 +86,10 @@ $query = new WP_Query( array( 'page_id' => $settings['homepage_getInvolved_id'] 
 		    <!--<div id="txtEcho"><input id="postToWall" type="submit" value="postToWall"/></div>-->		
 			<h2>Posts</h2>
 			<div id="loadingComments"><img src="<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif"/> Loading comments . . . </div>
-			<form id="postForm"><textarea class='textareaFB'></textarea><br><input class='postToWall' type='submit' value='comment' name='comment'/></form>
+			<form id="postForm">
+				<button id="fbShare">Share</button><br/>
+				<textarea class='textareaFB'></textarea><br/><input class='postToWall' type='submit' value='comment' name='comment'/>
+			</form>
 
 			<div id="loading-posts" class="rslides">	
 			</div>

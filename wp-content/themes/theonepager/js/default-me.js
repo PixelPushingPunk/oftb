@@ -60,6 +60,11 @@
             e.preventDefault();
         });
 
+        // Share button facebook posts 
+        $('#postForm #fbShare').on('click', function() {
+            shareDialog();
+        });
+
         // onclick friend show name
         showFbName();
 
