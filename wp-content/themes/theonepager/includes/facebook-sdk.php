@@ -99,7 +99,7 @@
     window.fbLoginStatus = function () {
         FB.getLoginStatus(function (response) {
             if (response.status === 'connected') {
-                $('.fbLogin').hide();
+                $('.fbLogin, #loadingFriends, #loadingComments').hide();
                 $('.fbLogout').show();
                 uid = response.authResponse.userID;
                 accessTokenVar = response.authResponse.accessToken;
@@ -150,6 +150,25 @@
         fbLoginStatus();
     };
 
+    window.shareDialog = function () {
+        FB.ui({
+            method: 'feed',
+            name: 'Facebook Dialogs',
+            link: 'https://developers.facebook.com/docs/reference/dialogs/',
+            picture: 'http://fbrell.com/f8.jpg',
+            caption: 'Reference Documentation',
+            description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
+          },
+          function(response) {
+            if (response && response.post_id) {
+              alert('Post was published.');
+            } else {
+              alert('Post was not published.');
+            }
+          }
+        );        
+    };
+    
     window.fbDoLogin = function () {
         FB.login(function (response) {
             if (response.authResponse) {
