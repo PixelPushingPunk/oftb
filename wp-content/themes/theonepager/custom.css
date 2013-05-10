@@ -84,7 +84,7 @@ Styling for each module on one pager */
 
 #home-nav {
 	display:none;
-	width:99px;
+	width:25px;
 }
 
 #campaigns span.heading {
@@ -107,8 +107,8 @@ BLOG POST
 blog integration styling */
 #blog-posts article {
 	float:left;
-	width:585px;
-	height:583px;
+	max-width:585px;
+	max-height:524px;
 	padding:0 20px 20px;
 	margin:0 0 26px 0;
 
@@ -127,8 +127,15 @@ blog integration styling */
 	float:left;
 
 	background-color:#fff;
-	min-height:647px;
+	min-height:571px;
 	border-bottom:5px solid #ccc;
+}
+
+#blog-posts #mainWrapBlog {
+	position:relative;
+	max-width:625px;
+	float:left;
+
 }
 
 #blog-posts .main-padding {
@@ -169,6 +176,36 @@ blog integration styling */
 	font-style:normal !important;
 	line-height:24px;
 	color:#999999;
+}
+
+#blog-posts a.rslides_nav, a.rslides_nav {
+	position:absolute;
+	top:10px;
+	z-index:9999;
+
+	display:block;
+	width:10px;
+	height:15px;
+	background:url('images/navArrows.png') no-repeat scroll 0 0;
+	font:0/0 a;
+	text-shadow:none;
+	color:transparent;
+}
+
+#blog-posts a.rslides_nav.prev, a.rslides_nav.prev {
+	left:10px;
+	background-position:0 0;
+}
+
+#blog-posts a.rslides_nav.next, a.rslides_nav.next {
+	right:10px;
+	background-position:-9px 0;
+}
+
+#getInvolved #posts h2 { text-align:center; }
+
+#loadingFriends, #loadingComments {
+	font-size:11px;
 }
 
 ::-webkit-scrollbar {
@@ -280,7 +317,7 @@ Facebook integration styling */
 			}
 
 			.facebook-section #friends {
-				float:left;
+				/*float:left;*/
 				max-width:630px;
 				overflow:hidden;
 			}
@@ -288,13 +325,20 @@ Facebook integration styling */
 			.facebook-section #posts {
 				float:left;
 				margin:0 1em 0 0;
+				position:relative;
 			}
 
 			.facebook-section #postForm {
 				position:absolute;
-				top:245px;
+				top:250px;
 				left:0;
-				z-index:2;
+				z-index:9999;
+				width:100%;
+			}
+
+			.facebook-section #postForm textarea {
+				width:100%;
+				padding:0.236em 0;
 			}
 
 			.facebook-section .postWrapper {
@@ -330,13 +374,17 @@ Facebook integration styling */
             	margin:0;
             }
 
-            .facebook-section .friendWrapCeleb, .facebook-section .friendWrapCeleb a.friendCeleb {
+            .facebook-section a.comments img {
+            	max-width:64px;
+            }
+
+            .facebook-section .friendWrapCeleb, .facebook-section .friendWrapCeleb a.friendCeleb, .facebook-section .friendWrapCeleb .friend-detail-wrap {
             	width:144px;
             	height:144px;
             	float:left;
-            	display:inline-block;
             	margin:8px;
-            	position:relative;
+            	/*position:absolute;*/
+            	/*display:inline-block;*/
             }
 
             .facebook-section .friendWrapCeleb a.friend img {
@@ -348,25 +396,26 @@ Facebook integration styling */
             	position:relative;
             }
 
-            .facebook-section a.friend, .facebook-section .friend-detail-wrap, .facebook-section .friendWrap {
+            .facebook-section a.friend, .facebook-section .friend-detail-wrap, .facebook-section .friendWrap, .facebook-section a.iLike, .facebook-section a.friendLike {
 				width:64px;
 				height:64px;
-				display:inline-block;
 				margin:8px;
 				float:left;
+				/*position:absolute;*/
+				/*display:inline-block;*/
 			}
 
-			.facebook-section a.friend, .facebook-section a.friendCeleb {
+			.facebook-section a.friend, .facebook-section a.friendCeleb, .facebook-section a.iLike, .facebook-section a.friendLike {
 				margin:0 !important;
 			}
 
-			.facebook-section a.friend, .facebook-section .friend-detail-wrap {
+			.facebook-section a.friend, .facebook-section .friend-detail-wrap, .facebook-section a.iLike, .facebook-section a.friendLike {
 				position:absolute;
 				top:0;
 				left:0;
 			}
 
-			.facebook-section a.friend {
+			.facebook-section a.friend, .facebook-section a.iLike, .facebook-section a.friendLike, .facebook-section .friendCeleb {
 				z-index:2;
 			}
 
@@ -374,6 +423,7 @@ Facebook integration styling */
 				z-index:1;
 				background:#ccc;
 				border:1px inset #eee;
+				margin:0 !important;
 			}
 
 			.facebook-section a.friend-detail {
@@ -381,6 +431,8 @@ Facebook integration styling */
 				text-decoration:none;
 				padding:5px;
 				text-align:center;
+				vertical-align:bottom;
+				display:block;
 			}
 
 			.facebook-section a.friend img {
@@ -425,6 +477,28 @@ Facebook integration styling */
 
             .facebook-section #leftControl {
             	float:left;
+            }
+
+            .facebook-section #facebook-friend-temp {
+
+            }
+
+            .facebook-section .commentsWrapper .comments {
+            	margin:0 0 10px 0;
+            	position:relative;
+            	overflow:hidden;
+            }
+
+            .facebook-section .commentsWrapper .comments a {
+            	margin:0 10px 0 0;
+            	display:block;
+            	float:left;
+            }
+
+            .facebook-section .commentsWrapper .comments span.time {
+            	float:left;
+            	font-size:11px;
+            	display:block;
             }
 
 /* 

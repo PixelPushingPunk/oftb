@@ -22,21 +22,20 @@
             loader_text: 'loading tweets', //loadin text
             no_result: 'No tweets found' // no results text
         });
+
 		//console.log('test document ready');
 	});//end.document.ready
 	
 
 	// Window load
     $(window).load(function(){
-        // test api facebook on load
-        //testAPI();        
-
         // Scroll bar
         $('#scrollbar1, .scrollbar2').tinyscrollbar();
 
         // Facebook
         $('#loadingFriends, #loadingComments').show();
-        $('#loading-posts').hide();
+        //$('#loading-posts').hide();
+        $('#loading-posts').show();
 
         // login when campaign top menu clicked
         $('a#getInvolved-nav').on('click', function(){
@@ -62,21 +61,16 @@
         });
 
         // onclick friend show name
-            $('.friendWrap .friend').show();
-            $('.friendWrap .friend-detail-wrap').hide();
-        $('.friendWrap').on('click', function(){
-            $(this).find('.friend').slideToggle('slow');
-            $(this).find('.friend-detail-wrap').slideToggle('slow');
-        });
+        showFbName();
 
-        $('.friendWrap .friend, .friendWrap .friend-detail').on('click', function(e){
-            e.preventDefault();
-        });
+        // add id to text area
+        getPlacePostID();
+        placePostID();
 
         // post to fb wall button
         $('.postToWall').on('click', function(e) {
             //var textDataID = $(this).siblings('textarea').attr('data-id');
-            var thisPostID = $(this).siblings('textarea').attr('name'); //$(this).attr('id'); 
+            var thisPostID = $(this).siblings('textarea').attr('name');//"261622440537988_577818112251751"; 
                         
             //console.log('input post id ' + thisPostID);
             //console.log('textData id ' + textDataID);
@@ -116,10 +110,10 @@
 		});*/ // end ajax call    
         
     	// Facebook slider function()
-       	sliderFb();
+       	//sliderFb();
 
         // Blog slider function() 
-        sliderBlogPost();
+        //sliderBlogPost();
 
         // Center Slides
         centerSliderNav();
@@ -136,9 +130,164 @@
         // Response Nav
         responseNav();
 
+        // Init mansory
+        initMansory();
+
+        // Init responsive slides
+        //initResSlides();
+        
+        // Init responsive slides blog
+        initResSlidesBlog();
+
+        // Reload Items every 5 secondays
+        //var rIm = setInterval(function() { reloadItemsMasonry(); }, 5000 );
+        
+        // Reload masonry every 5 seconds
+        //var rm = setInterval(function() { reloadMasonry(); }, 5000);
+
+        // Init shapeshifter
+        /*$('#facebook-friend-temp').shapeshift({
+          gutterX: -1,
+          gutterY: -1,
+          minColumns: 3,
+          paddingX: 0,
+          paddingY: 0
+        });*/
+
         //console.log('test window ready');
    	});// end window.load*/
     
+    var pcWrapIDGLOBAL;
+    var getPlacePostID = function() {
+        pcWrapIDGLOBAL = $('.pcWrap.rslides1_on').attr('title');
+        //$('#postForm textarea').attr('name', pcWrapID);
+        console.log('pc wrap gloabl ' + pcWrapIDGLOBAL);
+    };
+
+    var placePostID = function () {
+        //console.log('pcWrapID ' + pcWrapID);
+        $('body').on('click', '#posts .rslides_nav.rslides1_nav', function() {
+            getPlacePostID();
+            $('#postForm textarea').attr('name', pcWrapIDGLOBAL);
+            console.log('pc wrap gloabl ' + pcWrapIDGLOBAL);
+        });
+    };
+
+    var initResSlides = function () {
+        $('.rslides').responsiveSlides({
+            auto: false,             // Boolean: Animate automatically, true or false
+            speed: 500,            // Integer: Speed of the transition, in milliseconds
+            timeout: 4000,          // Integer: Time between slide transitions, in milliseconds
+            pager: false,           // Boolean: Show pager, true or false
+            nav: true,             // Boolean: Show navigation, true or false
+            random: false,          // Boolean: Randomize the order of the slides, true or false
+            pause: false,           // Boolean: Pause on hover, true or false
+            pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+            prevText: "Previous",   // String: Text for the "previous" button
+            nextText: "Next",       // String: Text for the "next" button
+            maxwidth: "",           // Integer: Max-width of the slideshow, in pixels
+            navContainer: "",       // Selector: Where controls should be appended to, default is after the 'ul'
+            manualControls: "",     // Selector: Declare custom pager navigation
+            namespace: "rslides",   // String: Change the default namespace used
+            before: function(){},   // Function: Before callback
+            after: function(){}     // Function: After callback
+        });
+    };
+
+    var initResSlidesBlog = function () {
+        $('#blog-posts .rslides').responsiveSlides({
+            auto: false,             // Boolean: Animate automatically, true or false
+            speed: 500,            // Integer: Speed of the transition, in milliseconds
+            timeout: 4000,          // Integer: Time between slide transitions, in milliseconds
+            pager: false,           // Boolean: Show pager, true or false
+            nav: true,             // Boolean: Show navigation, true or false
+            random: false,          // Boolean: Randomize the order of the slides, true or false
+            pause: false,           // Boolean: Pause on hover, true or false
+            pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+            prevText: "Previous",   // String: Text for the "previous" button
+            nextText: "Next",       // String: Text for the "next" button
+            maxwidth: "625",           // Integer: Max-width of the slideshow, in pixels
+            navContainer: "",       // Selector: Where controls should be appended to, default is after the 'ul'
+            manualControls: "",     // Selector: Declare custom pager navigation
+            namespace: "rslides",   // String: Change the default namespace used
+            before: function(){},   // Function: Before callback
+            after: function(){}     // Function: After callback
+        });
+    };
+
+    var showFbName = function () {
+        $('.friendWrap .friend, .friendWrap a').show();
+        $('.friendWrap .friend-detail-wrap').hide();
+           
+        $('.friendWrap').on('click', function(){
+            $(this).find('.friend').slideToggle('fast');
+            $(this).find('.friend-detail-wrap').slideToggle('fast');
+        });
+
+        $('.body').on('click', '.friendWrap', function() {
+            $(this).find('.iLike').slideToggle('fast');
+        });
+
+        /*$('.body').on('click', '.friendWrap', function() {
+            $(this).find('.friendLike').slideToggle('fast');
+        });
+
+        $('.body').on('click', '.friendWrap', function() {
+            $(this).find('.friend-detail-wrap').slideToggle('fast');
+        });*/
+
+        $('.friendWrapCeleb').on('click', function(){
+            $(this).find('.friendCeleb').slideToggle('fast');
+            $(this).find('.friend-detail-wrap').slideToggle('fast');
+        });
+
+        $('.friendWrap a.friend, .friendWrap .friend-detail').on('click', function(e){
+            e.preventDefault();
+        });
+
+        $('.friendWrapCeleb .friendCeleb').on('click', function(e){
+            e.preventDefault();
+        });
+
+        $('body').on('click', '.friendWrap a.iLike', function(e){
+            e.preventDefault();
+        });
+        
+         $('body').on('click', '.friendWrap a.friendLike', function(e){
+            e.preventDefault();
+        });
+    };
+
+    var reloadItemsMasonry = function () {
+        var $facebookContainer = $('#facebook-friend-temp');
+        $facebookContainer.masonry( 'reloadItems' );
+    };
+
+    var reloadMasonry = function () {
+        var $facebookContainer = $('#facebook-friend-temp');
+        $facebookContainer.masonry( 'reload' );
+    };
+
+    var destoryMasonry = function () {
+        var $facebookContainer = $('#facebook-friend-temp');
+        $facebookContainer.masonry( 'destroy' );
+    };
+
+    var initMansory = function () {
+        var $facebookContainer = $('#facebook-friend-temp');
+        $facebookContainer.imagesLoaded(function(){
+            $facebookContainer.masonry({
+                // options
+                itemSelector : '.itemFriend',
+                columnWidth : 80,
+                isAnimated: true, 
+                isResizeable: true,
+                isFitWidth: true
+                //containerStyle: {float: 'left'}
+            });
+        });
+    };
+
     var topShadowActive = function () {
         var barVisible = $('#wpadminbar').is(':visible');
         var scrollpast = $('#top').hasClass('scrollpast');
@@ -283,13 +432,13 @@
         var slides = $('.pcWrap');
         var numberOfSlides = slides.length;
 
-        function getPcVal (pcWrapWidth, currentPosition) {
+        var getPcVal = function (pcWrapWidth, currentPosition) {
             var pcWrapID = $('.pcWrap.active').attr('id');
             $('#postForm textarea').attr('name', pcWrapID);
             //console.log('pcWrapID ' + pcWrapID);
         }
 
-        function manageControls (position) {
+        var manageControls = function (position) {
                 // hide left arrow if position = first slide
                 if (position == 0) {
                     $('#leftControl').css('display',' none');
