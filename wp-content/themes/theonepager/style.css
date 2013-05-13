@@ -737,7 +737,7 @@ span.heading,
   color:#366f9f;
 }
 span.heading {
-  float:left;
+  float:none;
   text-align:left;
 }
 #content.home-widgets {
@@ -1298,7 +1298,7 @@ body.page-template-template-blog-php .type-testimonial {
 .type-feature img.thumbnail,
 .type-testimonial img.thumbnail,
 .article-content img.thumbnail {
-  border: 1px solid #dedede;
+  /*border: 1px solid #dedede;*/
   max-width: 100%;
   height: auto;
   -webkit-border-radius: 5px;
