@@ -803,6 +803,8 @@ INDEX
   }
 }
 
+
+
 @media only screen and (max-width:960px) {
   #top ul.nav li a {
     font-size:1em;
@@ -850,6 +852,7 @@ INDEX
     width:65px;
   }
 }
+
 
 @media only screen and (max-width:842px) {
   #top ul.nav li.logo-between a {
