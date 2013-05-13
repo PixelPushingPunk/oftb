@@ -155,6 +155,11 @@
     text-decoration:none;
 }
 
+.ls_def_ibanner_nav {
+    background:none !important;
+}
+
+
 @media only screen and (max-width:1020px){
     #events #events-section-two .ls_def_ibanner {
         max-width:877px;
@@ -199,6 +204,7 @@
   #events #events-section-two .ls_def_ibanner_banner .abs{
     float:none;
     max-width:100%;
+    padding:15px !important;
   }   
 
   #events #events-section-two .ls_def_ibanner_banner .abs .desc {
@@ -211,17 +217,27 @@
     position:absolute;
     top:0;
     right:0;
+    display:block;
   }
 }
 
 @media only screen and (max-width:853px) {
-    #events #events-section-one .ls_def_ibanner, #events #events-section-one .ls_def_ibanner_banner .abs .desc {
+
+    #events #events-section-one .ls_def_ibanner_banner .abs .desc {
+        max-width:100%;
+    }
+
+    #events #events-section-two .ls_def_ibanner {
         max-width:100%;
     }
 
     #events #events-section-one .ls_def_ibanner_banner .abs {
         max-width:95%;
         padding:2%;
+    }
+
+    #events #events-section-two .ls_def_ibanner {
+        max-width:700px;
     }
 
     #events #events-section-one .slide-img {
@@ -247,10 +263,66 @@
         margin:0 auto;
         height:auto;
     }
+    #events #events-section-one .ls_def_ibanner {
+        max-width:100% !important;
+    }
+}
+
+@media only screen and (max-width:791px) {
+    #events #events-section-two .ls_def_ibanner {
+        max-width:630px;
+    }
+}
+
+@media only screen and (max-width:723px) {
+    #events #events-section-two .ls_def_ibanner {
+        max-width:563px;
+    }
+
+    #events #events-section-two .ls_def_ibanner_banner .abs a {
+        font-size:24px;
+    }
+}
+
+@media only screen and (max-width:650px) {
+    #events #events-section-two .ls_def_ibanner {
+        max-width:95%;
+    }
+
+    #events #events-section .ls_def_ibanner_nav {
+        bottom:0;
+    }
+
+   #events #events-section-two .ls_def_ibanner_nav{
+        bottom:0;
+   }
 }
 
 @media only screen and (max-width:610px){
     #events #events-section-one .ls_def_ibanner_banner .abs a {
         font-size:24px;
     }
+}
+
+@media only screen and (max-width:576px) {
+    #events #events-section-two .ls_def_ibanner div {
+        background:none;
+    }
+    #events #events-section-two .ls_def_ibanner_nav {
+        bottom:18px;
+    } 
+
+    #events #events-section-two .ls_def_ibanner {
+        height:auto !important;
+    }
+
+    #events #events-section-two .slide-img, #events #events-section-one .slide-img {
+        max-width:460px;
+        position:relative;
+    }
+
+    .ls_def_ibanner_nav {
+        background:none !important;
+    }
+
 }

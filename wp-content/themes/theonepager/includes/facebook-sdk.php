@@ -469,7 +469,7 @@
                 if(value.message && value.picture) {
                     var pcWrap = $('.pcWrap'); //onclick='javascript:postToWallUsingFBApi(thisPostID);'
                     var thisPostID = value.id; //<form><textarea class='textareaFB' data-id='" + thisPostID + "'></textarea><br><input class='postToWall' type='submit' id='" + thisPostID + "' value='comment' name='comment' id="+ value.object_id +"/></form>
-                    $("<div class='pcWrap'><div class='postWrapper'><a class='posts' href='#'><img class='post-img'/></a><p>" + value.message + "</p></div><div class='commentsWrapper'></div></div>")
+                    $("<div class='pcWrap'><div class='postWrapper'><a class='posts' href='#'><img class='post-img'/></a><p>" + value.message + "</p></div><div class='shadow-top'></div><div class='commentsWrapper'></div><div class='shadow-bottom'></div></div>")
                         .attr({
                             title: value.id,
                             name: value.from.name

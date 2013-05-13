@@ -122,7 +122,9 @@ $settings = woo_get_dynamic_values( $settings );
 					<!--<div id="scrollbar1">
 						<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
 						<div class="viewport">-->
+					<div class="shadow-top"></div>
 					<div id="twitter2" class="overview"></div>
+					<div class="shadow-bottom"></div>
 						<!--</div>-->
 					<!--</div>-->
 				</div>

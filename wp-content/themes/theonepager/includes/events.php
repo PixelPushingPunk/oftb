@@ -109,6 +109,7 @@ $query = new WP_Query( array( 'page_id' => $settings['homepage_events_id'] ) );
 	<div id="events-section-two" class="col-full <?php echo esc_attr( $settings['homepage_posts_layout'] ); ?>">
 		<span class="heading"><?php echo $settings['homepage_events_posts_heading']; ?><!--Events--></span>
 		<div id="main" class="col-left">
+			<span class="ribbon-logo-events"><img src="<?php echo esc_url( get_template_directory_uri() );  ?>/images/ribbon-logo2.png"/></span>
 		<?php
 			if ( $query->have_posts() ) {
 				while ( $query->have_posts() ) { $query->the_post();

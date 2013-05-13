@@ -83,19 +83,21 @@ $query = new WP_Query( array( 'page_id' => $settings['homepage_getInvolved_id'] 
 	<div class="facebook-section col-full layout-full">
 		
 		<div id="posts" class="step">
-		    <!--<div id="txtEcho"><input id="postToWall" type="submit" value="postToWall"/></div>-->		
-			<h2>Posts</h2>
-			<div id="loadingComments"><img src="<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif"/> Loading comments . . . </div>
-			<form id="postForm">
-				<button id="fbShare">Share</button><br/>
-				<textarea class='textareaFB'></textarea><br/><input class='postToWall' type='submit' value='comment' name='comment'/>
-			</form>
+			<div class="posts-padding">
+			    <!--<div id="txtEcho"><input id="postToWall" type="submit" value="postToWall"/></div>-->		
+				<h2>Posts</h2>
+				<div id="loadingComments"><img src="<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif"/> Loading comments . . . </div>
+				<form id="postForm">
+					<button id="fbShare">Share</button><br/>
+					<textarea class='textareaFB'></textarea><br/><input class='postToWall button' type='submit' value='comment' name='comment'/>
+				</form>
 
-			<div id="loading-posts" class="rslides">	
+				<div id="loading-posts" class="rslides">	
+				</div>
+			    <!--<div id="comments-box">
+			        <div class="fb-comments" data-href="https://www.facebook.com/pages/Big-Group-Test-Page/261622440537988" data-width="470" data-num-posts="20"></div>
+			    </div>-->
 			</div>
-		    <!--<div id="comments-box">
-		        <div class="fb-comments" data-href="https://www.facebook.com/pages/Big-Group-Test-Page/261622440537988" data-width="470" data-num-posts="20"></div>
-		    </div>-->
 		</div><!--/#posts-->
 
 		<div id="friends" class="step">
