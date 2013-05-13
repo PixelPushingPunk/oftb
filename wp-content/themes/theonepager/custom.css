@@ -426,6 +426,20 @@ Facebook integration styling */
             	height:144px;
             }
 
+            .facebook-section .infoWrap a.infoCeleb {
+            	margin:0;
+            	display:block;
+            	float:left;
+            }
+
+            .facebook-section .infoWrap {
+            	width:224px;
+            	height:144px;
+            	float:left;
+            	margin:8px;
+            	background:#ccc5c1;
+            }
+
             .facebook-section .friendWrap {
             	position:relative;
             }
@@ -458,6 +472,10 @@ Facebook integration styling */
 				background:#ccc;
 				/*border:1px inset #eee;*/
 				margin:0 !important;
+			}
+
+			.facebook-section .friendWrapCeleb .friend-detail-wrap {
+				background:#a7bacc;
 			}
 
 			.facebook-section a.friend-detail {
