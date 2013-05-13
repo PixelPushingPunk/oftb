@@ -790,8 +790,17 @@ INDEX
 
 }
 
-@media only screen and (max-width:975px) {
-  
+@media only screen and (max-width:1018px) {
+  #twitter-api {
+    max-width:20em !important;
+  }
+}
+
+
+@media only screen and (max-width:976px) {
+  #blog-posts article {
+    max-width:545px !important;
+  }
 }
 
 @media only screen and (max-width:960px) {
@@ -804,9 +813,31 @@ INDEX
   }
 }
 
-@media only screen and (max-width:890px){
+@media only screen and (max-width:936px) {
+  .twitter-padding{
+    padding: 10px!important;
+  }
+
+  #twitter-api {
+    max-width:20em !important;
+  }
+
+  #blog-posts article {
+    max-width:500px !important;
+  }
+}
+
+@media only screen and (max-width:891px){
   .oftb-logo a  {
     width:80px;
+  }
+
+  #twitter-api {
+    max-width:20em !important;
+  }
+
+  #blog-posts article {
+    max-width:450px !important;
   }
 }
 
@@ -828,6 +859,58 @@ INDEX
   #top ul.nav li a {
     padding:5.1em 0.3em 0;
   }
+
+  #twitter-api {
+    max-width:15em !important;
+  }
+}
+
+@media only screen and (max-width:780px) {
+  #twitter-api {
+    margin:0 auto !important;
+  }
+
+  #twitter-api, #twitter-postbox {
+    max-width:720px !important;
+  }
+
+  #twitter-postbox {
+    padding:10px 0 0 !important;
+  }
+
+  #twitter2 {
+    max-width:100% !important;
+  }
+
+  #blog-posts .twitter-section {
+    float:none !important;
+    display:block !important;
+  }
+
+  #blog-posts #mainWrapBlog, #blog-posts #main {
+    float:none !important;
+    max-width:720px !important;
+    display: block !important;
+    margin:20px auto 0 !important;
+  }
+
+  #blog-posts article {
+    max-width:682px !important;
+    padding:0 19px 20px !important;
+  }
+
+  .facebook-section #posts {
+    float:none !important;
+  }
+
+  .facebook-section #loading-posts, .facebook-section .pcWrap, .facebook-section #friends {
+    width:100% !important;
+  }
+
+  .facebook-section .pcWrap, .facebook-section .postWrapper, .facebook-section.commentsWrapper {
+    width:100% !important;
+  }
+
 }
 
 @media only screen and (max-width:768px) {

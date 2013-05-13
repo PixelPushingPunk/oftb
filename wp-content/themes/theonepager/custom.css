@@ -121,7 +121,7 @@ blog integration styling */
 }
 
 #blog-posts #main {
-	max-width:625px;
+	max-width:643px;
 	overflow:hidden;
 	position:relative;
 	float:left;
@@ -133,7 +133,7 @@ blog integration styling */
 
 #blog-posts #mainWrapBlog {
 	position:relative;
-	max-width:625px;
+	max-width:643px;
 	float:left;
 
 }
@@ -284,8 +284,12 @@ Twitter integration styling */
 	box-shadow:0 0 1px 1px #ccc;
 }
 
+#twitter-postbox {
+	max-width:292px;
+}
+
 #twtPost {
-	width:294px;
+	width:100%;
 	min-height:66px;
 
 	-moz-border-radius:0;
@@ -318,7 +322,7 @@ Facebook integration styling */
 
 			.facebook-section #friends {
 				/*float:left;*/
-				max-width:630px;
+				max-width:660px;
 				overflow:hidden;
 			}
 
