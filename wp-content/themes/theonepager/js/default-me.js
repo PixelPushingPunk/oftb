@@ -177,9 +177,13 @@
         //Init load posts
         loadPostsBefore();
 
+        // Init load friends
+        loadFriendsJSON();
+
         //console.log('test window ready');
    	});// end window.load*/
     
+
     var pcWrapIDGLOBAL;
     var getPlacePostID = function() {
         pcWrapIDGLOBAL = $('#loading-posts .pcWrap.rslides6_on').attr('title');
@@ -193,6 +197,33 @@
             getPlacePostID();
             $('#postForm textarea').attr('name', pcWrapIDGLOBAL);
             console.log('pc wrap gloabl ' + pcWrapIDGLOBAL);
+        });
+    };
+
+    var loadFriendsJSON = function () {
+        var divContainer = $('#facebook-friend-temp');
+        $.getJSON('/oftb/wp-content/themes/theonepager/js/fb-users.json', function (response) {
+            console.log('json response' + typeof response);
+            $.each(response.data, function(index, value) {
+                console.log('json name ' + value.name);
+                console.log('json src' + value.src);
+                $("<div class=\"itemFriend friendWrap\"><a class=\"friend\" href=\"#\"><img style='width:64px;height:64px'/></a><div class=\"friend-detail-wrap\"><a href=\"#\" class=\"friend-detail\">" + value.name +"</a></div></div>")
+            /*.find(".friend")
+            .attr({
+                id: response.data[i].id,
+                href: response.data[i].link
+            })
+            .end()*/
+            .find("img")
+              .attr({
+                  src: value.src,
+                  alt: value.name,
+                  title: value.name
+                  //onClick: 'alert("You selected "+this.title); return false;'
+              })
+            .end()
+            .appendTo(divContainer);
+            });
         });
     };
 
