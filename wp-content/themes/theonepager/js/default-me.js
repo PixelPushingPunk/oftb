@@ -33,7 +33,7 @@
         $('#scrollbar1, .scrollbar2').tinyscrollbar();
 
         // Facebook
-        $('#loadingFriends, #loadingComments').show();
+        //$('#loadingFriends, #loadingComments').show();
         //$('#loading-posts').hide();
         $('#loading-posts').show();
 
@@ -63,8 +63,11 @@
         // Share button facebook posts 
         $('#postForm #fbShare').on('click', function() {
             shareDialog();
+            //e.preventDefault();
+            return false;
         });
 
+        
         // onclick friend show name
         showFbName();
 
@@ -90,6 +93,18 @@
 
             e.preventDefault();
             console.log('posted');
+        });
+
+        $('#postForm #fbLike').on('click', function () {
+            var thisPostID = $(this).siblings('textarea').attr('name');
+            likePost(thisPostID);
+            return false;
+        });
+
+        $('#postForm #fbUnLike').on('click', function () {
+            var thisPostID = $(this).siblings('textarea').attr('name');
+            unLikePost(thisPostID);
+            return false;
         });
 
 
@@ -158,20 +173,23 @@
           paddingX: 0,
           paddingY: 0
         });*/
+        
+        //Init load posts
+        loadPostsBefore();
 
         //console.log('test window ready');
    	});// end window.load*/
     
     var pcWrapIDGLOBAL;
     var getPlacePostID = function() {
-        pcWrapIDGLOBAL = $('.pcWrap.rslides1_on').attr('title');
+        pcWrapIDGLOBAL = $('#loading-posts .pcWrap.rslides6_on').attr('title');
         //$('#postForm textarea').attr('name', pcWrapID);
         console.log('pc wrap gloabl ' + pcWrapIDGLOBAL);
     };
 
     var placePostID = function () {
         //console.log('pcWrapID ' + pcWrapID);
-        $('body').on('click', '#posts .rslides_nav.rslides1_nav', function() {
+        $('body').on('click', '#loading-posts-wrap .rslides_nav', function() {
             getPlacePostID();
             $('#postForm textarea').attr('name', pcWrapIDGLOBAL);
             console.log('pc wrap gloabl ' + pcWrapIDGLOBAL);

@@ -1,7 +1,8 @@
 <?php
  
-    /*require_once("facebook.php");
-    
+    /*
+    require_once("facebook.php");
+   
     $config = array();
     $config['appId'] = '134240710093824';
     $config['secret'] = '2098ddbb1f0029aba8fcd4cbbe09b44c';
@@ -12,9 +13,13 @@
     $signed_request = $facebook->getSignedRequest();
     $access_token = $facebook->getAccessToken();
     
+    $posts = $facebook->api('/261622440537988/posts','GET'); 
+
+    $jsonEncodePosts = json_encode($posts);
     $page_id = '505165066';
     $fanpage_id = '261622440537988';
-    $fb_user_id = $facebook->getUser();
+
+    echo "$jsonEncodePosts";
 
     if(is_null($facebook-getUser())) {
         $params = array(
@@ -24,11 +29,17 @@
         exit;
     }
     */
+
+    #$fb_user_id = $facebook->getUser();
+    #echo "acces token : $access_token <br/>";
+    #echo "signed request: $signed_request";
+
     # $feed_array = array(
     #     'message' => "Hello world!"
     # );
     # $page_post = $facebook->api("/$fanpage_id/feed","post",$feed_array);
-   #error_reporting(E_ALL);
+    # error_reporting(E_ALL);
+
 ?>
 
 <!-- Facebook SDK -->
@@ -42,6 +53,8 @@
     var app_secret = '2098ddbb1f0029aba8fcd4cbbe09b44c';
     var uid, accessTokenVar;
     var myIDvar;
+
+    
 
     // Additional JS functions here
     var reloadItemsMasonry = function () {
@@ -99,29 +112,22 @@
     window.fbLoginStatus = function () {
         FB.getLoginStatus(function (response) {
             if (response.status === 'connected') {
-                $('.fbLogin, #loadingFriends, #loadingComments').hide();
-                $('.fbLogout').show();
+                $('.fbLogin, #loadingFriends, #loadingComments, #fb-social-plugin').hide();
+                $('.fbLogout, .post-hide').show();
                 uid = response.authResponse.userID;
                 accessTokenVar = response.authResponse.accessToken;
-
-                $('#accessToken').val(accessTokenVar);
-                //console.log('user id: ' + uid);
-                //console.log('access token : ' + accessTokenVar);
-
+                console.log('access token var from not logged in '  + accessTokenVar);
                 testAPI();
                 initMasonry();
                 console.log("connected");
-                return true;
             } else if (response.status === 'not_authorized') {
                 $('.fbLogin').show();
-                $('.fbLogout').hide();
+                $('.fbLogout, #loadingFriends, #loadingComments, .post-hide').hide();
                 console.log("not_authorized");
-                return false;
             } else {
                 $('.fbLogin').show();
-                $('.fbLogout').hide();
+                $('.fbLogout, #loadingFriends, #loadingComments, .post-hide').hide();
                 console.log("not_logged_in");
-                return false;
             }
         });
     };
@@ -130,7 +136,7 @@
         FB.init({
             appId: '134240710093824', // App ID
             channelUrl: '//bg-brits2013-priceless-remakes.appspot.com/channel.html', // Channel File
-            frictionlessRequests: true,
+            //frictionlessRequests: true,
             init: true,
             level: 'debug',
             signedRequest: null,
@@ -148,28 +154,31 @@
         });*/
         //testAPI();
         fbLoginStatus();
+        //loadPosts();
     };
 
     window.shareDialog = function () {
         FB.ui({
             method: 'feed',
-            name: 'Facebook Dialogs',
-            link: 'https://developers.facebook.com/docs/reference/dialogs/',
+            name: 'Big Group Test Page',
+            link: 'https://www.facebook.com/pages/Big-Group-Test-Page/261622440537988',
             picture: 'http://fbrell.com/f8.jpg',
-            caption: 'Reference Documentation',
-            description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
-          },
-          function(response) {
-            if (response && response.post_id) {
-              alert('Post was published.');
-            } else {
-              alert('Post was not published.');
+            caption: 'Caption',
+            description: 'Lorem ipsum text'
+            },
+            function(response) {
+                if (response && response.post_id) {
+                    alert('Post was published.');
+                } else {
+                     alert('Post was not published.');
+                }
             }
-          }
         );        
-    };
-    
+    };    
+
     window.fbDoLogin = function () {
+        $('#loadingFriends').show();
+        $('#loadingComments').show();
         FB.login(function (response) {
             if (response.authResponse) {
                 //accessTokenVar = response.authResponse.accessToken;
@@ -360,7 +369,7 @@
     };
 
     window.loadFriends = function () {
-        FB.api('/' + page_id + '/friends?fields=name,link', function (response) {
+        FB.api('/' + page_id + '/friends?fields=name,link&limit=7', function (response) {
             $("#loadingFriends, #facebook-friends-temp").hide();
             var divContainer = $('#facebook-friends');
 
@@ -441,15 +450,15 @@
 
     var pcWrapIDGLOBAL;
     var getPlacePostID = function() {
-        pcWrapIDGLOBAL = $('.pcWrap.rslides1_on').attr('title');
+        pcWrapIDGLOBAL = $('#loading-posts .pcWrap.rslides6_on').attr('title');
         //$('#postForm textarea').attr('name', pcWrapID);
-        console.log('pc wrap gloabl ' + pcWrapIDGLOBAL);
+        console.log('pc wrap global ' + pcWrapIDGLOBAL);
     };
 
     var placePostID = function () {
         //console.log('pcWrapID ' + pcWrapID);
         $('#postForm textarea').attr('name', pcWrapIDGLOBAL);
-        $('body').on('click', '#loading-posts .rslides_nav', function() {
+        $('body').on('click', '#loading-posts-wrap .rslides_nav', function() {
             getPlacePostID();
             $('#postForm textarea').attr('name', pcWrapIDGLOBAL);
             console.log('pc wrap gloabl ' + pcWrapIDGLOBAL);
@@ -458,14 +467,16 @@
 
     window.loadPosts = function () {
         //initMasonry();
+        //var AT = 'CAACEdEose0cBAKZCLZBt8u8PTS8jsHOIfCZAy26zftRhrbpSIsDr6iftbdxvibAfjhrthySfiB45VXy3pZCiZBP2uOIbNIP4KegZCL86R6I1ztOpENiyasUZB1zIFAadig7XCXPx7b0oe5O99AgO4JWoj4kq25ezroZD';
         FB.api('/'+fanpage_id+'/posts', function(response) {
+            $('#read-only-posts').hide();
             $('#loadingComments').hide();
             $('#loading-posts').show();
             var divContainer = $('#loading-posts');
 
             // Posts & Comments
             $.each(response.data, function(index, value) {
-                var x = $.inArray("message", value);
+                //var x = $.inArray("message", value);
                 if(value.message && value.picture) {
                     var pcWrap = $('.pcWrap'); //onclick='javascript:postToWallUsingFBApi(thisPostID);'
                     var thisPostID = value.id; //<form><textarea class='textareaFB' data-id='" + thisPostID + "'></textarea><br><input class='postToWall' type='submit' id='" + thisPostID + "' value='comment' name='comment' id="+ value.object_id +"/></form>
@@ -516,6 +527,127 @@
             placePostID();
         }); // End FB.api - posts
     }; // end window.load.post.function
+
+    window.likePost = function (pcWrapIDGLOBAL) {
+        function onPostToWallCompleted(response) {
+            $('#fbUnLike').show();
+            $('#fbLike').hide();
+
+            if (response) {
+                if (response.error) {
+                    //document.getElementById("txtEcho").innerHTML=response.error.message;
+                    alert('response error: ' + response.error.message);
+                } 
+                else {
+                    if (response.id) {
+                       //document.getElementById("txtEcho").innerHTML="Posted as post_id "+response.id;
+                        alert('posted as post_id: ' + response.id);
+                    } 
+                    else if (response.post_id) {
+                        //document.getElementById("txtEcho").innerHTML="Posted as post_id "+response.post_id;
+                        alert('Posted as post_id: ' + response.post_id);
+                    } 
+                    else {
+                        //document.getElementById("txtEcho").innerHTML="Unknown Error";
+                        alert('Unknown Error');
+                    }
+                }
+            }
+        }
+
+        FB.api('/' + pcWrapIDGLOBAL + '/likes?access_token=' + accessTokenVar + '', 'POST', onPostToWallCompleted);
+    };
+
+    window.unLikePost = function (pcWrapIDGLOBAL) {
+        function onPostToWallCompleted(response) {
+            $('#fbUnLike').hide();
+            $('#fbLike').show();
+
+            if (response) {
+                if (response.error) {
+                    //document.getElementById("txtEcho").innerHTML=response.error.message;
+                    alert('response error: ' + response.error.message);
+                } 
+                else {
+                    if (response.id) {
+                       //document.getElementById("txtEcho").innerHTML="Posted as post_id "+response.id;
+                        alert('posted as post_id: ' + response.id);
+                    } 
+                    else if (response.post_id) {
+                        //document.getElementById("txtEcho").innerHTML="Posted as post_id "+response.post_id;
+                        alert('Posted as post_id: ' + response.post_id);
+                    } 
+                    else {
+                        //document.getElementById("txtEcho").innerHTML="Unknown Error";
+                        alert('Unknown Error');
+                    }
+                }
+            }
+        }
+
+        FB.api('/' + pcWrapIDGLOBAL + '/likes?access_token=' + accessTokenVar + '', 'DELETE', onPostToWallCompleted);
+    };
+
+    window.loadPostsBefore = function () {
+        // /oftb/wp-content/themes/theonepager/includes/post-fb.php
+        // <?php echo esc_url( get_template_directory_uri() ); ?>/includes/post-fb.php
+        $('#loadingComments').show();
+        $.getJSON('/oftb/wp-content/themes/theonepager/includes/post-fb.php', function (response) {
+            console.log(response);
+            var divContainer = $('#read-only-posts');
+
+            // Posts & Comments
+            $.each(response.data, function(index, value) {
+                console.log('value id ' + value.id);
+                console.log('value id ' + value.id);
+                if(value.message && value.picture) {
+                    var pcWrap = $('.pcWrap'); 
+                    var thisPostID = value.id; 
+                    $("<div class='pcWrap'><div class='postWrapper'><a class='posts' href='#'><img class='post-img'/></a><p>" + value.message + "</p></div><div class='shadow-top'></div><div class='commentsWrapper'></div><div class='shadow-bottom'></div></div>")
+                        .attr({
+                            title: value.id,
+                            name: value.from.name
+                        })
+                        .find("img.post-img")
+                        .attr({
+                            src: value.picture+'?width=64&height=64',
+                            alt: value.from.name
+                        })
+                        .end()
+                        .appendTo(divContainer);
+
+                    if(typeof value.comments !=='undefined') {
+
+                        $.each(value.comments.data, function(index, valueB){
+                            var date = new Date(valueB.created_time);
+                            var day = date.getDate();
+                            var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+                            var month = date.getMonth();
+                            var hours = date.getUTCHours();
+                            var minutes = date.getUTCMinutes();
+
+                           $("<div class='comments'><a href='#'><img class='comment-img'/></a><p>" + valueB.message + "</p><span class='time'>" + day + " " + monthNames[month] + " at " + hours + ":" + minutes + "</span><span class='like'></span></div>")
+                            .attr({
+                                id: valueB.id,//from.id,
+                                name: valueB.from.name
+                            })
+                            .find("img.comment-img")
+                            .attr({
+                                src: 'https://graph.facebook.com/' + valueB.from.id + '/picture?width=64&height=64',
+                                alt: valueB.from.name
+                            })
+                            .end()
+                            .appendTo($('.commentsWrapper'));
+                        });
+                    }
+                }
+                       
+            }); // End loop 
+            initResSlides();
+            //getPlacePostID();
+            //placePostID();
+        }).done(function() { $('#loadingComments').hide(); console.log('success'); }).fail(function() { alert('facebook comments failed to load'); });
+    };    
 
     window.testAPI = function () {
         //addAsFriend();

@@ -213,6 +213,7 @@ blog integration styling */
 
 #loadingFriends, #loadingComments {
 	font-size:11px;
+	display:none;
 }
 
 ::-webkit-scrollbar {
@@ -346,11 +347,34 @@ Facebook integration styling */
 
 			.facebook-section #postForm {
 				position:absolute;
-				top:235px;
+				top:225px;
 				left:0;
-				z-index:9999;
+				z-index:99;
 				width:90%;
 				padding:0 5%;
+			}
+
+			.facebook-section #fbShare {
+				margin:0 0 3px 0;
+			}
+
+			.facebook-section .post-hide {
+				display:none;
+			}
+
+			.facebook-section .log-buttons {
+				position:absolute;
+				top:265px;
+				left:0;
+				z-index:99;
+			}
+
+			.facebook-section .log-buttons a {
+				position:relative;
+			}
+
+			.facebook-section .log-buttons a.fbLogin {
+				left:20px;
 			}
 
 			.facebook-section #postForm textarea {
@@ -501,7 +525,7 @@ Facebook integration styling */
                 padding:0;
             }
 
-            .facebook-section #loading-posts {
+            .facebook-section #loading-posts, .facebook-section #read-only-posts {
                 overflow:hidden;
                 position:relative;
                 width:300px;
