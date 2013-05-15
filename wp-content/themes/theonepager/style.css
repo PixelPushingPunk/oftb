@@ -2936,7 +2936,7 @@ html[xmlns] .flexslider .slides {
 }
 .flex-direction-nav a {
   position: absolute;
-  top: 33%;
+  top: 6%;
   cursor: pointer;
   visibility: hidden;
   text-align: center;
@@ -2966,7 +2966,7 @@ html[xmlns] .flexslider .slides {
   right: 0;
 }
 .flex-direction-nav .flex-next:after {
-  content: '\f105';
+  content: '\25ba'; /*\f105*/
   padding: 22px 0 0 3px;
   -webkit-border-top-left-radius: 5px;
   -webkit-border-bottom-left-radius: 5px;
@@ -2975,7 +2975,7 @@ html[xmlns] .flexslider .slides {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  font-family: 'FontAwesome';
+  font-family: 'LubalGraphBkBTBook';
   display: inline-block;
   font-size: 100%;
   margin-left: .618em;
@@ -2988,7 +2988,7 @@ html[xmlns] .flexslider .slides {
   left: 0;
 }
 .flex-direction-nav .flex-prev:before {
-  content: '\f104';
+  content: '\25c4';/*\f104*/
   padding: 22px 3px 0 0;
   -webkit-border-top-right-radius: 5px;
   -webkit-border-bottom-right-radius: 5px;
@@ -2997,7 +2997,7 @@ html[xmlns] .flexslider .slides {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  font-family: 'FontAwesome';
+  font-family: 'LubalGraphBkBTBook';
   display: inline-block;
   font-size: 100%;
   margin-right: .618em;

@@ -1030,6 +1030,14 @@ $options[] = array( 'name' => __( 'Page Content', 'woothemes' ),
                     'options' => $woo_pages
                   );
 
+$options[] = array( 'name' => __( 'Page Content', 'woothemes' ),
+                    'desc' => __( 'Select the page to display content from if the homepage content area is enabled.', 'woothemes' ),
+                    'id' => $shortname . '_homepage_events3_id',
+                    'std' => '',
+                    'type' => 'select2',
+                    'options' => $woo_pages
+                  );
+
 $options[] = array( 'name' => __( 'Content Layout', 'woothemes' ),
                     'desc' => __( 'Select which layout you want for the content area on the homepage.', 'woothemes' ),
                     'id' => $shortname . '_homepage_posts_layout',

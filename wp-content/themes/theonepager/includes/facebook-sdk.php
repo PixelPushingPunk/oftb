@@ -74,7 +74,7 @@
 
     var initMasonry = function () {
         var $facebookContainer = $('#facebook-friend-temp');
-        destoryMasonry();
+        //destoryMasonry();
         $facebookContainer.imagesLoaded(function(){
             $facebookContainer.masonry({
                 // options
@@ -116,7 +116,7 @@
                 $('.fbLogout, .post-hide').show();
                 uid = response.authResponse.userID;
                 accessTokenVar = response.authResponse.accessToken;
-                console.log('access token var from not logged in '  + accessTokenVar);
+                //console.log('access token var from not logged in '  + accessTokenVar);
                 testAPI();
                 initMasonry();
                 console.log("connected");
@@ -593,13 +593,13 @@
         // <?php echo esc_url( get_template_directory_uri() ); ?>/includes/post-fb.php
         $('#loadingComments').show();
         $.getJSON('/oftb/wp-content/themes/theonepager/includes/post-fb.php', function (response) {
-            console.log(response);
+            //console.log(response);
             var divContainer = $('#read-only-posts');
 
             // Posts & Comments
             $.each(response.data, function(index, value) {
-                console.log('value id ' + value.id);
-                console.log('value id ' + value.id);
+                //console.log('value id ' + value.id);
+                //console.log('value id ' + value.id);
                 if(value.message && value.picture) {
                     var pcWrap = $('.pcWrap'); 
                     var thisPostID = value.id; 

@@ -102,7 +102,7 @@ $query = new WP_Query( array( 'page_id' => $settings['homepage_getInvolved_id'] 
 					<a class="fbLogin button" href="#">Login to Facebook to comment on post</a>
 				</div>
 
-				<div id="read-only-posts" class="rslides"></div>
+				<div id="read-only-posts-wrap"><div id="read-only-posts" class="rslides"></div></div>
 				<div id="loading-posts-wrap"><div id="loading-posts" class="rslides"></div></div>
 
 			    <!--<div id="fb-social-plugin">

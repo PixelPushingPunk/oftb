@@ -180,6 +180,9 @@
         // Init load friends
         loadFriendsJSON();
 
+        // Init swip functionality
+        swipFunc();
+
         //console.log('test window ready');
    	});// end window.load*/
     
@@ -203,10 +206,10 @@
     var loadFriendsJSON = function () {
         var divContainer = $('#facebook-friend-temp');
         $.getJSON('/oftb/wp-content/themes/theonepager/js/fb-users.json', function (response) {
-            console.log('json response' + typeof response);
+            //console.log('json response' + typeof response);
             $.each(response.data, function(index, value) {
-                console.log('json name ' + value.name);
-                console.log('json src' + value.src);
+                //console.log('json name ' + value.name);
+                //console.log('json src' + value.src);
                 $("<div class=\"itemFriend friendWrap\"><a class=\"friend\" href=\"#\"><img style='width:64px;height:64px'/></a><div class=\"friend-detail-wrap\"><a href=\"#\" class=\"friend-detail\">" + value.name +"</a></div></div>")
             /*.find(".friend")
             .attr({
@@ -625,6 +628,12 @@
                 $('nav.col-full').slideToggle('fast');
                 e.preventDefault();
         });
+
+        $("a#menu-toggle").swipe( {
+            tap:function(event, target) {
+                $('nav.col-full').slideToggle('fast');
+            }
+        });
         
         if(windowWidth <= 768) {
             $('#top-nav li a').on('click', function() {
@@ -635,6 +644,23 @@
 
 
         console.log('response nav: ' + windowWidth);
+    };
+
+    var swipFunc = function () {
+        $('.rslides').swipe({ 
+            swipeRight: function () {
+                $('.next').click();
+            },
+            swipeLeft: function () {
+                $('.prev').click();
+            }
+        });
+        $('.ls_def_banner').swipe({
+            swipe: function () {
+                $('a.ui-tabs-anchor').click();
+            }
+        });
+        console.log('swipe loaded');
     };
 
 }(jQuery)); //IFE

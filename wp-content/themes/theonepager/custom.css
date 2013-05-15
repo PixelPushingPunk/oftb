@@ -116,7 +116,7 @@ blog integration styling */
 	float:left;
 	max-width:585px;
 	max-height:524px;
-	padding:10 20px 20px;
+	padding:10px 20px 20px;
 	margin:0 0 26px 0;
 
 	-moz-box-shadow:inset 0px -11px 8px -10px #CCC;
@@ -626,15 +626,19 @@ LENS SLIDER EVENTS styling */
 	background:url('images/events-one-bg.jpg') repeat scroll 0 0;
 }
 
+#events #events-section-three .ls_def_ibanner div {
+	background:url('images/events-three-bg.png') repeat scroll 0 0;
+}
+
 #events .ls_def_ibanner_nav {
 	bottom:40px;
 }
 
-#events-section-one header h1, #events-section-two header h1 {
+#events-section-one header h1, #events-section-two header h1, #events-section-three header h1 {
 	display:none;
 }
 
-#events-section-one .ls_def_ibanner {
+#events-section-one .ls_def_ibanner, #events-section-three .ls_def_ibanner {
 	border-bottom:5px solid #ccc;
 }
 

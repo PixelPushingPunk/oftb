@@ -522,10 +522,10 @@ INDEX
     font-size: 3.631em!important;
   }
   .flex-direction-nav .flex-next:after {
-    padding: 45px 0 0 8px;
+    padding: 134px 100px 134px;
   }
   .flex-direction-nav .flex-prev:before {
-    padding: 45px 8px 0 0;
+    padding: 134px 100px 134px;
   }
   /* 7. FULL WIDTH SINGLE PAGE */
   #full-single-comments-area #post-author.fl,
@@ -906,7 +906,7 @@ INDEX
     float:none !important;
   }
 
-  .facebook-section #loading-posts, .facebook-section .pcWrap, .facebook-section #friends {
+  .facebook-section #read-only-posts, .facebook-section #loading-posts, .facebook-section .pcWrap, .facebook-section #friends {
     width:100% !important;
   }
 
