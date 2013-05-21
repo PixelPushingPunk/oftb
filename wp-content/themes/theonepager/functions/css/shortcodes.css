@@ -409,7 +409,7 @@ a.woo-sc-button.silver:hover {
 .shortcode-tabs ul.tab_titles { padding:0px; background:none; border:none; margin:0;}
 .shortcode-tabs ul.tab_titles li.nav-tab { background:none; padding:0; float: left; display:inline; color: #ffffff; margin:0px; cursor: pointer; }
 .shortcode-tabs ul.tab_titles li.nav-tab.ui-tabs-selected a, .shortcode-tabs ul.tab_titles li.nav-tab a:hover { background:#fff; text-decoration:none; }
-.shortcode-tabs ul.tab_titles li.nav-tab a {	color:#234766; display: block;float: left;padding: 12px 15px; text-transform:normal; font:24px/24px 'LubalinGraphLTBold', Open Sans, sans-serif; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; }
+.shortcode-tabs ul.tab_titles li.nav-tab a {	color:#234766; display: block;float: left;padding: 12px 15px; text-transform:normal; font:22px/24px 'LubalinGraphLTBold', Open Sans, sans-serif; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; }
 .shortcode-tabs ul.tab_titles li.nav-tab.ui-tabs-selected a, .shortcode-tabs ul.tab_titles li.nav-tab a:hover { -moz-border-radius-topright:3px; -moz-border-radius-topleft:3px;-webkit-border-top-right-radius: 3px; -webkit-border-top-left-radius:3px; border-top-right-radius:3px; border-top-left-radius:3px; }
 .shortcode-tabs .tab { background:none; padding:10px; text-align: left; clear: both; }
 .shortcode-tabs .tab li.nav-tab { background:#fff;  }
@@ -484,7 +484,7 @@ span.dropcap { font-size: 300%; font-weight: bold; float: left; position: relati
 .shortcode-toggle h4 {margin: 0;}
 .shortcode-toggle h4 a { display: block; padding: 15px 0 15px 55px; color:#fff; background: #234766 url(../images/upArrow.png) no-repeat 10px center; font-family:'LubalinGraphLTBold', Opens Sans, sans-serif; font-size:24px; line-height:24px; text-decoration:none;}
 .shortcode-toggle.closed h4 a  { background-image: url(../images/downArrow.png); }
-.shortcode-toggle .toggle-content  { padding: 10px 10px; background: #f9f9f9; font-family: 'Helvetica', Arial, sans-serif; font-size: 13px; line-height: 24px; color: #04000a;  }
+.shortcode-toggle .toggle-content  { padding: 10px 10px 40px 10px; background: #f9f9f9; font-family: 'Helvetica', Arial, sans-serif; font-size: 13px; line-height: 24px; color: #04000a;  }
 .shortcode-toggle.closed .toggle-content, .shortcode-toggle .more-text.closed { display: none; }
 .shortcode-toggle .more-text.open { display: block; }
 .shortcode-toggle.border { border: 1px solid #EBEBEB; }
@@ -561,6 +561,18 @@ img.social-icon { border: none; }
 	display:none;
 }
 
+@media only screen and (max-width:980px) {
+	.shortcode-tabs ul.tab_titles li.nav-tab a {
+		font-size:21px;
+	}
+}
+
+@media only screen and (max-width:900px) {
+	.shortcode-tabs ul.tab_titles li.nav-tab a {
+		font-size:18px;
+	}
+}
+
 @media only screen and (max-width:850px) {
 	.shortcode-tabs.vertical .tab .learnTitle {
 		display: block !important;
@@ -576,5 +588,9 @@ img.social-icon { border: none; }
 		height:auto;
 		border-bottom:1px solid #ccc;
 		display:block !important;
+	}
+
+	.shortcode-toggle h4 a {
+		font-size:16px;
 	}
 }

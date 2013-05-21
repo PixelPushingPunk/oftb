@@ -2968,14 +2968,14 @@ html[xmlns] .flexslider .slides {
 .flex-direction-nav .flex-next:after {
   content: '\25ba'; /*\f105*/
   padding: 22px 0 0 3px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  font-family: 'LubalGraphBkBTBook';
+  font-family: 'Arial';
   display: inline-block;
   font-size: 100%;
   margin-left: .618em;
@@ -2990,14 +2990,14 @@ html[xmlns] .flexslider .slides {
 .flex-direction-nav .flex-prev:before {
   content: '\25c4';/*\f104*/
   padding: 22px 3px 0 0;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  -webkit-border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  font-family: 'LubalGraphBkBTBook';
+  font-family: 'Arial';
   display: inline-block;
   font-size: 100%;
   margin-right: .618em;
