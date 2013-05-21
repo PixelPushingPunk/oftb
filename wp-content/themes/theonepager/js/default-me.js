@@ -29,6 +29,10 @@
 
 	// Window load
     $(window).load(function(){
+       // var anySlideWidth = $('div.anythingSlider-minimalist-round').outerWidth();
+        //console.log('slider width' + anySlideWidth);
+       // $('div.anythingSlider-minimalist-round li.panel').css('width', anySlideWidth);
+
         // Scroll bar
         $('#scrollbar1, .scrollbar2').tinyscrollbar();
 

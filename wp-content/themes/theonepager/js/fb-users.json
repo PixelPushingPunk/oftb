@@ -1,12 +1,12 @@
 {
 	"data": [
-	{
-		"name": "Danny",
-		"src" : "http://1.bp.blogspot.com/-z58mm7Zuygg/ULdxSNM7fRI/AAAAAAAAPVw/pCGB1OJivNA/s1600/facebook.jpg"
-	},
-	{
-		"name": "Jimmy",
-		"src" : "http://1.bp.blogspot.com/-z58mm7Zuygg/ULdxSNM7fRI/AAAAAAAAPVw/pCGB1OJivNA/s1600/facebook.jpg"
-	}
-]
+		{
+			"name": "Danny",
+			"src" : "http://1.bp.blogspot.com/-z58mm7Zuygg/ULdxSNM7fRI/AAAAAAAAPVw/pCGB1OJivNA/s1600/facebook.jpg"
+		},
+		{
+			"name": "Jimmy",
+			"src" : "http://1.bp.blogspot.com/-z58mm7Zuygg/ULdxSNM7fRI/AAAAAAAAPVw/pCGB1OJivNA/s1600/facebook.jpg"
+		}
+	]
 }

@@ -548,3 +548,33 @@ abbr { border-bottom: 1px dashed #999999; cursor: help; }
 /*-------------------------------------------------------------------------------------------*/
 
 img.social-icon { border: none; }
+
+.shortcode-tabs.vertical .tab .learnTitle {
+	color: #234766;
+	display: block;
+	padding: 12px 0;
+	text-transform: normal;
+	font: 16px/24px 'LubalinGraphLTBold', Open Sans, sans-serif;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	display:none;
+}
+
+@media only screen and (max-width:850px) {
+	.shortcode-tabs.vertical .tab .learnTitle {
+		display: block !important;
+	}
+
+	.shortcode-tabs.vertical ul.tab_titles {
+		display:none;
+	}
+
+	.shortcode-tabs.vertical .tab {
+		margin-left:0;
+		min-height:100px;
+		height:auto;
+		border-bottom:1px solid #ccc;
+		display:block !important;
+	}
+}

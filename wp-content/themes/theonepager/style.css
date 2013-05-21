@@ -3038,7 +3038,7 @@ html[xmlns] .flexslider .slides {
   text-align: center;
 }
 .flex-control-nav li {
-  margin: 0 27px;
+  margin: 0 10px;
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -3690,6 +3690,16 @@ contact us styling */
 }
 
 #contact-area input[type="submit"] {
-  background:color:;
+  background:;
+}
+
+/* 
+Anything Goes Slider Styling
+-----------------
+contact us styling */
+
+div.anythingSlider-minimalist-round .anythingWindow {
+  border-top:none;
+  border-bottom:none;
 }
 

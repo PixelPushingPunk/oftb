@@ -9,10 +9,9 @@
 /* ADDED BY JONNY JANIERO to use thumbnail image as background
    ================================================== */
 .content { position:relative; }
-.content .slide-content { position:absolute; top:0; left:0; width:96%; height:96%; padding:2%; }
+.content .slide-content { position:absolute; top:0; width:96%; height:96%; padding:2%; }
 .content .slide-content img {  }
 
- 
 /* PUT IN YOUR SLIDER ID AND SIZE TO MAKE LOAD BEAUTIFULLY
    ================================================== */
 #orbit-wrap {
@@ -20,7 +19,7 @@
 }
 
 #orbit-inside img.orbit-slide {
-	width:100%!important;
+	width:50%!important;
 	max-width:100%!important;
 	height:auto;
 }
@@ -154,20 +153,28 @@ div.slider-nav {
     display: block }
 
 div.slider-nav span {
-    width: 78px;
-    height: 100px;
+     width: 39px;
+    height: 50px;
     text-indent: -9999px;
     position: absolute;
     z-index: 1000;
     top: 50%;
-    margin-top: -50px;
-    cursor: pointer; }
+     margin-top: -25px;
+    cursor: pointer; 
+   
+   
+}
+
 
 div.slider-nav span.right {
-    right: 0; }
+    right: 0; 
+     background: url(images/right-arrow-small.png);
+}
 
 div.slider-nav span.left {
-    left: 0; }
+    left: 0; 
+    background: url(images/left-arrow-small.png);
+}
 
     
 /* FLUID LAYOUT
@@ -202,13 +209,53 @@ div.slider-nav span.left {
 
 .orbit-bullets li {
     float: left;
-    margin-left: 5px;
+    margin:0 5px;
     cursor: pointer;
     color: #999;
     text-indent: -9999px;
-    width: 13px;
-    height: 12px;
-    overflow: hidden; }
+
+    overflow: hidden; 
+
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: #999999;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+
+}
+
+.orbit-bullets li.active {
+     float: left;
+    margin:0 5px;
+    cursor: pointer;
+    color: #999;
+    text-indent: -9999px;
+
+    overflow: hidden; 
+
+    background-position: 0 -20px;
+    background: #a7bacc;
+    width: 9px;
+    height: 9px;
+    display:block;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+
+    -moz-box-shadow: 0 0 1px 4px rgba(255, 255, 255, 1), 0 0 1px 5px rgba(167, 186, 204, 1);
+    -webkit-box-shadow: 0 0 1px 4px rgba(255, 255, 255, 1), 0 0 1px 5px rgba(167, 186, 204, 1);
+    box-shadow:  0 0 1px 4px rgba(255, 255, 255, 1), 0 0 1px 5px rgba(167, 186, 204, 1);
+}
 
 .orbit-bullets li.has-thumb {
     background: none;
@@ -216,7 +263,27 @@ div.slider-nav span.left {
     height: 80px;
 	margin:0 0 3px; }
 
-	
+/* events slide show */
+ #events .content .slide-content {
+    right:0;
+    width:45%;
+    color:#bfbfbf;
+    font-size:0.75em;
+}
+
+#events #events-section-one .orbit-wrapper {
+    padding:10px;
+    background:url('images/events-one-bg.jpg') repeat scroll 0 0;
+    border-bottom:5px solid #ccc;
+}
+
+#events #orbit-inside {
+    background:none !important;
+}
+
+#events .orbit-wrapper .content {
+    background-color:transparent;
+}
 
 
 

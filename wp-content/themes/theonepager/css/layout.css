@@ -869,12 +869,16 @@ INDEX
 }
 
 @media only screen and (max-width:780px) {
+  #getInvolved #friends {
+    margin:20px 0 0;
+  }
+
   #twitter-api {
     margin:0 auto !important;
   }
 
   #twitter-api, #twitter-postbox {
-    max-width:720px !important;
+    max-width:780px !important;
   }
 
   #twitter-postbox {
@@ -888,22 +892,24 @@ INDEX
   #blog-posts .twitter-section {
     float:none !important;
     display:block !important;
+    margin:0 !important;
   }
 
   #blog-posts #mainWrapBlog, #blog-posts #main {
     float:none !important;
-    max-width:720px !important;
+    max-width:780px !important;
     display: block !important;
     margin:20px auto 0 !important;
   }
 
   #blog-posts article {
-    max-width:682px !important;
+    max-width:730px !important;
     padding:0 19px 20px !important;
   }
 
   .facebook-section #posts {
     float:none !important;
+    margin: 0 !important;
   }
 
   .facebook-section #read-only-posts, .facebook-section #loading-posts, .facebook-section .pcWrap, .facebook-section #friends {
@@ -912,6 +918,11 @@ INDEX
 
   .facebook-section .pcWrap, .facebook-section .postWrapper, .facebook-section.commentsWrapper {
     width:100% !important;
+  }
+
+  #facebook-friends {
+    background-color:#fff;
+    padding:10px 0;
   }
 
 }
@@ -971,6 +982,12 @@ INDEX
   #wrapper span.border-line {
     display:none !important;
   }
+
+  .widget_woo_component {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
 }
 
 /* Tiny Scrollbar */

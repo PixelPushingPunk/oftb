@@ -467,7 +467,6 @@
 
     window.loadPosts = function () {
         //initMasonry();
-        //var AT = 'CAACEdEose0cBAKZCLZBt8u8PTS8jsHOIfCZAy26zftRhrbpSIsDr6iftbdxvibAfjhrthySfiB45VXy3pZCiZBP2uOIbNIP4KegZCL86R6I1ztOpENiyasUZB1zIFAadig7XCXPx7b0oe5O99AgO4JWoj4kq25ezroZD';
         FB.api('/'+fanpage_id+'/posts', function(response) {
             $('#read-only-posts').hide();
             $('#loadingComments').hide();

@@ -1,0 +1,340 @@
+/*
+	AnythingSlider v1.5.10 Minimalist Round Theme
+	By Rob Garrison
+*/
+
+body {
+	font-size:16px;
+}
+
+/****** SET COLORS HERE *******/
+/* Default State */
+div.anythingSlider-minimalist-round .anythingWindow {
+	border-top: none;
+	border-bottom: none;
+}
+div.anythingSlider-minimalist-round .anythingControls ul a {
+	border: none;
+	background: #333;
+}
+div.anythingSlider-minimalist-round .anythingControls ul a:hover, div.anythingSlider-minimalist-round .anythingControls ul a.cur {
+	background: #777;
+}
+div.anythingSlider-minimalist-round .start-stop {
+	border: 1px solid #000;
+}
+div.anythingSlider-minimalist-round .start-stop.playing {
+	background-color: #300;
+}
+div.anythingSlider-minimalist-round .start-stop:hover, div.anythingSlider-minimalist-round .start-stop.hover {
+	color: #ddd;
+}
+
+/* Active State */
+div.anythingSlider-minimalist-round.activeSlider .anythingWindow {
+	border-color: #164054;
+}
+div.anythingSlider-minimalist-round.activeSlider .anythingControls ul a {
+	/*background-color: #164054;*/
+	width: 10px;
+	height: 10px;
+	display: block;
+	background: #999;
+	cursor: pointer;
+	text-indent: -9999px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-o-border-radius: 20px;
+	border-radius: 20px;
+	-moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+	box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+div.anythingSlider-minimalist-round.activeSlider .anythingControls ul a:hover, div.anythingSlider-minimalist-round.activeSlider .anythingControls ul a.cur {
+	/*background: #fff;*/
+	width: 9px;
+	height: 9px;
+	background: #a7bacc;
+	cursor: pointer;
+
+	display: block;
+	text-indent: -9999px;
+
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-o-border-radius: 20px;
+	border-radius: 20px;
+
+	-moz-box-shadow: 0 0 1px 4px rgba(255, 255, 255, 1), 0 0 1px 5px rgba(167, 186, 204, 1);
+	-webkit-box-shadow: 0 0 1px 4px rgba(255, 255, 255, 1), 0 0 1px 5px rgba(167, 186, 204, 1);
+	box-shadow: 0 0 1px 4px rgba(255, 255, 255, 1), 0 0 1px 5px rgba(167, 186, 204, 1);
+
+}
+div.anythingSlider-minimalist-round.activeSlider .start-stop.playing {
+	background-color: #f00;
+}
+div.anythingSlider-minimalist-round .start-stop:hover, div.anythingSlider-minimalist-round .start-stop.hover {
+	color: #fff;
+}
+
+/* Navigation Arrows */
+div.anythingSlider-minimalist-round .arrow {
+	top: 50%;
+	position: absolute;
+	display: none !important;
+}
+div.anythingSlider-minimalist-round .arrow a {
+	display: block;
+	height: 40px;
+	margin-top: -20px; /* half height of image */
+	width: 30px;
+	text-align: center;
+	outline: 0;
+	background: url(../images/arrows-minimalist.png) no-repeat;
+}
+div.anythingSlider-minimalist-round .forward { right: 0; }
+div.anythingSlider-minimalist-round .back { left: 0; }
+div.anythingSlider-minimalist-round .forward a { background-position: right bottom; }
+div.anythingSlider-minimalist-round .back a { background-position: left bottom; }
+div.anythingSlider-minimalist-round .forward a:hover, div.anythingSlider-minimalist-round .forward a.hover { background-position: right top; }
+div.anythingSlider-minimalist-round .back a:hover, div.anythingSlider-minimalist-round .back a.hover { background-position: left top; }
+
+/* Navigation Links */
+div.anythingSlider-minimalist-round .anythingControls {
+	float: right;
+	position: absolute;
+	bottom: 0;
+	right: 15%;
+	z-index: 100;
+	opacity: 0.90;
+	filter: alpha(opacity=90);
+}
+div.anythingSlider-minimalist-round .anythingControls ul {
+	margin: 0;
+	z-index: 100;
+}
+div.anythingSlider-minimalist-round .anythingControls ul li {
+	display: block;
+	float: left;
+	margin:0 5px;
+}
+div.anythingSlider-minimalist-round .anythingControls ul a {
+	display: block;
+	height: 10px;
+	width: 10px;
+	margin: 3px;
+	padding: 0;
+	outline: 0;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+/* Navigation size window arrows */
+div.anythingSlider-minimalist-round .anythingControls li.next a span, div.anythingSlider-minimalist-round .anythingControls li.prev a span {
+	text-indent: 1px;
+	margin-top: 3px;
+}
+div.anythingSlider-minimalist-round .anythingControls li.prev a, div.anythingSlider-minimalist-round .anythingControls li.next a {
+	color: #ddd;
+}
+div.anythingSlider-minimalist-round .anythingControls li.next a:hover, div.anythingSlider-minimalist-round .anythingControls li.prev a:hover {
+	color: #000;
+}
+
+/* slider autoplay right-to-left, reverse order of nav links to look better */
+div.anythingSlider-minimalist-round.rtl .anythingControls ul a { float: right; } /* reverse order of nav links */
+div.anythingSlider-minimalist-round.rtl .anythingControls ul { float: left; }    /* move nav link group to left */
+/* div.anythingSlider-minimalist-round.rtl .start-stop { float: right; } */ /* move start/stop button - in case you want to switch sides */
+
+/* Autoplay Start/Stop button */
+div.anythingSlider-minimalist-round .start-stop {
+	margin: 3px;
+	padding: 0;
+	/*display: inline-block;*/
+	display:none !important;
+	width: 14px;
+	height: 14px;
+	position: relative;
+	bottom: 2px;
+	left: 0;
+	z-index: 100;
+	text-align: center;
+	text-decoration: none;
+	float: right;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+}
+
+/* Extra - replace defaults */
+div.anythingSlider-minimalist-round {
+	padding:0;
+	overflow:hidden;
+}
+
+/* text indent moved to span inside "a", for IE7; apparently, a negative text-indent on an "a" link moves the link as well as the text */
+div.anythingSlider-minimalist-round .arrow a span, div.anythingSlider-minimalist-round .anythingControls ul a span, div.anythingSlider-minimalist-round .start-stop span {
+	display: block;
+	line-height: 1px; /* needed for IE7 */
+	visibility: hidden; /* needed for IE8, instead of text-indent: -9999px */
+}
+
+/* Custom styles for float alignment
+-------------------------------------
+*/
+
+#campaigns .anythingSlider .slide-copy {
+	float:left;
+	width:60%;
+	padding:2%;
+	background:#fff;
+	border-bottom:5px solid #ccc;
+	margin:0 1% 0 0;
+	min-height:305px;
+}
+
+#campaigns .anythingSlider .slide-img {
+	float:left;
+	width:30%;
+	position:relative;
+	top:7%;
+}
+
+#events .anythingSlider .slide-copy {
+	float:left;
+	width:50%;
+	margin:0 0 0 1%;
+}
+
+#events .anythingSlider .slide-img {
+	float:left;
+	width:40%;
+}
+
+
+#campaigns .anythingSlider h1 {
+	font-family:'LubalGraphBkBTBook', Open Sans, sans-serif;
+	font-size:32px;
+	color:#234766;
+}
+
+#campaigns .anythingSlider h2 {
+	font-family:'LubalinGraphLTBold', Open Sans, sans-serif;
+	font-size:24px;
+	color:#999999;
+}
+
+#campaigns .anythingSlider, #campaigns .anythingSlider p {
+	font-family:'Helvetica', Arial, sans-serif;
+	font-size:13px;
+	color:#04000a;
+}
+
+#campaigns div.anythingSlider-minimalist-round .anythingControls {
+	float:left;
+	left:3%;
+	bottom:5%;
+}
+
+#events .anythingSlider h1 {
+	font-family:'LubalinGraphLTBold', Open Sans, sans-serif;
+	font-size:24px;
+}
+
+#events #events-section-one .anythingSlider h1, #events #events-section-two .anythingSlider h1 {
+	color:#999999;
+}
+
+#events #events-section-three .anythingSlider h1 {
+	color:#234766;
+}
+
+#events .anythingSlider h2 {
+	font-family:'LubalinGraphLTBold', Open Sans, sans-serif;
+	font-size:14px;
+	color:#999999;
+}
+
+#events-section-one div.anythingSlider-minimalist-round {
+	background: url('../images/events-one-bg.jpg') repeat scroll 0 0;
+}
+
+#events-section-three div.anythingSlider-minimalist-round {
+	background: url('../images/events-three-bg.png') repeat scroll 0 0;
+}
+
+#events-section-one .anythingWindow, #events-section-three .anythingWindow {
+	border-bottom:5px solid #ccc;
+}
+
+#events div.anythingSlider-minimalist-round .anythingControls {
+	left:5%;
+	bottom:2%;
+}
+
+/* Media Queries
+----------------
+*/
+
+@media only screen and (max-width:780px) {
+	#events-section-one .anythingWindow, #events-section-three .anythingWindow {
+		border-bottom:1px solid #ccc;
+	}
+}
+
+@media only screen and (max-width:768px){
+	div.anythingWindow li .content {
+		position:relative !important;
+	}
+
+	div.anythingSlider-minimalist-round .arrow {
+		top: 40%;
+		position: absolute;
+		display: inline-block !important;
+	}
+
+	#campaigns div.anythingSlider-minimalist-round .anythingControls {
+		display:none !important;
+	}
+
+	#campaigns .anythingWindow {
+		background-color:#fff !important;
+	}
+
+	#campaigns .anythingSlider .slide-copy {
+		float:none;
+		width:90%;
+		padding:2%;
+		border-bottom: none !important;
+	}
+
+	#campaigns .anythingSlider .slide-img {
+		float:none;
+		position:absolute;
+		right:7%;
+		top:2%;
+		width:14%;
+	}
+
+	#events .anythingSlider .slide-copy {
+		float:none;
+		width:90%;
+		margin:2%;
+	}
+
+	#events .anythingSlider .slide-img {
+		float:none;
+		width:12%;
+		position:absolute;
+		top:0;
+		right:3%;
+	}
+
+}
+
+@media only screen and (max-width:480px) {
+	#events div.anythingSlider-minimalist-round .anythingControls {
+		display:none !important;
+	}
+}

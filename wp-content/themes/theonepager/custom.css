@@ -98,6 +98,12 @@ Styling for each module on one pager */
 	display:none;
 }
 
+#campaigns .entry {
+	max-width:980px;
+	width:100%;
+	min-height:352px;
+}
+
 #campaigns .article-content header h1, #getInvolved .article-content header h1, #aCancer .article-content header h1, #donate .article-content header h1, #partners .article-content header h1, #contact-area .article-content header h1, #contact-area h2.widget-title {
 	display:none;
 }
@@ -106,7 +112,12 @@ Styling for each module on one pager */
 	margin:0;
 }
 
-
+#events .entry {
+	max-width:980px;
+	width:100%;
+	min-height:260px;
+	height:auto;
+}
 
 /* 
 BLOG POST
@@ -330,7 +341,7 @@ Facebook integration styling */
 
 			.facebook-section #friends {
 				/*float:left;*/
-				max-width:660px;
+				max-width:768px;
 				overflow:hidden;
 			}
 
@@ -809,3 +820,51 @@ http://responsiveslides.com/*/
   width: 100%;
   border: 0;
   }
+
+
+  @media only screen and (max-width:780px ) {
+
+	#blog-posts a.rslides_nav.next, a.rslides_nav.next {
+		right: 10px;
+		background-position: -20px 0;
+	}
+	
+	#blog-posts a.rslides_nav, a.rslides_nav {
+		position: absolute;
+		top: 10px;
+		z-index: 9999;
+		display: block;
+		width: 20px;
+		height: 36px;
+		background: url('images/navArrowsBig.png') no-repeat scroll 0 0;
+		font: 0/0 a;
+		text-shadow: none;
+		color: transparent;
+	}
+
+	.facebook-section .commentsWrapper {
+		max-height:220px;
+		overflow-y:hidden;
+	}
+
+	#twitter2 {
+		overflow-y:hidden;
+		height:228px;
+	}
+
+	#twitter-api {
+		border-bottom:1px solid #ccc;
+	}
+
+	#blog-posts #main {
+		border-bottom:1px solid #ccc;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	#events-section-two #main {
+    	background:url('images/events-two-bg.png') repeat scroll 0 0 !important;
+    	background-size:100% !important;
+    	height:auto !important;
+  	}
+}
