@@ -747,6 +747,17 @@ INDEX
     max-width:75.998em;
   }
 }
+
+@media only screen and (min-width: 1200px) {
+  ul.nav li a {
+    padding:5.1em 2em 0 !important;
+  }
+
+  #top.scrollpast ul.nav > li a {
+    padding:2.1em 2em 0 !important;
+  }
+}
+
 @media only screen and (min-width: 1100px) {
   #footer p {
     margin: 0;
@@ -923,6 +934,11 @@ INDEX
   #facebook-friends {
     background-color:#fff;
     padding:10px 0;
+  }
+
+  .facebook-section #postForm {
+    width:94%;
+    padding:0 2%;
   }
 
 }

@@ -125,8 +125,8 @@ BLOG POST
 blog integration styling */
 #blog-posts article {
 	float:left;
-	max-width:585px;
-	max-height:524px;
+	max-width:555px;
+	max-height:584px;
 	padding:10px 20px 20px;
 	margin:0 0 26px 0;
 
@@ -145,7 +145,7 @@ blog integration styling */
 	float:left;
 
 	background-color:#fff;
-	min-height:571px;
+	height:auto;
 	border-bottom:5px solid #ccc;
 }
 
@@ -645,7 +645,7 @@ LENS SLIDER EVENTS styling */
 	bottom:40px;
 }
 
-#events-section-one header h1, #events-section-two header h1, #events-section-three header h1 {
+#events-section-one header h1, #events-section-two header h1, #events-section-three header h1, #events-section-one header, #events-section-two header, #events-section-three header {
 	display:none;
 }
 
