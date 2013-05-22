@@ -132,7 +132,7 @@ a.woo-sc-button.active  {
 a.woo-sc-button.dark span { color:#555; text-shadow:0 1px #fff;}
 a.woo-sc-button.custom:hover { opacity:0.85; }
 
-a.woo-sc-button span { line-height:1.2em; min-height: 16px; }
+a.woo-sc-button span { line-height:1.2em; min-height: 16px;letter-spacing:2px; }
 a.woo-sc-button span.woo-info { background:url( "../images/ico-info.png") no-repeat 0 45%; padding-left:25px; display:block; }
 a.woo-sc-button span.woo-download { background:url( "../images/ico-download.png") no-repeat 0 45%; padding-left:25px; display:block; }
 a.woo-sc-button span.woo-tick { background:url( "../images/ico-tick.png") no-repeat 0 45%; padding-left:25px; display:block; }
@@ -592,5 +592,9 @@ img.social-icon { border: none; }
 
 	.shortcode-toggle h4 a {
 		font-size:16px;
+	}
+
+	.shortcode-tabs.vertical {
+		background:#fff !important;
 	}
 }

@@ -3277,16 +3277,19 @@ input.button,
 button.button,
 #wrapper .woo-sc-button {
   display: inline-block;
-  padding: .236em .857em;
+  padding: .336em 1.057em;
   border: none;
   color: #444444;
   text-align: center;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
   text-decoration: none;
+  text-transform:uppercase;
   font-size: 1em;
   /* Make inputs the same size as normal text */
 
-  font-family: "Open Sans", sans-serif;
+  background:#234766;
+
+  font-family: "LubalinGraphLTBold", Open Sans, sans-serif;
   font-weight: bold;
   cursor: pointer;
   /* Inputs need pointers! */
@@ -3307,15 +3310,20 @@ button.button,
   box-sizing: border-box;
   /* Opera/IE 8+ */
 
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 0;
+  border-radius: 0;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
 }
+
+#wrapper .woo-sc-button {
+  background:#234766 url('images/topArrow.png') no-repeat scroll 98% 10% !important;
+}
+
 a.button:hover,
 a.comment-reply-link:hover,
 #commentform #submit:hover,

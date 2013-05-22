@@ -18,3 +18,55 @@
 [01-May-2013 09:35:03 UTC] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ',' or ';' in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/header.php on line 46
 [01-May-2013 09:35:07 UTC] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ',' or ';' in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/header.php on line 46
 [01-May-2013 09:37:32 UTC] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ',' or ';' in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/header.php on line 46
+[13-May-2013 14:40:30 UTC] PHP Fatal error:  Call to undefined function get_template_direcotry_uri() in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/events.php on line 112
+[13-May-2013 14:40:34 UTC] PHP Fatal error:  Call to undefined function get_template_direcotry_uri() in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/events.php on line 112
+[14-May-2013 13:20:03 UTC] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/general-template.php:1682) in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/facebook.php on line 49
+[14-May-2013 13:20:03 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/general-template.php:1682) in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/facebook.php on line 49
+[14-May-2013 13:24:33 UTC] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/general-template.php:1682) in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/facebook.php on line 49
+[14-May-2013 13:24:33 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/general-template.php:1682) in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/facebook.php on line 49
+[14-May-2013 13:27:02 UTC] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/general-template.php:1682) in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/facebook.php on line 49
+[14-May-2013 13:27:02 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/general-template.php:1682) in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/facebook.php on line 49
+[14-May-2013 13:29:09 UTC] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/general-template.php:1682) in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/facebook.php on line 49
+[14-May-2013 13:29:09 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/general-template.php:1682) in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-content/themes/theonepager/includes/facebook.php on line 49
+[20-May-2013 13:34:13 UTC] finding SELECT caphover, 
+                                                        pausehover, 
+                                                        capposition, 
+                                                        capanimation, 
+                                                        title, 
+                                                        theme,
+                                                        description, 
+                                                        font,
+                                                        type, 
+                                                        id FROM `wp_satl_galleries` WHERE `id` = 1 ORDER BY `id` DESC LIMIT 1
+[20-May-2013 13:34:13 UTC] finding SELECT caphover, 
+                                                        pausehover, 
+                                                        capposition, 
+                                                        capanimation, 
+                                                        title, 
+                                                        theme,
+                                                        description, 
+                                                        font,
+                                                        type, 
+                                                        id FROM `wp_satl_galleries` WHERE `id` = 1 ORDER BY `id` DESC LIMIT 1
+[20-May-2013 13:34:13 UTC] finding SELECT caphover, 
+                                                        pausehover, 
+                                                        capposition, 
+                                                        capanimation, 
+                                                        title, 
+                                                        theme,
+                                                        description, 
+                                                        font,
+                                                        type, 
+                                                        id FROM `wp_satl_galleries` WHERE `id` = 1 ORDER BY `id` DESC LIMIT 1
+[20-May-2013 15:52:28 UTC] PHP Warning:  array_slice() expects parameter 1 to be array, integer given in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/plugin.php on line 487
+[20-May-2013 15:52:28 UTC] PHP Warning:  call_user_func_array() expects parameter 2 to be array, null given in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/plugin.php on line 487
+[20-May-2013 15:52:28 UTC] PHP Warning:  array_slice() expects parameter 1 to be array, integer given in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/plugin.php on line 487
+[20-May-2013 15:52:28 UTC] PHP Warning:  call_user_func_array() expects parameter 2 to be array, null given in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/plugin.php on line 487
+[20-May-2013 15:52:28 UTC] PHP Warning:  array_slice() expects parameter 1 to be array, integer given in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/plugin.php on line 487
+[20-May-2013 15:52:28 UTC] PHP Warning:  call_user_func_array() expects parameter 2 to be array, null given in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/plugin.php on line 487
+[20-May-2013 15:52:28 UTC] PHP Warning:  array_slice() expects parameter 1 to be array, integer given in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/plugin.php on line 487
+[20-May-2013 15:52:28 UTC] PHP Warning:  call_user_func_array() expects parameter 2 to be array, null given in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/plugin.php on line 487
+[20-May-2013 15:52:28 UTC] PHP Warning:  array_slice() expects parameter 1 to be array, integer given in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/plugin.php on line 487
+[20-May-2013 15:52:28 UTC] PHP Warning:  call_user_func_array() expects parameter 2 to be array, null given in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/plugin.php on line 487
+[20-May-2013 15:52:28 UTC] PHP Warning:  array_slice() expects parameter 1 to be array, integer given in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/plugin.php on line 487
+[20-May-2013 15:52:28 UTC] PHP Warning:  call_user_func_array() expects parameter 2 to be array, null given in /home2/arturoc2/public_html/www.autumn-rolls.com/oftb/wp-includes/plugin.php on line 487

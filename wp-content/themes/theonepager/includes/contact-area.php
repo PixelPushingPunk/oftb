@@ -63,7 +63,7 @@ if ( ! function_exists( 'wp' ) && ! empty( $_SERVER['SCRIPT_FILENAME'] ) && base
     			<input type="text" name="contact-email" value="<?php esc_attr_e( 'Your email address', 'woothemes' ); ?>" onfocus="if ( this.value == '<?php esc_attr_e( 'Your email address', 'woothemes' ); ?>' ) { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php esc_attr_e( 'Your email address', 'woothemes' ); ?>'; }" />
                 <input type="text" name="contact-verify" value="<?php esc_attr_e( '7 + 12 = ?', 'woothemes' ); ?>" onfocus="if ( this.value == '<?php esc_attr_e( '7 + 12 = ?', 'woothemes' ); ?>' ) { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php esc_attr_e( '7 + 12 = ?', 'woothemes' ); ?>'; }" />
                 <input type="hidden" name="contact-form-submit" value="yes" />
-    			<input class="sndBtn" type="submit" value="<?php esc_attr_e( 'Send that email!', 'woothemes' ); ?>" />
+    			<input class="sndBtn" type="submit" value="<?php esc_attr_e( 'SEND', 'woothemes' ); ?>" />
     		</div>
     	</form>
     	<?php } ?>

@@ -71,10 +71,6 @@
             return false;
         });
 
-        
-        // onclick friend show name
-        showFbName();
-
         // add id to text area
         getPlacePostID();
         placePostID();
@@ -110,29 +106,7 @@
             unLikePost(thisPostID);
             return false;
         });
-
-
-    	// Twitter
-    	// http://140dev.com/twitter-api-console/
-    	/*$.ajax({     
-		    url : "https://api.twitter.com/1.1/statuses/user_timeline.json", //"https://books.140.dev.com/ebook_js/code/timeline_response.php", // 
-		    dataType : "json",  
-		    timeout:15000,  
-		  
-		    success : function(data) {   
-		        $("#data").html("Data successfully obtained! twitter <br />");  
-		 			for (var i=0; i < data.length; i+=1) {  
-			 			$("#data").append("<p>" + data[i].text +"</p>");  
-			 			$("#data").append("<p>" + data[i].created_at +"</p>");  
-			 			//$("#data").html(data);
-		    		}  
-		        },  
-		  
-		    error : function() {   
-		        console.log("Twitter Failure!");   
-		    },  		  
-		});*/ // end ajax call    
-        
+     
     	// Facebook slider function()
        	//sliderFb();
 
@@ -154,11 +128,17 @@
         // Response Nav
         responseNav();
 
+        // Init load friends
+        //loadFriendsJSON();
+
         // Init mansory
         initMansory();
 
         // Init responsive slides
         //initResSlides();
+
+        // onclick friend show name
+        showFbName();
         
         // Init responsive slides blog
         initResSlidesBlog();
@@ -168,21 +148,9 @@
         
         // Reload masonry every 5 seconds
         //var rm = setInterval(function() { reloadMasonry(); }, 5000);
-
-        // Init shapeshifter
-        /*$('#facebook-friend-temp').shapeshift({
-          gutterX: -1,
-          gutterY: -1,
-          minColumns: 3,
-          paddingX: 0,
-          paddingY: 0
-        });*/
         
         //Init load posts
         loadPostsBefore();
-
-        // Init load friends
-        loadFriendsJSON();
 
         // Init swip functionality
         swipFunc();
@@ -430,7 +398,7 @@
             windowTopPos = $(window).scrollTop();
             //console.log(windowTopPos);
             
-            if(windowTopPos >= 370 && windowWidth > 768) {
+            if(windowTopPos >= 400 && windowWidth > 768) {
                 $('#top').css('opacity', '0.8');
                 $('#top').addClass('scrollpast');
                 $('#home-nav').fadeIn('fast').css('display','block');
@@ -442,7 +410,7 @@
                     }
 
             } 
-            if(windowTopPos < 370 && windowWidth > 768) { 
+            if(windowTopPos < 400 && windowWidth > 768) { 
                 $('#top').css('opacity', '1');
                 $('#top').removeClass('scrollpast');
                 $('#home-nav').fadeOut(100).css('display','none');

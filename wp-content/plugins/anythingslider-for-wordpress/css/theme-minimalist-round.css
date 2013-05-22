@@ -212,6 +212,18 @@ div.anythingSlider-minimalist-round .arrow a span, div.anythingSlider-minimalist
 	width:40%;
 }
 
+#events .center-title h1 {
+	color:#234766;
+}
+
+#events .center-title h1, #events .center-title h2 {
+	text-align:center;
+}
+
+#events .anythingSlider .slide-img img {
+	/*max-width:400px;*/
+	max-height:230px;
+}
 
 #campaigns .anythingSlider h1 {
 	font-family:'LubalGraphBkBTBook', Open Sans, sans-serif;
@@ -242,11 +254,16 @@ div.anythingSlider-minimalist-round .arrow a span, div.anythingSlider-minimalist
 	font-size:24px;
 }
 
+#events .anythingSlider .slide-img h1 {
+	color:#234766;
+	margin:0 0 2px;
+}
+
 #events #events-section-one .anythingSlider h1, #events #events-section-two .anythingSlider h1 {
 	color:#999999;
 }
 
-#events #events-section-three .anythingSlider h1 {
+#events #events-section-three .anythingSlider h1, #events #events-section-two .anythingSlider h1 {
 	color:#234766;
 }
 
@@ -271,6 +288,10 @@ div.anythingSlider-minimalist-round .arrow a span, div.anythingSlider-minimalist
 #events div.anythingSlider-minimalist-round .anythingControls {
 	left:5%;
 	bottom:2%;
+}
+
+#events .anythingBase .panel .content {
+	padding:20px 0 0;
 }
 
 /* Media Queries
