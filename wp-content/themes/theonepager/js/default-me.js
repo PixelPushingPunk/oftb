@@ -129,7 +129,7 @@
         responseNav();
 
         // Init load friends
-        //loadFriendsJSON();
+        loadFriendsJSON();
 
         // Init mansory
         initMansory();
@@ -199,6 +199,7 @@
             .end()
             .appendTo(divContainer);
             });
+            reloadMasonry();
         });
     };
 
@@ -257,13 +258,17 @@
             $(this).find('.iLike').slideToggle('fast');
         });
 
-        /*$('.body').on('click', '.friendWrap', function() {
+
+
+        $('.body').on('click', '.friendWrap', function() {
             $(this).find('.friendLike').slideToggle('fast');
         });
 
         $('.body').on('click', '.friendWrap', function() {
             $(this).find('.friend-detail-wrap').slideToggle('fast');
-        });*/
+        });
+
+
 
         $('.friendWrapCeleb').on('click', function(){
             $(this).find('.friendCeleb').slideToggle('fast');

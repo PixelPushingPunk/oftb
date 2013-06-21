@@ -123,6 +123,7 @@ $query = new WP_Query( array( 'page_id' => $settings['homepage_getInvolved_id'] 
 				<div id="facebook-friend-temp" style="width:630px;">
 					
 					<!-- begin -->
+					<!--
 					<div class="itemFriend friendWrap"><a class="friend" href="#"><img src="<?php echo esc_url( get_template_directory_uri() . "/images/BigGroup/AdeelBelorf.jpg" );?>" alt="Adeel Belorf" title="Adeel Belorf"></a><div class="friend-detail-wrap" style="display: none;"><a href="#" class="friend-detail">Adeel Belorf</a></div></div>
 					<div class="itemFriend friendWrap"><a class="friend" href="#"><img src="<?php echo esc_url( get_template_directory_uri() . "/images/BigGroup/AijaKalnina.jpg" );?>" alt="Aija Kalnina" title="Aija Kalnina"></a><div class="friend-detail-wrap" style="display: none;"><a href="#" class="friend-detail">Aija Kalnina</a></div></div>
 					<div class="itemFriend friendWrap"><a class="friend" href="#"><img src="<?php echo esc_url( get_template_directory_uri() . "/images/BigGroup/AmyGaertner.jpg" );?>" alt="Amy Gaertner" title="Amy Gaertner"></a><div class="friend-detail-wrap" style="display: none;"><a href="#" class="friend-detail">Amy Gaertner</a></div></div>
@@ -165,7 +166,7 @@ $query = new WP_Query( array( 'page_id' => $settings['homepage_getInvolved_id'] 
 
 					<div class="itemFriend friendWrap"><a class="friend" href="#"><img src="https://graph.facebook.com/502168397/picture?width=64&amp;height=64" alt="Sara Brennan" title="Sara Brennan"></a><div class="friend-detail-wrap" style="display: none;"><a href="#" class="friend-detail">Sara Brennan</a></div></div>
 					<div class="itemFriend friendWrap"><a class="friend" href="#"><img src="https://graph.facebook.com/502493066/picture?width=64&amp;height=64" alt="Kofi Afriye Ofei" title="Kofi Afriye Ofei"></a><div class="friend-detail-wrap" style="display: none;"><a href="#" class="friend-detail">Kofi Afriye Ofei</a></div></div>
-					
+					-->
 					<!-- end -->
 
 				</div>
